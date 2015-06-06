@@ -1,0 +1,13 @@
+﻿<Window x:Class="RO_IX.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Порівняння RO та 2xNa-катіонування для парових котлів" Height="600" Width="600">
+    <Grid>
+        <StatusBar Margin="0" VerticalAlignment="Bottom" Height="20"/>
+        <Menu VerticalAlignment="Top">
+            <MenuItem x:Name="MenuFile" Header="Файл">
+                <MenuItem x:Name="MenuExit" Header="Вихід" Click="MenuExit_Click"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
