@@ -9,5 +9,30 @@
                 <MenuItem x:Name="MenuExit" Header="Вихід" Click="MenuExit_Click"/>
             </MenuItem>
         </Menu>
+        <GroupBox Header="Проект" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="94" Width="572">
+            <Grid Margin="0,10,0,0">
+                <Label Content="Назва проекту:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="97,3,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="303"/>
+                <Label Content="Дата:" HorizontalAlignment="Left" Margin="405,0,0,0" VerticalAlignment="Top"/>
+                <DatePicker HorizontalAlignment="Left" Margin="448,3,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday"/>
+                <Label Content="Коментар:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,28,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="97,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="453"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Котел та водно-хімічний режим" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Height="195" Width="572">
+            <Grid Margin="0,10,0,0">
+                <Label Content="Марка котла:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="97,3,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="258" IsEnabled="False"/>
+                <Label Content="Паропродуктивність, т/год:" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" Width="160"/>
+                <Label Content="Робочий тиск, атм:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="256,28,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="374,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False" RenderTransformOrigin="-0.1,0.435"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="160,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="66" IsEnabled="False"/>
+                <Label Content="ККД, %:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="454,28,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="510,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
+                <Label Content="Теплова потужність, кВт:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="360,0,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="510,3,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
+                <Label Content="Гранична електропровідність котлової води, при електропровідності живильної води &lt;30 мкСм/см / &gt;30 мкСм/см" HorizontalAlignment="Left" Margin="603,67,-524,0" VerticalAlignment="Top" Width="481"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
