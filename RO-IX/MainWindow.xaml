@@ -9,7 +9,7 @@
                 <MenuItem x:Name="MenuExit" Header="Вихід" Click="MenuExit_Click"/>
             </MenuItem>
         </Menu>
-        <GroupBox Header="Проект" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="94" Width="572">
+        <GroupBox Header="Проект" Margin="10,26,10,0" VerticalAlignment="Top" Height="94">
             <Grid Margin="0,10,0,0">
                 <Label Content="Назва проекту:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="97,3,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="303"/>
@@ -19,7 +19,7 @@
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="97,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="453"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Котел та водно-хімічний режим" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Height="195" Width="572">
+        <GroupBox Header="Котел" Margin="10,125,10,0" VerticalAlignment="Top" Height="94">
             <Grid Margin="0,10,0,0">
                 <Label Content="Марка котла:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="97,3,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="258" IsEnabled="False"/>
@@ -32,6 +32,34 @@
                 <Label Content="Теплова потужність, кВт:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="360,0,0,0"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="510,3,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
                 <Label Content="Гранична електропровідність котлової води, при електропровідності живильної води &lt;30 мкСм/см / &gt;30 мкСм/см" HorizontalAlignment="Left" Margin="603,67,-524,0" VerticalAlignment="Top" Width="481"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Водно-хімічний режим" Margin="10,224,10,0" VerticalAlignment="Top" Height="251">
+            <Grid Margin="0,10,0,0">
+                <Label Content="Електропровідність, мкСм/см:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,21,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,24,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41" IsEnabled="False"/>
+                <Label Content="Температура, С:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="406,21,0,0" Width="104"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="510,24,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
+                <TextBlock TextWrapping="Wrap" Text="Вихідна вода" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="5,0" Background="#FFDEDEDE" HorizontalAlignment="Left" Width="555"/>
+                <Label Content="Жорсткість, мг-екв/л:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="229,21,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="360,24,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False" RenderTransformOrigin="-0.1,0.435"/>
+                <Label Content="Електропровідність, мкСм/см:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,74,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="359,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41" IsEnabled="False"/>
+                <Label Content="Температура, С:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="406,74,0,0" Width="104"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="510,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
+                <TextBlock TextWrapping="Wrap" Text="Конденсат" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="5,53,5,0" Background="#FFDEDEDE" HorizontalAlignment="Left" Width="550"/>
+                <Label Content="Відсоток повернення:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,74,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="134,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False" RenderTransformOrigin="-0.1,0.435"/>
+                <Label Content="Електропровідність, мкСм/см:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,129,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="177,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="510,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
+                <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="5,108,5,0" Background="#FFDEDEDE" HorizontalAlignment="Left" Width="555"><Run Text="Підготовлена вода ("/><Run Text="демінералізована"/><Run Text=", електропровідність "/><Run Text="&lt; "/><Run Text="30 мкСм/см"/><Run Text=")"/></TextBlock>
+                <Label Content="Макс. електропровідність котлової води, мкСм/см:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,129,0,0"/>
+                <Label Content="Електропровідність, мкСм/см:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,186,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="177,189,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="41" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="510,189,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
+                <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="5,165,5,0" Background="#FFDEDEDE" HorizontalAlignment="Left" Width="555"><Run Text="Підготовлена вода ("/><Run Text="пом"/><Run Text="'"/><Run Text="якшена"/><Run Text=", електропровідність &gt; "/><Run Text="30 мкСм/см"/><Run Text=")"/></TextBlock>
+                <Label Content="Макс. електропровідність котлової води, мкСм/см:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,186,0,0"/>
             </Grid>
         </GroupBox>
     </Grid>
