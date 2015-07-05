@@ -24,7 +24,10 @@ namespace RO_IX
         public MainWindow()
         {
             InitializeComponent();
+            Proj = new Project();
+            DataContext = Proj;
         }
+        public Project Proj;
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)
         {
