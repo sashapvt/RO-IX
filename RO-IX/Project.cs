@@ -257,8 +257,12 @@ namespace RO_IX
 
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
-        // TODO: Розробити клас вартості ресурсів та витрат реагентів
-
+        ProjectPrices _OptionsPrices;
+        public ProjectPrices OptionsPrices
+        {
+            get { return _OptionsPrices; }
+            set { _OptionsPrices = value; }
+        }
         #endregion
     }
 }
