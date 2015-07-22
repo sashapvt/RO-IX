@@ -9,5 +9,11 @@ namespace RO_IX
     // TODO: Розробити клас вартості ресурсів та витрат реагентів
     public class ProjectPrices
     {
+        private List<ProjectPricesItem> _data; // Колекція стовпців таблиці
+
+        // Клас зберігання рядка данних
+        public class ProjectPricesItem
+        {
+        }
     }
 }

@@ -12,6 +12,9 @@ namespace RO_IX
             ProjectName = "Project1";
             ProjectComment = "no comments";
             ProjectDate = DateTime.Now;
+
+            // Initialisation of _OptionsPrices
+            _OptionsPrices = new ProjectPrices();
         }
 
         #region Інформація про проект
