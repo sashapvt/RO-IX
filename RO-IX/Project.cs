@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Data;
+
 
 namespace RO_IX
 {
@@ -13,8 +17,9 @@ namespace RO_IX
             ProjectComment = "no comments";
             ProjectDate = DateTime.Now;
 
-            // Initialisation of _OptionsPrices
-            _OptionsPrices = new ProjectPrices();
+            // Initialisation of OptionsPrices
+            OptionsPrices = new ProjectPrices();
+            OptionsPricesData = CollectionViewSource.GetDefaultView(OptionsPrices.Data);
         }
 
         #region Інформація про проект
@@ -260,12 +265,14 @@ namespace RO_IX
 
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
-        ProjectPrices _OptionsPrices;
-        public ProjectPrices OptionsPrices
-        {
-            get { return _OptionsPrices; }
-            set { _OptionsPrices = value; }
-        }
+        ProjectPrices OptionsPrices;
+        public ICollectionView OptionsPricesData { get; private set; }
+
+        //public ProjectPrices OptionsPrices
+        //{
+        //    get { return _OptionsPrices.Data; }
+        //    set { _OptionsPrices = value; }
+        //}
         #endregion
     }
 }
