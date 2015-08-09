@@ -29,11 +29,6 @@ namespace RO_IX
         }
         public Project Proj;
 
-        private void MenuExit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
         private void DataGridProjectPrices_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             string headername = e.Column.Header.ToString();
@@ -42,7 +37,7 @@ namespace RO_IX
             if (headername == "Name")
             {
                 e.Column.Header = "Назва";
-                e.Column.Width = 130;
+                e.Column.Width = 135;
             }
             else if (headername == "Price")
             {
@@ -69,6 +64,39 @@ namespace RO_IX
                 e.Column.Header = "Іонний ІІ-ст";
                 e.Column.Width = 75;
             }
+        }
+
+        // Новий проект
+        private void MenuNew_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ProjectName = " + Proj.ProjectName); 
+            Proj = new Project();
+            DataContext = Proj;
+            MessageBox.Show("ProjectName = " + Proj.ProjectName);
+        }
+
+        // Відкрити проект...
+        private void MenuOpen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Зберегти проект
+        private void MenuSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Зберегти проект як...
+        private void MenuSaveAs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // Вихід з програми
+        private void MenuExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

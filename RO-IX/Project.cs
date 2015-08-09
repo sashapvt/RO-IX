@@ -20,6 +20,7 @@ namespace RO_IX
             // Initialisation of OptionsPrices
             OptionsPrices = new ProjectPrices();
             OptionsPricesData = CollectionViewSource.GetDefaultView(OptionsPrices.Data);
+
         }
 
         #region Інформація про проект
@@ -274,5 +275,6 @@ namespace RO_IX
         //    set { _OptionsPrices = value; }
         //}
         #endregion
+
     }
 }
