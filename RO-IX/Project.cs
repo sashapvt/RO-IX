@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Data;
-
+using System.Xml.Serialization;
 
 namespace RO_IX
 {
-
     public class Project
     {
         // Public consructor
@@ -267,6 +266,7 @@ namespace RO_IX
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
         ProjectPrices OptionsPrices;
+        [XmlIgnoreAttribute]
         public ICollectionView OptionsPricesData { get; private set; }
 
         //public ProjectPrices OptionsPrices
