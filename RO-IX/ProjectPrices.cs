@@ -15,7 +15,8 @@ namespace RO_IX
         public ProjectPrices()
         {
             Data = new List<ProjectPricesItem>();
-            Data.Add(new ProjectPricesItem("Газ", 8.78m, 0F, 0F, 0F, 0F));
+            Data.Add(new ProjectPricesItem("Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
+            Data.Add(new ProjectPricesItem("Електроенергія, кВт", 0.10m, 0F, 0F, 0F, 0F, false));
         }
 
         // Клас зберігання рядка данних
@@ -24,6 +25,7 @@ namespace RO_IX
             string _Name;
             decimal _Price;
             float _UF, _RO, _IX1, _IX2;
+            bool _IsPriceOnly;
             public string Name
             {
                 get { return _Name; }
@@ -36,25 +38,25 @@ namespace RO_IX
             public float UF
             {
                 get { return _UF; }
-                set { _UF = value; }
+                set { if (!_IsPriceOnly) _UF = value; }
             }
             public float RO
             {
                 get { return _RO; }
-                set { _RO = value; }
+                set { if (!_IsPriceOnly) _RO = value; }
             }
             public float IX1
             {
                 get { return _IX1; }
-                set { _IX1 = value; }
+                set { if (!_IsPriceOnly) _IX1 = value; }
             }
             public float IX2
             {
                 get { return _IX2; }
-                set { _IX2 = value; }
+                set { if (!_IsPriceOnly) _IX2 = value; }
             }
 
-            public ProjectPricesItem(string __Name, decimal __Price, float __UF, float __RO, float __IX1, float __IX2)
+            public ProjectPricesItem(string __Name, decimal __Price, float __UF, float __RO, float __IX1, float __IX2, bool __IsPriceOnly)
             {
                 _Name = __Name;
                 _Price = __Price;
@@ -62,6 +64,7 @@ namespace RO_IX
                 _RO = __RO;
                 _IX1 = __IX1;
                 _IX2 = __IX2;
+                _IsPriceOnly = __IsPriceOnly;
             }
         }
     }

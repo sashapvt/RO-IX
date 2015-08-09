@@ -33,5 +33,42 @@ namespace RO_IX
         {
             Application.Current.Shutdown();
         }
+
+        private void DataGridProjectPrices_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headername = e.Column.Header.ToString();
+
+            //update column details when generating
+            if (headername == "Name")
+            {
+                e.Column.Header = "Назва";
+                e.Column.Width = 130;
+            }
+            else if (headername == "Price")
+            {
+                e.Column.Header = "Ціна, $";
+                e.Column.Width = 75;
+            }
+            else if (headername == "UF")
+            {
+                e.Column.Header = "УФ";
+                e.Column.Width = 75;
+            }
+            else if (headername == "RO")
+            {
+                e.Column.Header = "Осмос";
+                e.Column.Width = 75;
+            }
+            else if (headername == "IX1")
+            {
+                e.Column.Header = "Іонний І-ст";
+                e.Column.Width = 75;
+            }
+            else if (headername == "IX2")
+            {
+                e.Column.Header = "Іонний ІІ-ст";
+                e.Column.Width = 75;
+            }
+        }
     }
 }
