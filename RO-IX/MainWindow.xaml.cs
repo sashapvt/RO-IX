@@ -84,6 +84,7 @@ namespace RO_IX
             // To read the file, create a FileStream.
             FileStream ProjectFileStream = new FileStream("testsave.xml", FileMode.Open);
             // Call the Deserialize method and cast to the object type.
+            Proj = new Project();
             Proj = (Project)ProjectSerializer.Deserialize(ProjectFileStream);
             DataContext = Proj;
         }
@@ -97,6 +98,19 @@ namespace RO_IX
             TextWriter ProjectWriter = new StreamWriter("testsave.xml");
             ProjectSerializer.Serialize(ProjectWriter, Proj);
             ProjectWriter.Close();
+
+            // Bug
+
+            /*
+            //Test
+            ProjectPrices TestPP = new ProjectPrices();
+            XmlSerializer TestSerializer = new XmlSerializer(typeof(ProjectPrices));
+            // To write to a file, create a StreamWriter object.
+            TextWriter TestWriter = new StreamWriter("testPPsave.xml");
+            TestSerializer.Serialize(TestWriter, TestPP);
+            TestWriter.Close();
+             * */
+        
         }
 
         // Зберегти проект як...

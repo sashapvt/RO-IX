@@ -29,6 +29,7 @@ namespace RO_IX
             public string Name
             {
                 get { return _Name; }
+                set { _Name = value; }
             }
             public decimal Price
             {
@@ -55,6 +56,9 @@ namespace RO_IX
                 get { return _IX2; }
                 set { if (!_IsPriceOnly) _IX2 = value; }
             }
+
+            // Конструктор без параметрів для можливості серіалізації цього класу
+            public ProjectPricesItem() { }
 
             public ProjectPricesItem(string __Name, decimal __Price, float __UF, float __RO, float __IX1, float __IX2, bool __IsPriceOnly)
             {

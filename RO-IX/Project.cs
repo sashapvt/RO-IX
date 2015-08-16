@@ -18,7 +18,8 @@ namespace RO_IX
 
             // Initialisation of OptionsPrices
             OptionsPrices = new ProjectPrices();
-            OptionsPricesData = CollectionViewSource.GetDefaultView(OptionsPrices.Data);
+            OptionsPricesData = OptionsPrices.Data;
+            OptionsPricesDataView = CollectionViewSource.GetDefaultView(OptionsPricesData);
 
         }
 
@@ -266,8 +267,9 @@ namespace RO_IX
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
         ProjectPrices OptionsPrices;
+        public List<ProjectPrices.ProjectPricesItem> OptionsPricesData;
         [XmlIgnoreAttribute]
-        public ICollectionView OptionsPricesData { get; private set; }
+        public ICollectionView OptionsPricesDataView { get; private set; }
 
         //public ProjectPrices OptionsPrices
         //{
