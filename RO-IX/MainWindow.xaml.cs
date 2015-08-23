@@ -34,6 +34,9 @@ namespace RO_IX
         // Main project class instance
         public Project Proj;
 
+        //Project file name & path
+        public string ProjFile = "";
+
         // Новий проект
         private void ProjectNew()
         {
@@ -50,30 +53,63 @@ namespace RO_IX
         // Відкрити проект
         private void ProjectOpen()
         {
-            // Construct an instance of the XmlSerializer with the type
-            // of object that is being deserialized.
-            XmlSerializer ProjectSerializer = new XmlSerializer(typeof(Project));
-            // To read the file, create a FileStream.
-            using (FileStream ProjectFileStream = new FileStream("testsave.xml", FileMode.Open))
+            // Вибір файлу для відкриття
+            Microsoft.Win32.OpenFileDialog OpenDial = new Microsoft.Win32.OpenFileDialog();
+            OpenDial.FileName = "Project1"; // Default file name 
+            OpenDial.DefaultExt = ".xml"; // Default file extension 
+            OpenDial.Filter = "Project documents (.xml)|*.xml"; // Filter files by extension 
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = OpenDial.ShowDialog();
+
+            // Get the selected file name 
+            if (result == true)
             {
-                // Call the Deserialize method and cast to the object type.
-                Proj = new Project();
-                Proj = (Project)ProjectSerializer.Deserialize(ProjectFileStream);
-                DataContext = Proj;
+                // Save file name & path to variable 
+                ProjFile = OpenDial.FileName;
+
+                // Construct an instance of the XmlSerializer with the type
+                // of object that is being deserialized.
+                XmlSerializer ProjectSerializer = new XmlSerializer(typeof(Project));
+                // To read the file, create a FileStream.
+                using (FileStream ProjectFileStream = new FileStream(ProjFile, FileMode.Open))
+                {
+                    // Call the Deserialize method and cast to the object type.
+                    Proj = new Project();
+                    Proj = (Project)ProjectSerializer.Deserialize(ProjectFileStream);
+                    DataContext = Proj;
+                }
             }
         }
 
         // Зберегти проект
-        private void ProjectSave()
+        private void ProjectSave(bool IsSaveAs = false)
         {
+            // Вибір файлу для збереження, якщо виконуються необхідні умови
+            if (ProjFile == "" || IsSaveAs)
+            {
+                Microsoft.Win32.SaveFileDialog SaveDial = new Microsoft.Win32.SaveFileDialog();
+                SaveDial.FileName = "Project1"; // Default file name 
+                SaveDial.DefaultExt = ".xml"; // Default file extension 
+                SaveDial.Filter = "Project documents (.xml)|*.xml"; // Filter files by extension 
+                // Display OpenFileDialog by calling ShowDialog method 
+                Nullable<bool> result = SaveDial.ShowDialog();
+
+                // Get the selected file name 
+                if (result == true)
+                {
+                    // Save file name & path to variable 
+                    ProjFile = SaveDial.FileName;
+                }
+            }
+
             // Insert code to set properties and fields of the object.
             XmlSerializer ProjectSerializer = new XmlSerializer(typeof(Project));
             // To write to a file, create a StreamWriter object.
-            using (TextWriter ProjectWriter = new StreamWriter("testsave.xml"))
+            using (TextWriter ProjectWriter = new StreamWriter(ProjFile))
             {
                 ProjectSerializer.Serialize(ProjectWriter, Proj);
                 ProjectWriter.Close();
-            }        
+            }
         }
 
         // Change fields headers name & width, disable column "Name" edit in DataGridProjectPrices
@@ -139,7 +175,8 @@ namespace RO_IX
         // Зберегти проект як... (виклик з меню)
         private void MenuSaveAs_Click(object sender, RoutedEventArgs e)
         {
-
+            // Збереження проекту з вибором файлу
+            ProjectSave(true);
         }
 
         // Вихід з програми (виклик з меню)
