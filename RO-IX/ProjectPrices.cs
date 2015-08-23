@@ -15,9 +15,7 @@ namespace RO_IX
         public ProjectPrices()
         {
             Data = new List<ProjectPricesItem>();
-            Data.Add(new ProjectPricesItem("Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
-            Data.Add(new ProjectPricesItem("Електроенергія, кВт", 0.10m, 0F, 0F, 0F, 0F, false));
-        }
+         }
 
         // Клас зберігання рядка данних
         public class ProjectPricesItem

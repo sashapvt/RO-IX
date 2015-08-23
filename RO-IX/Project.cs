@@ -11,11 +11,6 @@ namespace RO_IX
         // Public consructor
         public Project()
         {
-            // Initialisation of new project
-            ProjectName = "Project1";
-            ProjectComment = "no comments";
-            ProjectDate = DateTime.Now;
-
             // Initialisation of OptionsPrices
             OptionsPrices = new ProjectPrices();
             OptionsPricesData = OptionsPrices.Data;

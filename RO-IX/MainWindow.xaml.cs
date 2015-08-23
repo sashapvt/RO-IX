@@ -23,14 +23,60 @@ namespace RO_IX
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Init main form
         public MainWindow()
         {
             InitializeComponent();
-            Proj = new Project();
-            DataContext = Proj;
+            // Старт нового проекту
+            ProjectNew();
         }
+
+        // Main project class instance
         public Project Proj;
 
+        // Новий проект
+        private void ProjectNew()
+        {
+            Proj = new Project();
+            // Initialisation of new project
+            Proj.ProjectName = "Project1";
+            Proj.ProjectComment = "no comments";
+            Proj.ProjectDate = DateTime.Now;
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem("Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem("Електроенергія, кВт", 0.10m, 0F, 0F, 0F, 0F, false));
+            DataContext = Proj;
+        }
+
+        // Відкрити проект
+        private void ProjectOpen()
+        {
+            // Construct an instance of the XmlSerializer with the type
+            // of object that is being deserialized.
+            XmlSerializer ProjectSerializer = new XmlSerializer(typeof(Project));
+            // To read the file, create a FileStream.
+            using (FileStream ProjectFileStream = new FileStream("testsave.xml", FileMode.Open))
+            {
+                // Call the Deserialize method and cast to the object type.
+                Proj = new Project();
+                Proj = (Project)ProjectSerializer.Deserialize(ProjectFileStream);
+                DataContext = Proj;
+            }
+        }
+
+        // Зберегти проект
+        private void ProjectSave()
+        {
+            // Insert code to set properties and fields of the object.
+            XmlSerializer ProjectSerializer = new XmlSerializer(typeof(Project));
+            // To write to a file, create a StreamWriter object.
+            using (TextWriter ProjectWriter = new StreamWriter("testsave.xml"))
+            {
+                ProjectSerializer.Serialize(ProjectWriter, Proj);
+                ProjectWriter.Close();
+            }        
+        }
+
+        // Change fields headers name & width, disable column "Name" edit in DataGridProjectPrices
         private void DataGridProjectPrices_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             string headername = e.Column.Header.ToString();
@@ -40,6 +86,7 @@ namespace RO_IX
             {
                 e.Column.Header = "Назва";
                 e.Column.Width = 135;
+                e.Column.IsReadOnly = true;
             }
             else if (headername == "Price")
             {
@@ -68,58 +115,34 @@ namespace RO_IX
             }
         }
 
-        // Новий проект
+        // Новий проект (виклик з меню)
         private void MenuNew_Click(object sender, RoutedEventArgs e)
         {
-            Proj = new Project();
-            DataContext = Proj;
+            // Старт нового проекту
+            ProjectNew();
         }
 
-        // Відкрити проект...
+        // Відкрити проект... (виклик з меню)
         private void MenuOpen_Click(object sender, RoutedEventArgs e)
         {
-            // Construct an instance of the XmlSerializer with the type
-            // of object that is being deserialized.
-            XmlSerializer ProjectSerializer = new XmlSerializer(typeof(Project));
-            // To read the file, create a FileStream.
-            FileStream ProjectFileStream = new FileStream("testsave.xml", FileMode.Open);
-            // Call the Deserialize method and cast to the object type.
-            Proj = new Project();
-            Proj = (Project)ProjectSerializer.Deserialize(ProjectFileStream);
-            DataContext = Proj;
+            // Виклик нового проекту
+            ProjectOpen();
         }
 
-        // Зберегти проект
+        // Зберегти проект (виклик з меню)
         private void MenuSave_Click(object sender, RoutedEventArgs e)
         {
-            // Insert code to set properties and fields of the object.
-            XmlSerializer ProjectSerializer = new XmlSerializer(typeof(Project));
-            // To write to a file, create a StreamWriter object.
-            TextWriter ProjectWriter = new StreamWriter("testsave.xml");
-            ProjectSerializer.Serialize(ProjectWriter, Proj);
-            ProjectWriter.Close();
-
-            // Bug
-
-            /*
-            //Test
-            ProjectPrices TestPP = new ProjectPrices();
-            XmlSerializer TestSerializer = new XmlSerializer(typeof(ProjectPrices));
-            // To write to a file, create a StreamWriter object.
-            TextWriter TestWriter = new StreamWriter("testPPsave.xml");
-            TestSerializer.Serialize(TestWriter, TestPP);
-            TestWriter.Close();
-             * */
-        
+            // Збереження проекту
+            ProjectSave();
         }
 
-        // Зберегти проект як...
+        // Зберегти проект як... (виклик з меню)
         private void MenuSaveAs_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        // Вихід з програми
+        // Вихід з програми (виклик з меню)
         private void MenuExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
