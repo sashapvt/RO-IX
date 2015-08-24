@@ -20,10 +20,16 @@ namespace RO_IX
         // Клас зберігання рядка данних
         public class ProjectPricesItem
         {
+            int _Id;
             string _Name;
             decimal _Price;
             float _UF, _RO, _IX1, _IX2;
             bool _IsPriceOnly;
+            public int Id
+            {
+                get { return _Id; }
+                set { _Id = value; }
+            }
             public string Name
             {
                 get { return _Name; }
@@ -58,8 +64,9 @@ namespace RO_IX
             // Конструктор без параметрів для можливості серіалізації цього класу
             public ProjectPricesItem() { }
 
-            public ProjectPricesItem(string __Name, decimal __Price, float __UF, float __RO, float __IX1, float __IX2, bool __IsPriceOnly)
+            public ProjectPricesItem(int __Id, string __Name, decimal __Price, float __UF, float __RO, float __IX1, float __IX2, bool __IsPriceOnly)
             {
+                _Id = __Id;
                 _Name = __Name;
                 _Price = __Price;
                 _UF = __UF;

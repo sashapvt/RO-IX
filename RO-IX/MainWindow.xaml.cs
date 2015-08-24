@@ -45,8 +45,8 @@ namespace RO_IX
             Proj.ProjectName = "Project1";
             Proj.ProjectComment = "no comments";
             Proj.ProjectDate = DateTime.Now;
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem("Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem("Електроенергія, кВт", 0.10m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0F, 0F, 0F, 0F, false));
             DataContext = Proj;
         }
 
@@ -118,6 +118,10 @@ namespace RO_IX
             string headername = e.Column.Header.ToString();
 
             //update column details when generating
+            if (headername == "Id")
+            {
+                e.Column.Visibility = System.Windows.Visibility.Hidden;
+            }
             if (headername == "Name")
             {
                 e.Column.Header = "Назва";
