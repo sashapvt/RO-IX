@@ -41,12 +41,51 @@ namespace RO_IX
         private void ProjectNew()
         {
             Proj = new Project();
-            // Initialisation of new project
+            // Ініціалізація нового проекту
             Proj.ProjectName = "Project1";
             Proj.ProjectComment = "no comments";
             Proj.ProjectDate = DateTime.Now;
+
+            // Параметри котла
+            Proj.BolerPower = 6888;
+            Proj.BoilerProductivity = 10;
+            Proj.BoilerPressure = 10.3f;
+            Proj.BoilerEfficiency = 94.6f;
+
+            // Водно-хімічний режим
+            Proj.WaterInConductivity = 700;
+            Proj.WaterInHardness = 5;
+            Proj.WaterInTemperature = 12;
+            Proj.WaterCondensateReturn = 0;
+            Proj.WaterCondensateConductivity = 20;
+            Proj.WaterCondensateTemperature = 70;
+            Proj.WaterROConductivity = 20;
+            Proj.WaterROConductivityMax = 2000;
+            Proj.WaterIXConductivity = 700;
+            Proj.WaterIXConductivityMax = 4500;
+
+            // Налаштування (зворотній осмос)
+            Proj.OptionsROUFPermeate = 93;
+            Proj.OptionsROROPermeate = 75;
+            Proj.OptionsROIXPermeate = 98;
+            
+            // Налаштування (пом'якшення)
+            Proj.OptionsIXUFPermeate = 93;
+            Proj.OptionsIXIX1Permeate = 95;
+            Proj.OptionsIXIX2Permeate = 98;
+
+            // Вартості ресурсів та витрат реагентів
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(2, "Сіль таблетована, кг", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(3, "Антискалант, г", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(4, "Реаг. хімпром, г ", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(5, "NaOCl, 19%, г", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(6, "HCl, 35%, г", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(7, "NaOH, 45%, г", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(8, "Мембрана МО, шт", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(9, "Мембрана УФ, шт", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(10, "Катіоніт, л", 0.00m, 0F, 0F, 0F, 0F, false));
             DataContext = Proj;
         }
 
@@ -112,7 +151,7 @@ namespace RO_IX
             }
         }
 
-        // Change fields headers name & width, disable column "Name" edit in DataGridProjectPrices
+        // Change fields headers name & width, disable column "Name" edit, hide Id column in DataGridProjectPrices
         private void DataGridProjectPrices_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             string headername = e.Column.Header.ToString();
@@ -125,7 +164,7 @@ namespace RO_IX
             if (headername == "Name")
             {
                 e.Column.Header = "Назва";
-                e.Column.Width = 135;
+                e.Column.Width = 130;
                 e.Column.IsReadOnly = true;
             }
             else if (headername == "Price")

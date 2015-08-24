@@ -44,7 +44,7 @@ namespace RO_IX
         #region Котел
         // Котел
         string _BoilerName;
-        int _BolerPower;
+        float _BolerPower;
         float _BoilerProductivity;
         float _BoilerPressure;
         float _BoilerEfficiency;
@@ -54,7 +54,7 @@ namespace RO_IX
             get { return _BoilerName; }
             set { _BoilerName = value; }
         }
-        public int BolerPower
+        public float BolerPower
         {
             get { return _BolerPower; }
             set { _BolerPower = value; }
