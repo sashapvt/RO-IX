@@ -151,6 +151,15 @@ namespace RO_IX
             }
         }
 
+        // Розрахунок проекту з відображенням результату у відповідній вкладці
+        private void ProjectCalculate()
+        {
+            // Розрахунок
+
+            // Відображення результатів розрахунку
+            WebBrowserCalc.Navigate("file:///" + System.IO.Directory.GetCurrentDirectory() + "\\Report.html");
+        }
+
         // Change fields headers name & width, disable column "Name" edit, hide Id column in DataGridProjectPrices
         private void DataGridProjectPrices_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -226,6 +235,13 @@ namespace RO_IX
         private void MenuExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        // Зміна активної вкладки
+        private void TabControlProject_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Якщо вибрана вкладка "Розрахунок" запустити підпрограму розрахунку
+            if (TabControlProject.SelectedIndex == 2) ProjectCalculate();
         }
     }
 }

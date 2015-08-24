@@ -17,7 +17,7 @@
                 <MenuItem x:Name="MenuExit" Header="Вихід" Click="MenuExit_Click"/>
             </MenuItem>
         </Menu>
-        <TabControl Margin="5,26,5,30" TabStripPlacement="Bottom">
+        <TabControl x:Name="TabControlProject" Margin="5,26,5,30" TabStripPlacement="Bottom" SelectionChanged="TabControlProject_SelectionChanged">
             <TabItem Header="Вихідні дані">
                 <Grid>
                     <GroupBox Header="Проект" Margin="5,5,5,0" VerticalAlignment="Top" Height="94">
@@ -123,7 +123,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Розрахунок"/>
+            <TabItem Header="Розрахунок">
+                <WebBrowser x:Name="WebBrowserCalc" Margin="5,5,5,5" />
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
