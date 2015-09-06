@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Controls.Ribbon;
 using System.Xml.Serialization;
 using System.IO;
+using TemplateEngine;
 
 namespace RO_IX
 {
@@ -154,10 +155,26 @@ namespace RO_IX
         // Розрахунок проекту з відображенням результату у відповідній вкладці
         private void ProjectCalculate()
         {
+            // Налаштування файлів
+            string TemplateFileName = Directory.GetCurrentDirectory() + "\\ReportTemplate.html";
+            string ReportFileName = Directory.GetCurrentDirectory() + "\\Report.html";
+            
             // Розрахунок
 
+            // Заповнення полів шаблону
+            Template ReportTemplate = new Template(TemplateFileName, false);
+            ReportTemplate.Set("Result", "Hello World!");
+
+            // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
+            using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
+            {
+                ReportWriter.Write(ReportTemplate.ToString());
+                ReportWriter.Close();
+            }
+
             // Відображення результатів розрахунку
-            WebBrowserCalc.Navigate("file:///" + System.IO.Directory.GetCurrentDirectory() + "\\Report.html");
+
+            WebBrowserCalc.Navigate("file:///" + ReportFileName);
         }
 
         // Change fields headers name & width, disable column "Name" edit, hide Id column in DataGridProjectPrices
