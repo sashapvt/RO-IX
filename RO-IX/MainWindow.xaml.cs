@@ -30,6 +30,9 @@ namespace RO_IX
             InitializeComponent();
             // Старт нового проекту
             ProjectNew();
+
+            // Для відладки
+            TabControlProject.SelectedIndex = 2;
         }
 
         // Main project class instance
@@ -163,7 +166,24 @@ namespace RO_IX
 
             // Заповнення полів шаблону
             Template ReportTemplate = new Template(TemplateFileName, false);
-            ReportTemplate.Set("Result", "Hello World!");
+            ReportTemplate.Set("ProjectName", Proj.ProjectName);
+            ReportTemplate.Set("ProjectDate", Proj.ProjectDate.ToShortDateString());
+            ReportTemplate.Set("ProjectComment", Proj.ProjectComment);
+            ReportTemplate.Set("BoilerName", Proj.BoilerName);
+            ReportTemplate.Set("BolerPower", Proj.BolerPower.ToString());
+            ReportTemplate.Set("BoilerProductivity", Proj.BoilerProductivity.ToString());
+            ReportTemplate.Set("BoilerPressure", Proj.BoilerPressure.ToString());
+            ReportTemplate.Set("BoilerEfficiency", Proj.BoilerEfficiency.ToString());
+            ReportTemplate.Set("WaterInConductivity", Proj.WaterInConductivity.ToString());
+            ReportTemplate.Set("WaterInHardness", Proj.WaterInHardness.ToString());
+            ReportTemplate.Set("WaterInTemperature", Proj.WaterInTemperature.ToString());
+            ReportTemplate.Set("WaterCondensateReturn", Proj.WaterCondensateReturn.ToString());
+            ReportTemplate.Set("WaterCondensateConductivity", Proj.WaterCondensateConductivity.ToString());
+            ReportTemplate.Set("WaterCondensateTemperature", Proj.WaterCondensateTemperature.ToString());
+            ReportTemplate.Set("WaterROConductivity", Proj.WaterROConductivity.ToString());
+            ReportTemplate.Set("WaterROConductivityMax", Proj.WaterROConductivityMax.ToString());
+            ReportTemplate.Set("WaterIXConductivity", Proj.WaterIXConductivity.ToString());
+            ReportTemplate.Set("WaterIXConductivityMax", Proj.WaterIXConductivityMax.ToString());
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))

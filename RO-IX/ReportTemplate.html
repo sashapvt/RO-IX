@@ -1,3 +1,72 @@
-<p>Test report.
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Порівняння RO та 2xNa-катіонування для парових котлів</title>
+    <style type="text/css">
+        * {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
 
-<p>The result is {{ Result }}.
+        h1 {
+            font-size: 16px;
+            background-color: #DEDEDE;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 12px;
+            background-color: #DEDEDE;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        div.general {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вихідні дані</h1>
+    <h2>Проект ({{ ProjectDate }})</h2>
+    <div class="general">
+        <p>Назва проекту: {{ ProjectName }}
+        <p>Коментар: {{ ProjectComment }}
+    </div>
+    <h2>Котел</h2>
+    <div class="general">
+        <p>Марка котла: {{ BoilerName }}
+        <p>Паропродуктивність, т/год: {{ BoilerProductivity }}
+        <p>Теплова потужність, кВт: {{ BolerPower }}
+        <p>Робочий тиск, атм: {{ BoilerPressure }}
+        <p>ККД, %: {{ BoilerEfficiency }}
+    </div>
+    <h2>Водно-хімічний режим</h2>
+    <div class="general">
+        <h3>Вихідна вода</h3>
+            <p>Електропровідність, мкСм/см: {{ WaterInConductivity }}
+            <p>Жорсткість, мг-екв/л: {{ WaterInHardness }}
+            <p>Температура, С: {{ WaterInTemperature }}
+        <h3>Конденсат</h3>
+            <p>Відсоток повернення: {{ WaterCondensateReturn }}
+            <p>Електропровідність, мкСм/см: {{ WaterCondensateConductivity }}
+            <p>Температура, С: {{ WaterCondensateTemperature }}
+        <h3>Підготовлена вода (демінералізована, електропровідність < 30 мкСм/см)</h3>
+            <p>Електропровідність, мкСм/см: {{ WaterROConductivity }}
+            <p>Макс. електропровідність котлової води, мкСм/см: {{ WaterROConductivityMax }}
+        <h3>Підготовлена вода (пом'якшена, електропровідність > 30 мкСм/см)</h3>
+            <p>Електропровідність, мкСм/см: {{ WaterIXConductivity }}
+            <p>Макс. електропровідність котлової води, мкСм/см: {{ WaterIXConductivityMax }}
+</div>
+</body>
+</html>
