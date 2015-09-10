@@ -161,8 +161,11 @@ namespace RO_IX
             // Налаштування файлів
             string TemplateFileName = Directory.GetCurrentDirectory() + "\\ReportTemplate.html";
             string ReportFileName = Directory.GetCurrentDirectory() + "\\Report.html";
-            
+
             // Розрахунок
+            Calculate Calc = new Calculate(Proj);
+            Console.WriteLine(Calc.BoilerBlowdownRO);
+            Console.WriteLine(Calc.BoilerBlowdownIX);
 
             // Заповнення полів шаблону
             Template ReportTemplate = new Template(TemplateFileName, false);
