@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
     <meta charset="utf-8">
     <title>Порівняння RO та 2xNa-катіонування для парових котлів</title>
@@ -29,6 +29,10 @@
         p {
             font-size: 12px;
             margin-top: 5px;
+        }
+
+        td {
+            font-size: 12px;
         }
 
         div.general {
@@ -67,6 +71,48 @@
         <h3>Підготовлена вода (пом'якшена, електропровідність > 30 мкСм/см)</h3>
             <p>Електропровідність, мкСм/см: {{ WaterIXConductivity }}
             <p>Макс. електропровідність котлової води, мкСм/см: {{ WaterIXConductivityMax }}
-</div>
+    </div>
+    <br />
+    <h1>Результати розрахунку</h1>
+    <h2>Водно-хімічний режим</h2>
+    <div class="general">
+        <table border="1" cellspacing="0" width="520">
+            <tr style="font-weight: bold;">
+                <td width="70%">Параметр</td>
+                <td width="15%">Осмос + Na-кат</td>
+                <td width="15%">2 ст. Na-кат</td>
+            </tr>
+            <tr>
+                <td>Процент продувки, %</td>
+                <td>{{ BoilerBlowdownRO }}</td>
+                <td>{{ BoilerBlowdownIX }}</td>
+            </tr>
+            <tr>
+                <td>Витрата продувочної води, т/год</td>
+                <td>{{ BoilerBlowdownFlowRO }}</td>
+                <td>{{ BoilerBlowdownFlowIX }}</td>
+            </tr>
+            <tr>
+                <td>Втрати пару за рахунок продувки, кг/год</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Втрати потужності за рахунок продувки, кВт/год</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Витрата газу на покриття втрат продувки, м3/год</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Вартість газу на покриття витрат продувки, грн/год</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

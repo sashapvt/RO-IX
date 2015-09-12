@@ -57,16 +57,16 @@ namespace RO_IX
             Proj.BoilerEfficiency = 94.6f;
 
             // Водно-хімічний режим
-            Proj.WaterInConductivity = 700;
-            Proj.WaterInHardness = 5;
+            Proj.WaterInConductivity = 544;
+            Proj.WaterInHardness = 4.3f;
             Proj.WaterInTemperature = 12;
             Proj.WaterCondensateReturn = 0;
-            Proj.WaterCondensateConductivity = 20;
-            Proj.WaterCondensateTemperature = 70;
-            Proj.WaterROConductivity = 20;
-            Proj.WaterROConductivityMax = 2000;
-            Proj.WaterIXConductivity = 700;
-            Proj.WaterIXConductivityMax = 4500;
+            Proj.WaterCondensateConductivity = 100;
+            Proj.WaterCondensateTemperature = 60;
+            Proj.WaterROConductivity = 80;
+            Proj.WaterROConductivityMax = 4000;
+            Proj.WaterIXConductivity = 544;
+            Proj.WaterIXConductivityMax = 6000;
 
             // Налаштування (зворотній осмос)
             Proj.OptionsROUFPermeate = 93;
@@ -164,11 +164,10 @@ namespace RO_IX
 
             // Розрахунок
             Calculate Calc = new Calculate(Proj);
-            Console.WriteLine(Calc.BoilerBlowdownRO);
-            Console.WriteLine(Calc.BoilerBlowdownIX);
 
             // Заповнення полів шаблону
             Template ReportTemplate = new Template(TemplateFileName, false);
+            // Вихідні дані
             ReportTemplate.Set("ProjectName", Proj.ProjectName);
             ReportTemplate.Set("ProjectDate", Proj.ProjectDate.ToShortDateString());
             ReportTemplate.Set("ProjectComment", Proj.ProjectComment);
@@ -187,6 +186,11 @@ namespace RO_IX
             ReportTemplate.Set("WaterROConductivityMax", Proj.WaterROConductivityMax.ToString());
             ReportTemplate.Set("WaterIXConductivity", Proj.WaterIXConductivity.ToString());
             ReportTemplate.Set("WaterIXConductivityMax", Proj.WaterIXConductivityMax.ToString());
+            // Результати розрахунку
+            ReportTemplate.Set("BoilerBlowdownRO", Calc.BoilerBlowdownRO.ToString("P"));
+            ReportTemplate.Set("BoilerBlowdownIX", Calc.BoilerBlowdownIX.ToString("P"));
+            ReportTemplate.Set("BoilerBlowdownFlowRO", Calc.BoilerBlowdownFlowRO.ToString("F"));
+            ReportTemplate.Set("BoilerBlowdownFlowIX", Calc.BoilerBlowdownFlowIX.ToString("F"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))

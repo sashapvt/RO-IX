@@ -25,10 +25,23 @@ namespace RO_IX
             get { return BoilerBlowdown(Proj.WaterROConductivity, Proj.WaterROConductivityMax); }
         }
 
-        // Величина продувки для осмосу
+        // Величина продувки для іонного обміну
         public float BoilerBlowdownIX
         {
             get { return BoilerBlowdown(Proj.WaterIXConductivity, Proj.WaterIXConductivityMax); }
+        }
+        
+        // Витрата води на продувку для осмосу
+        public float BoilerBlowdownFlowRO
+        {
+            get { return BoilerBlowdownFlow(BoilerBlowdownRO); }
+        }
+
+
+        // Витрата води на продувку для іонного обміну
+        public float BoilerBlowdownFlowIX
+        {
+            get { return BoilerBlowdownFlow(BoilerBlowdownIX); }
         }
         #endregion
 
@@ -36,8 +49,14 @@ namespace RO_IX
         // Розрахунок величини продувки
         float BoilerBlowdown(float FeedConductivity, float BlowdownConductivity)
         {
-            return 100 * FeedConductivity / (BlowdownConductivity - FeedConductivity);
-        } 
+            return FeedConductivity / (BlowdownConductivity - FeedConductivity);
+        }
+
+        // Розрахунок витрати продувочної води
+        float BoilerBlowdownFlow(float BoilerBlowdown)
+        {
+            return Proj.BoilerProductivity * (1 + BoilerBlowdown) * BoilerBlowdown;
+        }
 
         #endregion
     }
