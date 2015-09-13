@@ -18,11 +18,14 @@ namespace RO_IX
         // Проект, для якого проводиться розрахунок
         Project Proj;
 
+        // Необхідні константи
+        const float NaturalGasHeatOfCombustion = 33494.4f; // Питома теплота згоряння природного газу, кДж/кг
+
         #region Поля результату
         // Величина продувки для осмосу
         public float BoilerBlowdownRO
         {
-            get { return BoilerBlowdown(Proj.WaterROConductivity, Proj.WaterROConductivityMax); }
+           get { return BoilerBlowdown(Proj.WaterROConductivity, Proj.WaterROConductivityMax); }
         }
 
         // Величина продувки для іонного обміну
@@ -54,6 +57,30 @@ namespace RO_IX
         {
             get { return BoilerBlowdownSteam(BoilerBlowdownFlowIX); }
         }
+
+        // Витрата потужності за рахунок продувки для осмосу
+        public float BoilerBlowdownPowerRO
+        {
+            get { return BoilerBlowdownPower(BoilerBlowdownSteamRO); }
+        }
+
+        // Витрата потужності за рахунок продувки для іонного обміну
+        public float BoilerBlowdownPowerIX
+        {
+            get { return BoilerBlowdownPower(BoilerBlowdownSteamIX); }
+        }
+
+        // Витрата газу на покриття втрат продувки для осмосу
+        public float BoilerBlowdownGasRO
+        {
+            get { return BoilerBlowdownGas(BoilerBlowdownPowerRO); }
+        }
+
+        // Витрата газу на покриття втрат продувки для іонного обміну
+        public float BoilerBlowdownGasIX
+        {
+            get { return BoilerBlowdownGas(BoilerBlowdownPowerIX); }
+        }
         #endregion
 
         #region Розрахунокові функції
@@ -76,6 +103,17 @@ namespace RO_IX
                 / (EnthalpySteamFromPres(Proj.BoilerPressure) - EnthalpyWaterFromTemp(Proj.WaterInTemperature));
         }
 
+        // Розрахунок втрати потужності за рахунок продувки
+        float BoilerBlowdownPower(float BoilerBlowdownSteam)
+        {
+            return BoilerBlowdownSteam * (Proj.BoilerEfficiency / 100) * Proj.BolerPower / Proj.BoilerProductivity;
+        }
+
+        // Розрахунок витрати газу на покриття втрат продувки
+        float BoilerBlowdownGas(float BoilerBlowdownPower)
+        {
+            return 3600 * BoilerBlowdownPower / NaturalGasHeatOfCombustion;
+        }
         #endregion
 
         #region Допоміжні функції
