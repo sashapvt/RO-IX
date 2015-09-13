@@ -54,6 +54,7 @@ namespace RO_IX
         float _BoilerProductivity;
         float _BoilerPressure;
         float _BoilerEfficiency;
+        float _BoilerAnnnualLoad;
 
         public string BoilerName
         {
@@ -79,6 +80,11 @@ namespace RO_IX
         {
             get { return _BoilerEfficiency; }
             set { _BoilerEfficiency = value; }
+        }
+        public float BoilerAnnnualLoad
+        {
+            get { return _BoilerAnnnualLoad; }
+            set { _BoilerAnnnualLoad = value; }
         }
         #endregion
 

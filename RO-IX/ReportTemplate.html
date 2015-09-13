@@ -62,7 +62,7 @@
             <p>Жорсткість, мг-екв/л: {{ WaterInHardness }}
             <p>Температура, С: {{ WaterInTemperature }}
         <h3>Конденсат</h3>
-            <p>Відсоток повернення: {{ WaterCondensateReturn }}
+            <p>Відсоток повернення, %: {{ WaterCondensateReturn }}
             <p>Електропровідність, мкСм/см: {{ WaterCondensateConductivity }}
             <p>Температура, С: {{ WaterCondensateTemperature }}
         <h3>Підготовлена вода (демінералізована, електропровідність < 30 мкСм/см)</h3>
@@ -111,6 +111,11 @@
                 <td>Вартість газу на покриття витрат продувки, грн/год</td>
                 <td>{{ BoilerBlowdownMoneyRO }}</td>
                 <td>{{ BoilerBlowdownMoneyIX }}</td>
+            </tr>
+            <tr>
+                <td>Річна вартість газу на покриття витрат продувки, грн/рік</td>
+                <td>{{ BoilerBlowdownMoneyAnnualRO }}</td>
+                <td>{{ BoilerBlowdownMoneyAnnualIX }}</td>
             </tr>
         </table>
     </div>

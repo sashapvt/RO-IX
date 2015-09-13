@@ -18,7 +18,7 @@
             </MenuItem>
         </Menu>
         <TabControl x:Name="TabControlProject" Margin="5,26,5,30" TabStripPlacement="Bottom" SelectionChanged="TabControlProject_SelectionChanged">
-            <TabItem Header="Вихідні дані">
+            <TabItem Header="Вихідні дані" Height="22" VerticalAlignment="Top">
                 <Grid>
                     <GroupBox Header="Проект" Margin="5,5,5,0" VerticalAlignment="Top" Height="94">
                         <Grid Margin="0,10,0,0">
@@ -35,16 +35,18 @@
                     <GroupBox Header="Котел" Margin="5,104,5,0" VerticalAlignment="Top" Height="94">
                         <Grid Margin="0,10,0,0">
                             <Label Content="Марка котла:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox x:Name="TestBoxBoilerName" HorizontalAlignment="Left" Height="23" Margin="97,3,0,0" TextWrapping="Wrap" Text="{Binding BoilerName, Mode=TwoWay}" VerticalAlignment="Top" Width="258"/>
-                            <Label Content="Паропродуктивність, т/год:" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" Width="160"/>
-                            <Label Content="Робочий тиск, атм:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="256,28,0,0"/>
-                            <TextBox x:Name="TextBoxBoilerPressure" HorizontalAlignment="Left" Height="23" Margin="374,31,0,0" TextWrapping="Wrap" Text="{Binding BoilerPressure, Mode=TwoWay}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.1,0.435"/>
-                            <TextBox x:Name="TextBoxBoilerProductivity" HorizontalAlignment="Left" Height="23" Margin="160,31,0,0" TextWrapping="Wrap" Text="{Binding BoilerProductivity, Mode=TwoWay}" VerticalAlignment="Top" Width="66"/>
-                            <Label Content="ККД, %:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="454,28,0,0"/>
-                            <TextBox x:Name="TextBoxBoilerEfficiency" HorizontalAlignment="Left" Height="23" Margin="510,31,0,0" TextWrapping="Wrap" Text="{Binding BoilerEfficiency, Mode=TwoWay}" VerticalAlignment="Top" Width="40"/>
-                            <Label Content="Теплова потужність, кВт:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="360,0,0,0"/>
-                            <TextBox x:Name="TextBoxBolerPower" HorizontalAlignment="Left" Height="23" Margin="510,3,0,0" TextWrapping="Wrap" Text="{Binding BolerPower, Mode=TwoWay}" VerticalAlignment="Top" Width="40"/>
+                            <TextBox x:Name="TestBoxBoilerName" HorizontalAlignment="Left" Height="23" Margin="87,3,0,0" TextWrapping="Wrap" Text="{Binding BoilerName, Mode=TwoWay}" VerticalAlignment="Top" Width="142"/>
+                            <Label Content="Паропродуктивність, т/год:" HorizontalAlignment="Left" Margin="248,0,0,0" VerticalAlignment="Top" Width="160"/>
+                            <Label Content="Робочий тиск, атм:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,28,0,0"/>
+                            <TextBox x:Name="TextBoxBoilerPressure" HorizontalAlignment="Left" Height="23" Margin="119,31,0,0" TextWrapping="Wrap" Text="{Binding BoilerPressure, Mode=TwoWay}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.1,0.435"/>
+                            <TextBox x:Name="TextBoxBoilerProductivity" HorizontalAlignment="Left" Height="23" Margin="408,3,0,0" TextWrapping="Wrap" Text="{Binding BoilerProductivity, Mode=TwoWay}" VerticalAlignment="Top" Width="40"/>
+                            <Label Content="ККД, %:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="453,0,0,0"/>
+                            <TextBox x:Name="TextBoxBoilerEfficiency" HorizontalAlignment="Left" Height="23" Margin="510,3,0,0" TextWrapping="Wrap" Text="{Binding BoilerEfficiency, Mode=TwoWay}" VerticalAlignment="Top" Width="40"/>
+                            <Label Content="Теплова потужність, кВт:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="158,28,0,0"/>
+                            <TextBox x:Name="TextBoxBolerPower" HorizontalAlignment="Left" Height="23" Margin="308,31,0,0" TextWrapping="Wrap" Text="{Binding BolerPower, Mode=TwoWay}" VerticalAlignment="Top" Width="40"/>
                             <Label Content="Гранична електропровідність котлової води, при електропровідності живильної води &lt;30 мкСм/см / &gt;30 мкСм/см" HorizontalAlignment="Left" Margin="603,67,-524,0" VerticalAlignment="Top" Width="481"/>
+                            <Label Content="Річне завантаження, %:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="366,28,0,0" Width="138"/>
+                            <TextBox x:Name="TextBoxBoilerAnnnualLoad" HorizontalAlignment="Left" Height="23" Margin="510,31,0,0" TextWrapping="Wrap" Text="{Binding BoilerAnnnualLoad, Mode=TwoWay}" VerticalAlignment="Top" Width="40"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Водно-хімічний режим" Margin="5,203,5,-5" VerticalAlignment="Top" Height="251">

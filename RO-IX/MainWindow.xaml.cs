@@ -56,6 +56,7 @@ namespace RO_IX
             Proj.BoilerProductivity = 10;
             Proj.BoilerPressure = 10.3f;
             Proj.BoilerEfficiency = 94.6f;
+            Proj.BoilerAnnnualLoad = 50;
 
             // Водно-хімічний режим
             Proj.WaterInConductivity = 544;
@@ -200,6 +201,8 @@ namespace RO_IX
             ReportTemplate.Set("BoilerBlowdownGasIX", Calc.BoilerBlowdownGasIX.ToString("F"));
             ReportTemplate.Set("BoilerBlowdownMoneyRO", Calc.BoilerBlowdownMoneyRO.ToString("F"));
             ReportTemplate.Set("BoilerBlowdownMoneyIX", Calc.BoilerBlowdownMoneyIX.ToString("F"));
+            ReportTemplate.Set("BoilerBlowdownMoneyAnnualRO", Calc.BoilerBlowdownMoneyAnnualRO.ToString("### ### ###"));
+            ReportTemplate.Set("BoilerBlowdownMoneyAnnualIX", Calc.BoilerBlowdownMoneyAnnualIX.ToString("### ### ###"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
