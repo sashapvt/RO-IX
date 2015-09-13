@@ -81,6 +81,18 @@ namespace RO_IX
         {
             get { return BoilerBlowdownGas(BoilerBlowdownPowerIX); }
         }
+
+        // Витрата коштів на покриття втрат газу на продувку для осмосу
+        public float BoilerBlowdownMoneyRO
+        {
+            get { return BoilerBlowdownMoney(BoilerBlowdownGasRO); }
+        }
+
+        // Витрата коштів на покриття втрат газу на продувку для іонного обміну
+        public float BoilerBlowdownMoneyIX
+        {
+            get { return BoilerBlowdownMoney(BoilerBlowdownGasIX); }
+        }
         #endregion
 
         #region Розрахунокові функції
@@ -113,6 +125,12 @@ namespace RO_IX
         float BoilerBlowdownGas(float BoilerBlowdownPower)
         {
             return 3600 * BoilerBlowdownPower / NaturalGasHeatOfCombustion;
+        }
+
+        // Розрахунок витрати газу на покриття втрат продувки
+        float BoilerBlowdownMoney(float BoilerBlowdownGas)
+        {
+            return (float)(Proj.OptionsPricesData[0].Price * Proj.ProjectCurRate) * BoilerBlowdownGas;
         }
         #endregion
 

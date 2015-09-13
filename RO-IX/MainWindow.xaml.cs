@@ -198,6 +198,8 @@ namespace RO_IX
             ReportTemplate.Set("BoilerBlowdownPowerIX", Calc.BoilerBlowdownPowerIX.ToString("F"));
             ReportTemplate.Set("BoilerBlowdownGasRO", Calc.BoilerBlowdownGasRO.ToString("F"));
             ReportTemplate.Set("BoilerBlowdownGasIX", Calc.BoilerBlowdownGasIX.ToString("F"));
+            ReportTemplate.Set("BoilerBlowdownMoneyRO", Calc.BoilerBlowdownMoneyRO.ToString("F"));
+            ReportTemplate.Set("BoilerBlowdownMoneyIX", Calc.BoilerBlowdownMoneyIX.ToString("F"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
