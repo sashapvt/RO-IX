@@ -21,6 +21,7 @@ namespace RO_IX
         #region Інформація про проект
         // Інформація про проект
         string _ProjectName;
+        decimal _ProjectCurRate;
         string _ProjectComment;
         DateTime _ProjectDate;
 
@@ -28,6 +29,11 @@ namespace RO_IX
         {
             get { return _ProjectName; }
             set { _ProjectName = value; }
+        }
+        public decimal ProjectCurRate
+        {
+            get { return _ProjectCurRate; }
+            set { _ProjectCurRate = value; }
         }
         public string ProjectComment
         {

@@ -47,6 +47,7 @@ namespace RO_IX
             Proj = new Project();
             // Ініціалізація нового проекту
             Proj.ProjectName = "Project1";
+            Proj.ProjectCurRate = 22.00m;
             Proj.ProjectComment = "no comments";
             Proj.ProjectDate = DateTime.Now;
 
