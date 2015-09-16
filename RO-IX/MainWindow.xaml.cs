@@ -293,11 +293,28 @@ namespace RO_IX
             Application.Current.Shutdown();
         }
 
+        // Друк результатів розрахунку для друку (виклик з меню)
+        private void MenuPrint_Click(object sender, RoutedEventArgs e)
+        {
+            mshtml.IHTMLDocument2 doc = this.WebBrowserCalc.Document as mshtml.IHTMLDocument2;
+            doc.execCommand("Print", true, null);
+        }
+
         // Зміна активної вкладки
         private void TabControlProject_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Якщо вибрана вкладка "Розрахунок" запустити підпрограму розрахунку
             if (TabControlProject.SelectedIndex == 2) ProjectCalculate();
+
+            // Перевірка можливості друку результатів розрахунку
+            if (TabControlProject.SelectedIndex == 2)
+            {
+                this.MenuPrint.IsEnabled = true;
+            }
+            else
+            {
+                this.MenuPrint.IsEnabled = false;
+            }
         }
     }
 }

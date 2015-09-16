@@ -14,6 +14,8 @@
                 <MenuItem x:Name="MenuSave" Header="Зберегти проект" Click="MenuSave_Click"/>
                 <MenuItem x:Name="MenuSaveAs" Header="Зберегти проект як..." Click="MenuSaveAs_Click"/>
                 <Separator/>
+                <MenuItem x:Name="MenuPrint" Header="Друк..." Click="MenuPrint_Click" IsEnabled="False" />
+                <Separator/>
                 <MenuItem x:Name="MenuExit" Header="Вихід" Click="MenuExit_Click"/>
             </MenuItem>
         </Menu>
