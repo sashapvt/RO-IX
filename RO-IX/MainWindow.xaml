@@ -9,12 +9,29 @@
         <StatusBar Margin="0" VerticalAlignment="Bottom" Height="20" Grid.ColumnSpan="2"/>
         <Menu VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem x:Name="MenuFile" Header="Файл">
-                <MenuItem x:Name="MenuNew" Header="Новий проект" Click="MenuNew_Click"/>
-                <MenuItem x:Name="MenuOpen" Header="Відкрити проект..." Click="MenuOpen_Click"/>
-                <MenuItem x:Name="MenuSave" Header="Зберегти проект" Click="MenuSave_Click"/>
+                <!-- Іконки https://www.iconfinder.com/iconsets/windows-8-metro-style -->
+                <MenuItem x:Name="MenuNew" Header="Новий проект" Click="MenuNew_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/IconNew.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuOpen" Header="Відкрити проект..." Click="MenuOpen_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/IconOpen.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="MenuSave" Header="Зберегти проект" Click="MenuSave_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/IconSave.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <MenuItem x:Name="MenuSaveAs" Header="Зберегти проект як..." Click="MenuSaveAs_Click"/>
                 <Separator/>
-                <MenuItem x:Name="MenuPrint" Header="Друк..." Click="MenuPrint_Click" IsEnabled="False" />
+                <MenuItem x:Name="MenuPrint" Header="Друк..." Click="MenuPrint_Click" IsEnabled="False" >
+                    <MenuItem.Icon>
+                        <Image Source="Resources/IconPrint.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator/>
                 <MenuItem x:Name="MenuExit" Header="Вихід" Click="MenuExit_Click"/>
             </MenuItem>
