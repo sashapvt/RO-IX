@@ -310,10 +310,14 @@ namespace RO_IX
             if (TabControlProject.SelectedIndex == 2)
             {
                 this.MenuPrint.IsEnabled = true;
+                this.ButtonPrint.IsEnabled = true;
+                this.ButtonPrint.Visibility = Visibility.Visible;
             }
             else
             {
                 this.MenuPrint.IsEnabled = false;
+                this.ButtonPrint.IsEnabled = false;
+                this.ButtonPrint.Visibility = Visibility.Hidden;
             }
         }
     }
