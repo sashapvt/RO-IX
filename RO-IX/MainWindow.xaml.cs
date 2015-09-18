@@ -311,13 +311,13 @@ namespace RO_IX
             {
                 this.MenuPrint.IsEnabled = true;
                 this.ButtonPrint.IsEnabled = true;
-                this.ButtonPrint.Visibility = Visibility.Visible;
+                this.ButtonPrintImage.Opacity = 1.0;
             }
             else
             {
                 this.MenuPrint.IsEnabled = false;
                 this.ButtonPrint.IsEnabled = false;
-                this.ButtonPrint.Visibility = Visibility.Hidden;
+                this.ButtonPrintImage.Opacity = 0.5;
             }
         }
     }

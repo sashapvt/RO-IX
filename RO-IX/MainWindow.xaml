@@ -45,13 +45,13 @@
                 <Button x:Name="ButtonSave" Click="MenuSave_Click">
                     <Image Source="Resources/IconSave.png" Height="16" />
                 </Button>
-                <Button x:Name="ButtonPrint" Click="MenuPrint_Click" IsEnabled="False" Visibility="Hidden">
-                    <Image Source="Resources/IconPrint.png" Height="16" />
+                <Button x:Name="ButtonPrint" Click="MenuPrint_Click" IsEnabled="False">
+                    <Image x:Name="ButtonPrintImage" Source="Resources/IconPrint.png" Height="16" Opacity="0.5" />
                 </Button>
             </ToolBar>
         </ToolBarTray>
-        <TabControl x:Name="TabControlProject" Margin="5,50,5,5" TabStripPlacement="Bottom" SelectionChanged="TabControlProject_SelectionChanged" BorderThickness="0">
-            <TabItem Header="Вихідні дані" Height="22" VerticalAlignment="Top">
+        <TabControl x:Name="TabControlProject" Margin="5,50,5,5" TabStripPlacement="Bottom" SelectionChanged="TabControlProject_SelectionChanged" BorderThickness="0,0,0,1">
+            <TabItem Header="Вихідні дані" Height="22" VerticalAlignment="Top" BorderThickness="0">
                 <Grid>
                     <GroupBox Header="Проект" Margin="5,0" VerticalAlignment="Top" Height="94">
                         <Grid Margin="0,10,0,0">
