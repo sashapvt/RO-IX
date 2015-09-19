@@ -74,11 +74,15 @@ namespace RO_IX
             Proj.OptionsROUFPermeate = 93;
             Proj.OptionsROROPermeate = 75;
             Proj.OptionsROIXPermeate = 98;
-            
+            Proj.OptionsROROOn = true;
+            Proj.OptionsROIXOn = true;
+
             // Налаштування (пом'якшення)
             Proj.OptionsIXUFPermeate = 93;
             Proj.OptionsIXIX1Permeate = 95;
             Proj.OptionsIXIX2Permeate = 98;
+            Proj.OptionsIXIX1On = true;
+            Proj.OptionsIXIX2On = true;
 
             // Вартості ресурсів та витрат реагентів
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
