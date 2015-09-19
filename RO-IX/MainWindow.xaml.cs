@@ -93,6 +93,9 @@ namespace RO_IX
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(9, "Мембрана УФ, шт", 0.00m, 0F, 0F, 0F, 0F, false));
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(10, "Катіоніт, л", 0.00m, 0F, 0F, 0F, 0F, false));
             DataContext = Proj;
+
+            // Робимо активною вкладку "Вихідні дані"
+            TabControlProject.SelectedIndex = 0;
         }
 
         // Відкрити проект
@@ -122,6 +125,9 @@ namespace RO_IX
                     Proj = new Project();
                     Proj = (Project)ProjectSerializer.Deserialize(ProjectFileStream);
                     DataContext = Proj;
+
+                    // Робимо активною вкладку "Вихідні дані"
+                    TabControlProject.SelectedIndex = 0;
                 }
             }
         }
