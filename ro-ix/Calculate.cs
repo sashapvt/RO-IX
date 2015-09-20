@@ -152,6 +152,25 @@ namespace RO_IX
         }
         #endregion
 
+        #region Розрахунок продуктивності систем водопідготовки
+        public void CalculateProductivity()
+        {
+            if (Proj.OptionsROEditOn)
+            {
+                Proj.OptionsROIXProductivity = Round(Proj.BoilerProductivity + BoilerBlowdownFlowRO);
+                Proj.OptionsROROProductivity = Round(Proj.OptionsROIXProductivity/(Proj.OptionsROIXPermeate / 100));
+                Proj.OptionsROUFProductivity = Round(Proj.OptionsROROProductivity / (Proj.OptionsROROPermeate / 100));
+            }
+            if (Proj.OptionsIXEditOn)
+            {
+                Proj.OptionsIXIX2Productivity = Round(Proj.BoilerProductivity + BoilerBlowdownFlowIX);
+                Proj.OptionsIXIX1Productivity = Round(Proj.OptionsIXIX2Productivity / (Proj.OptionsIXIX2Permeate / 100));
+                Proj.OptionsIXUFProductivity = Round(Proj.OptionsIXIX1Productivity / (Proj.OptionsIXIX1Permeate / 100));
+            }
+        }
+
+        #endregion
+
         #region Допоміжні функції
         // Розрахунок питомої ентальпії води в залежності від температури  
         float EnthalpyWaterFromTemp(float Temperature)
@@ -169,6 +188,12 @@ namespace RO_IX
         float EnthalpySteamFromPres(float Pressure)
         {
             return 2679.6f + 41.9f * (float)Math.Log(Pressure); // кДж/кг
+        }
+
+        // Округлення до двох знаків у більшу сторону
+        float Round(float number)
+        {
+            return (float)Math.Round(number, 2, MidpointRounding.AwayFromZero);
         }
 
         #endregion

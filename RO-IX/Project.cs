@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace RO_IX
 {
-    public class Project
+    public class Project : INotifyPropertyChanged
     {
         // Public consructor
         public Project()
@@ -15,7 +15,6 @@ namespace RO_IX
             OptionsPrices = new ProjectPrices();
             OptionsPricesData = OptionsPrices.Data;
             OptionsPricesDataView = CollectionViewSource.GetDefaultView(OptionsPricesData);
-
         }
 
         #region Інформація про проект
@@ -164,51 +163,57 @@ namespace RO_IX
         bool _OptionsROIXOn;
         float _OptionsROIXPermeate;
         float _OptionsROIXProductivity;
+        bool _OptionsROEditOn;
 
         public bool OptionsROUFOn
         {
             get { return _OptionsROUFOn; }
-            set { _OptionsROUFOn = value; }
+            set { _OptionsROUFOn = value; OnPropertyChanged("OptionsROUFOn"); }
         }
         public float OptionsROUFPermeate
         {
             get { return _OptionsROUFPermeate; }
-            set { _OptionsROUFPermeate = value; }
+            set { _OptionsROUFPermeate = value; OnPropertyChanged("OptionsROUFPermeate"); }
         }
         public float OptionsROUFProductivity
         {
             get { return _OptionsROUFProductivity; }
-            set { _OptionsROUFProductivity = value; }
+            set { _OptionsROUFProductivity = value; OnPropertyChanged("OptionsROUFProductivity"); }
         }
         public bool OptionsROROOn
         {
             get { return _OptionsROROOn; }
-            set { _OptionsROROOn = value; }
+            set { _OptionsROROOn = value; OnPropertyChanged("OptionsROROOn"); }
         }
         public float OptionsROROPermeate
         {
             get { return _OptionsROROPermeate; }
-            set { _OptionsROROPermeate = value; }
+            set { _OptionsROROPermeate = value; OnPropertyChanged("OptionsROROPermeate"); }
         }
         public float OptionsROROProductivity
         {
             get { return _OptionsROROProductivity; }
-            set { _OptionsROROProductivity = value; }
+            set { _OptionsROROProductivity = value; OnPropertyChanged("OptionsROROProductivity"); }
         }
         public bool OptionsROIXOn
         {
             get { return _OptionsROIXOn; }
-            set { _OptionsROIXOn = value; }
+            set { _OptionsROIXOn = value; OnPropertyChanged("OptionsROIXOn"); }
         }
         public float OptionsROIXPermeate
         {
             get { return _OptionsROIXPermeate; }
-            set { _OptionsROIXPermeate = value; }
+            set { _OptionsROIXPermeate = value; OnPropertyChanged("OptionsROIXPermeate"); }
         }
         public float OptionsROIXProductivity
         {
             get { return _OptionsROIXProductivity; }
-            set { _OptionsROIXProductivity = value; }
+            set { _OptionsROIXProductivity = value; OnPropertyChanged("OptionsROIXProductivity"); }
+        }
+        public bool OptionsROEditOn
+        {
+            get { return _OptionsROEditOn; }
+            set { _OptionsROEditOn = value; }
         }
         #endregion
 
@@ -223,51 +228,57 @@ namespace RO_IX
         bool _OptionsIXIX2On;
         float _OptionsIXIX2Permeate;
         float _OptionsIXIX2Productivity;
+        bool _OptionsIXEditOn;
 
         public bool OptionsIXUFOn
         {
             get { return _OptionsIXUFOn; }
-            set { _OptionsIXUFOn = value; }
+            set { _OptionsIXUFOn = value; OnPropertyChanged("OptionsIXUFOn"); }
         }
         public float OptionsIXUFPermeate
         {
             get { return _OptionsIXUFPermeate; }
-            set { _OptionsIXUFPermeate = value; }
+            set { _OptionsIXUFPermeate = value; OnPropertyChanged("OptionsIXUFPermeate"); }
         }
         public float OptionsIXUFProductivity
         {
             get { return _OptionsIXUFProductivity; }
-            set { _OptionsIXUFProductivity = value; }
+            set { _OptionsIXUFProductivity = value; OnPropertyChanged("OptionsIXUFProductivity"); }
         }
         public bool OptionsIXIX1On
         {
             get { return _OptionsIXIX1On; }
-            set { _OptionsIXIX1On = value; }
+            set { _OptionsIXIX1On = value; OnPropertyChanged("OptionsIXIX1On"); }
         }
         public float OptionsIXIX1Permeate
         {
             get { return _OptionsIXIX1Permeate; }
-            set { _OptionsIXIX1Permeate = value; }
+            set { _OptionsIXIX1Permeate = value; OnPropertyChanged("OptionsIXIX1Permeate"); }
         }
         public float OptionsIXIX1Productivity
         {
             get { return _OptionsIXIX1Productivity; }
-            set { _OptionsIXIX1Productivity = value; }
+            set { _OptionsIXIX1Productivity = value; OnPropertyChanged("OptionsIXIX1Productivity"); }
         }
         public bool OptionsIXIX2On
         {
             get { return _OptionsIXIX2On; }
-            set { _OptionsIXIX2On = value; }
+            set { _OptionsIXIX2On = value; OnPropertyChanged("OptionsIXIX2On"); }
         }
         public float OptionsIXIX2Permeate
         {
             get { return _OptionsIXIX2Permeate; }
-            set { _OptionsIXIX2Permeate = value; }
+            set { _OptionsIXIX2Permeate = value; OnPropertyChanged("OptionsIXIX2Permeate"); }
         }
         public float OptionsIXIX2Productivity
         {
             get { return _OptionsIXIX2Productivity; }
-            set { _OptionsIXIX2Productivity = value; }
+            set { _OptionsIXIX2Productivity = value; OnPropertyChanged("OptionsIXIX2Productivity"); }
+        }
+        public bool OptionsIXEditOn
+        {
+            get { return _OptionsIXEditOn; }
+            set { _OptionsIXEditOn = value; }
         }
         #endregion
 
@@ -277,13 +288,21 @@ namespace RO_IX
         public List<ProjectPrices.ProjectPricesItem> OptionsPricesData;
         [XmlIgnoreAttribute]
         public ICollectionView OptionsPricesDataView { get; private set; }
-
-        //public ProjectPrices OptionsPrices
-        //{
-        //    get { return _OptionsPrices.Data; }
-        //    set { _OptionsPrices = value; }
-        //}
         #endregion
+
+        // Declare the event
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Create the OnPropertyChanged method to raise the event
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
 
     }
 }

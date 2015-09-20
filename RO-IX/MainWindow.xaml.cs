@@ -28,17 +28,24 @@ namespace RO_IX
         public MainWindow()
         {
             InitializeComponent();
+
             // Старт нового проекту
             ProjectNew();
 
+            // Проект для якого буде проводитися розрахунок (поточний проект)
+            Calc = new Calculate(Proj);
+            
             // Для відладки
-            TabControlProject.SelectedIndex = 2;
+            //TabControlProject.SelectedIndex = 2;
         }
 
         // Main project class instance
         public Project Proj;
 
-        //Project file name & path
+        // Calculation of current project
+        Calculate Calc;
+
+        // Project file name & path
         public string ProjFile = "";
 
         // Новий проект
@@ -76,6 +83,7 @@ namespace RO_IX
             Proj.OptionsROIXPermeate = 98;
             Proj.OptionsROROOn = true;
             Proj.OptionsROIXOn = true;
+            Proj.OptionsROEditOn = true;
 
             // Налаштування (пом'якшення)
             Proj.OptionsIXUFPermeate = 93;
@@ -83,6 +91,7 @@ namespace RO_IX
             Proj.OptionsIXIX2Permeate = 98;
             Proj.OptionsIXIX1On = true;
             Proj.OptionsIXIX2On = true;
+            Proj.OptionsIXEditOn = true;
 
             // Вартості ресурсів та витрат реагентів
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
@@ -175,7 +184,7 @@ namespace RO_IX
             string ReportFileName = Directory.GetCurrentDirectory() + "\\Report.html";
 
             // Розрахунок
-            Calculate Calc = new Calculate(Proj);
+            //Calculate Calc = new Calculate(Proj);
 
             // Заповнення полів шаблону
             Template ReportTemplate = new Template(TemplateFileName, false);
@@ -313,6 +322,9 @@ namespace RO_IX
         // Зміна активної вкладки
         private void TabControlProject_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Якщо вибрана вкладка "Налаштування" провести при необхідності розрахунок продуктивності систем очистки
+            if (TabControlProject.SelectedIndex == 1) Calc.CalculateProductivity();
+
             // Якщо вибрана вкладка "Розрахунок" запустити підпрограму розрахунку
             if (TabControlProject.SelectedIndex == 2) ProjectCalculate();
 
@@ -329,6 +341,12 @@ namespace RO_IX
                 this.ButtonPrint.IsEnabled = false;
                 this.ButtonPrintImage.Opacity = 0.5;
             }
+        }
+
+        private void eventCalculateProductivityIsNeeded(object sender, RoutedEventArgs e)
+        {
+            // Проводимо розрахунок продуктивності систем очистки
+            Calc.CalculateProductivity();
         }
     }
 }
