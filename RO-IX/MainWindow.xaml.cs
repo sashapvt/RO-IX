@@ -93,18 +93,19 @@ namespace RO_IX
             Proj.OptionsIXIX2On = true;
             Proj.OptionsIXEditOn = true;
 
-            // Вартості ресурсів та витрат реагентів
+            // Вартості ресурсів та витрати реагентів
+            // ProjectPrices.ProjectPricesItem(0, "Назва", ціна, витрата для МУ, витрата для МО, витрата для ФУ1, витрата для УФ2, тільки ціна (так/ні));
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(2, "Сіль таблетована, кг", 0.00m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(3, "Антискалант, г", 0.00m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(4, "Реаг. хімпром, г ", 0.00m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(5, "NaOCl, 19%, г", 0.00m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(6, "HCl, 35%, г", 0.00m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(7, "NaOH, 45%, г", 0.00m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(8, "Мембрана МО, шт", 0.00m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(9, "Мембрана УФ, шт", 0.00m, 0F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(10, "Катіоніт, л", 0.00m, 0F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0.07F, 0.7F, 0.01F, 0.01F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(2, "Сіль таблетована, кг", 0.27m, 0F, 0F, 0.7F, 0.01F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(3, "Антискалант, г", 5.33m, 0F, 8F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(4, "Реаг. хімпром, г ", 8.40m, 0F, 1.6F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(5, "NaOCl, 19%, г", 6.12m, 18F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(6, "HCl, 35%, г", 0.31m, 3.5F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(7, "NaOH, 45%, г", 9.49m, 13F, 0F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(8, "Мембрана МО, шт", 1142.00m, 0F, 5F, 0F, 0F, false)); // Ціна за одну мембрану XLE-440, період заміни, роки
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(9, "Мембрана УФ, шт", 2600.00m, 5F, 0F, 0F, 0F, false)); // Ціна за одну мембрану SFP2860, період заміни, роки
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(10, "Катіоніт, л", 3.96m, 0F, 0F, 5F, 7F, false)); // Ціна за один л HCRS/S, період заміни, роки
             DataContext = Proj;
 
             // Робимо активною вкладку "Вихідні дані"
