@@ -10,24 +10,24 @@
                 <!-- Іконки https://www.iconfinder.com/iconsets/windows-8-metro-style -->
                 <MenuItem x:Name="MenuNew" Header="Новий проект" Click="MenuNew_Click">
                     <MenuItem.Icon>
-                        <Image Source="Resources/IconNew.png"/>
+                        <Image Source="Resources/IconNew.png" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="MenuOpen" Header="Відкрити проект..." Click="MenuOpen_Click">
                     <MenuItem.Icon>
-                        <Image Source="Resources/IconOpen.png"/>
+                        <Image Source="Resources/IconOpen.png" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="MenuSave" Header="Зберегти проект" Click="MenuSave_Click">
                     <MenuItem.Icon>
-                        <Image Source="Resources/IconSave.png"/>
+                        <Image Source="Resources/IconSave.png" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="MenuSaveAs" Header="Зберегти проект як..." Click="MenuSaveAs_Click"/>
                 <Separator/>
                 <MenuItem x:Name="MenuPrint" Header="Друк..." Click="MenuPrint_Click" IsEnabled="False" >
                     <MenuItem.Icon>
-                        <Image Source="Resources/IconPrint.png"/>
+                        <Image Source="Resources/IconPrint.png" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
