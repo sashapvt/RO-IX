@@ -36,7 +36,7 @@ namespace RO_IX
             Calc = new Calculate(Proj);
             
             // Для відладки
-            //TabControlProject.SelectedIndex = 2;
+            TabControlProject.SelectedIndex = 2;
         }
 
         // Main project class instance
@@ -208,7 +208,7 @@ namespace RO_IX
             ReportTemplate.Set("WaterROConductivityMax", Proj.WaterROConductivityMax.ToString());
             ReportTemplate.Set("WaterIXConductivity", Proj.WaterIXConductivity.ToString());
             ReportTemplate.Set("WaterIXConductivityMax", Proj.WaterIXConductivityMax.ToString());
-            // Результати розрахунку
+            // Результати розрахунку: водно-хімічний режим
             ReportTemplate.Set("BoilerBlowdownRO", Calc.BoilerBlowdownRO.ToString("P"));
             ReportTemplate.Set("BoilerBlowdownIX", Calc.BoilerBlowdownIX.ToString("P"));
             ReportTemplate.Set("BoilerBlowdownFlowRO", Calc.BoilerBlowdownFlowRO.ToString("F"));
@@ -223,6 +223,8 @@ namespace RO_IX
             ReportTemplate.Set("BoilerBlowdownMoneyIX", Calc.BoilerBlowdownMoneyIX.ToString("F"));
             ReportTemplate.Set("BoilerBlowdownMoneyAnnualRO", Calc.BoilerBlowdownMoneyAnnualRO.ToString("### ### ###"));
             ReportTemplate.Set("BoilerBlowdownMoneyAnnualIX", Calc.BoilerBlowdownMoneyAnnualIX.ToString("### ### ###"));
+            // Результати розрахунку: водопідготовка
+            //ReportTemplate.Set("BoilerBlowdownRO", Calc.BoilerBlowdownRO.ToString("P"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
