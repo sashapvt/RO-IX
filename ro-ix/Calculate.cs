@@ -158,14 +158,17 @@ namespace RO_IX
             if (Proj.OptionsROEditOn)
             {
                 Proj.OptionsROIXProductivity = Round(Proj.BoilerProductivity + BoilerBlowdownFlowRO);
-                Proj.OptionsROROProductivity = Round(Proj.OptionsROIXProductivity/(Proj.OptionsROIXPermeate / 100));
+                Proj.OptionsROROProductivity = Round(Proj.OptionsROIXProductivity / (Proj.OptionsROIXPermeate / 100));
+                //Proj.OptionsROROProductivity = Round(Proj.OptionsROIXProductivity/((Proj.OptionsROUFOn) ? Proj.OptionsROIXPermeate / 100 : 1));
                 Proj.OptionsROUFProductivity = Round(Proj.OptionsROROProductivity / (Proj.OptionsROROPermeate / 100));
+                Proj.OptionsRORawProductivity = Round(Proj.OptionsROUFProductivity / (Proj.OptionsROUFPermeate / 100));
             }
             if (Proj.OptionsIXEditOn)
             {
                 Proj.OptionsIXIX2Productivity = Round(Proj.BoilerProductivity + BoilerBlowdownFlowIX);
                 Proj.OptionsIXIX1Productivity = Round(Proj.OptionsIXIX2Productivity / (Proj.OptionsIXIX2Permeate / 100));
                 Proj.OptionsIXUFProductivity = Round(Proj.OptionsIXIX1Productivity / (Proj.OptionsIXIX1Permeate / 100));
+                Proj.OptionsIXRawProductivity = Round(Proj.OptionsIXUFProductivity / (Proj.OptionsIXUFPermeate / 100));
             }
         }
 

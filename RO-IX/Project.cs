@@ -154,6 +154,7 @@ namespace RO_IX
 
         #region Налаштування (зворотній осмос)
         // Налаштування (зворотній осмос)
+        float _OptionsRORawProductivity;
         bool _OptionsROUFOn;
         float _OptionsROUFPermeate;
         float _OptionsROUFProductivity;
@@ -165,6 +166,11 @@ namespace RO_IX
         float _OptionsROIXProductivity;
         bool _OptionsROEditOn;
 
+        public float OptionsRORawProductivity
+        {
+            get { return _OptionsRORawProductivity; }
+            set { _OptionsRORawProductivity = value; OnPropertyChanged("OptionsRORawProductivity"); }
+        }
         public bool OptionsROUFOn
         {
             get { return _OptionsROUFOn; }
@@ -219,6 +225,7 @@ namespace RO_IX
 
         #region Налаштування (пом'якшення)
         // Налаштування (пом'якшення)
+        float _OptionsIXRawProductivity;
         bool _OptionsIXUFOn;
         float _OptionsIXUFPermeate;
         float _OptionsIXUFProductivity;
@@ -230,6 +237,11 @@ namespace RO_IX
         float _OptionsIXIX2Productivity;
         bool _OptionsIXEditOn;
 
+        public float OptionsIXRawProductivity
+        {
+            get { return _OptionsIXRawProductivity; }
+            set { _OptionsIXRawProductivity = value; OnPropertyChanged("OptionsIXRawProductivity"); }
+        }
         public bool OptionsIXUFOn
         {
             get { return _OptionsIXUFOn; }

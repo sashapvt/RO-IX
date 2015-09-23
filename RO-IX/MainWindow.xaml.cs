@@ -184,8 +184,8 @@ namespace RO_IX
             string TemplateFileName = Directory.GetCurrentDirectory() + "\\ReportTemplate.html";
             string ReportFileName = Directory.GetCurrentDirectory() + "\\Report.html";
 
-            // Розрахунок
-            //Calculate Calc = new Calculate(Proj);
+            // Проводимо розрахунок продуктивності систем очистки
+            Calc.CalculateProductivity();
 
             // Заповнення полів шаблону
             Template ReportTemplate = new Template(TemplateFileName, false);
@@ -224,7 +224,8 @@ namespace RO_IX
             ReportTemplate.Set("BoilerBlowdownMoneyAnnualRO", Calc.BoilerBlowdownMoneyAnnualRO.ToString("### ### ###"));
             ReportTemplate.Set("BoilerBlowdownMoneyAnnualIX", Calc.BoilerBlowdownMoneyAnnualIX.ToString("### ### ###"));
             // Результати розрахунку: водопідготовка
-            //ReportTemplate.Set("BoilerBlowdownRO", Calc.BoilerBlowdownRO.ToString("P"));
+            ReportTemplate.Set("OptionsRORawProductivity", Proj.OptionsRORawProductivity.ToString("F"));
+            ReportTemplate.Set("OptionsIXRawProductivity", Proj.OptionsIXRawProductivity.ToString("F"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
