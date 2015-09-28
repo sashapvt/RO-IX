@@ -117,9 +117,21 @@ namespace RO_IX
         {
             get { return ReportElectricityMoneyAnnual(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[1].UF : 0) + ((Proj.OptionsIXIX1On) ? Proj.OptionsPricesData[1].IX1 : 0) + ((Proj.OptionsIXIX2On) ? Proj.OptionsPricesData[1].IX2 : 0), Proj.OptionsPricesData[1].Price); }
         }
+
+        // Витрата коштів на покриття річних витрат антискаланту для осмосу
+        public float ReportAntiscalantMoneyAnnualRO
+        {
+            get { return ReportAntiscalantMoneyAnnual(Proj.OptionsROIXProductivity, Proj.OptionsPricesData[3].RO, Proj.OptionsPricesData[3].Price); }
+        }
+
+        // Витрата коштів на покриття річних витрат реагентів для хімпромивки для осмосу
+        public float ReportCIPMoneyAnnualRO
+        {
+            get { return ReportCIPMoneyAnnual(Proj.OptionsROIXProductivity, Proj.OptionsPricesData[4].RO, Proj.OptionsPricesData[4].Price); }
+        }
         #endregion
 
-        #region Розрахунокові функції
+        #region Розрахункові функції
         // Розрахунок величини продувки
         float BoilerBlowdown(float FeedConductivity, float BlowdownConductivity)
         {
@@ -167,6 +179,18 @@ namespace RO_IX
         float ReportElectricityMoneyAnnual(float WaterProductivity, float ElectricityQuantity, decimal ElectricityPrice)
         {
             return WaterProductivity * ElectricityQuantity * (float) ElectricityPrice * 365 * 24 * (Proj.BoilerAnnnualLoad/100) * (float) Proj.ProjectCurRate;
+        }
+
+        // Розрахунок річної витрати антискаланту на водопідготовку
+        float ReportAntiscalantMoneyAnnual(float WaterProductivity, float AntiscalantQuantity, decimal AntiscalantPrice)
+        {
+            return WaterProductivity * AntiscalantQuantity * (float) AntiscalantPrice * 365 * 24 * (Proj.BoilerAnnnualLoad / 100) * (float) Proj.ProjectCurRate;
+        }
+
+        // Розрахунок річної витрати реагентів для хімпромивки на водопідготовку
+        float ReportCIPMoneyAnnual(float WaterProductivity, float CIPQuantity, decimal CIPPrice)
+        {
+            return WaterProductivity * CIPQuantity * (float)CIPPrice * 365 * 24 * (Proj.BoilerAnnnualLoad / 100) * (float)Proj.ProjectCurRate;
         }
         #endregion
 

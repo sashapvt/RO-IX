@@ -98,8 +98,8 @@ namespace RO_IX
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0.07F, 0.7F, 0.01F, 0.01F, false));
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(2, "Сіль таблетована, кг", 0.27m, 0F, 0F, 0.7F, 0.01F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(3, "Антискалант, г", 5.33m, 0F, 8F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(4, "Реаг. хімпром, г ", 8.40m, 0F, 1.6F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(3, "Антискалант, кг", 5.33m, 0F, 0.008F, 0F, 0F, false));
+            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(4, "Реаг. хімпром, кг ", 8.40m, 0F, 0.0016F, 0F, 0F, false));
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(5, "NaOCl, 19%, г", 6.12m, 18F, 0F, 0F, 0F, false));
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(6, "HCl, 35%, г", 0.31m, 3.5F, 0F, 0F, 0F, false));
             Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(7, "NaOH, 45%, г", 9.49m, 13F, 0F, 0F, 0F, false));
@@ -230,6 +230,8 @@ namespace RO_IX
             ReportTemplate.Set("OptionsIXIX2Productivity", Proj.OptionsIXIX2Productivity.ToString("F"));
             ReportTemplate.Set("ReportElectricityMoneyAnnualRO", Calc.ReportElectricityMoneyAnnualRO.ToString("### ### ###"));
             ReportTemplate.Set("ReportElectricityMoneyAnnualIX", Calc.ReportElectricityMoneyAnnualIX.ToString("### ### ###"));
+            ReportTemplate.Set("ReportAntiscalantMoneyAnnualRO", Calc.ReportAntiscalantMoneyAnnualRO.ToString("### ### ###"));
+            ReportTemplate.Set("ReportCIPMoneyAnnualRO", Calc.ReportCIPMoneyAnnualRO.ToString("### ### ###"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
