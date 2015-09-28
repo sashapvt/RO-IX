@@ -105,6 +105,18 @@ namespace RO_IX
         {
             get { return BoilerBlowdownMoneyAnnual(BoilerBlowdownMoneyIX); }
         }
+
+        // Витрата коштів на покриття річних витрат електроенергії для осмосу
+        public float ReportElectricityMoneyAnnualRO
+        {
+            get { return ReportElectricityMoneyAnnual(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? Proj.OptionsPricesData[1].UF : 0) + ((Proj.OptionsROROOn) ? Proj.OptionsPricesData[1].RO : 0) + ((Proj.OptionsROIXOn) ? Proj.OptionsPricesData[1].IX2 : 0), Proj.OptionsPricesData[1].Price); }
+        }
+
+        // Витрата коштів на покриття річних витрат електроенергії для іонного обміну
+        public float ReportElectricityMoneyAnnualIX
+        {
+            get { return ReportElectricityMoneyAnnual(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[1].UF : 0) + ((Proj.OptionsIXIX1On) ? Proj.OptionsPricesData[1].IX1 : 0) + ((Proj.OptionsIXIX2On) ? Proj.OptionsPricesData[1].IX2 : 0), Proj.OptionsPricesData[1].Price); }
+        }
         #endregion
 
         #region Розрахунокові функції
@@ -149,6 +161,12 @@ namespace RO_IX
         float BoilerBlowdownMoneyAnnual(float BoilerBlowdownMoney)
         {
             return (Proj.BoilerAnnnualLoad / 100) * 365 * 24 * BoilerBlowdownMoney;
+        }
+
+        // Розрахунок річної витрати електроенергії на водопідготовку
+        float ReportElectricityMoneyAnnual(float WaterProductivity, float ElectricityQuantity, decimal ElectricityPrice)
+        {
+            return WaterProductivity * ElectricityQuantity * (float) ElectricityPrice * 365 * 24 * (Proj.BoilerAnnnualLoad/100) * (float) Proj.ProjectCurRate;
         }
         #endregion
 

@@ -228,6 +228,8 @@ namespace RO_IX
             ReportTemplate.Set("OptionsIXRawProductivity", Proj.OptionsIXRawProductivity.ToString("F"));
             ReportTemplate.Set("OptionsROIXProductivity", Proj.OptionsROIXProductivity.ToString("F"));
             ReportTemplate.Set("OptionsIXIX2Productivity", Proj.OptionsIXIX2Productivity.ToString("F"));
+            ReportTemplate.Set("ReportElectricityMoneyAnnualRO", Calc.ReportElectricityMoneyAnnualRO.ToString("### ### ###"));
+            ReportTemplate.Set("ReportElectricityMoneyAnnualIX", Calc.ReportElectricityMoneyAnnualIX.ToString("### ### ###"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
