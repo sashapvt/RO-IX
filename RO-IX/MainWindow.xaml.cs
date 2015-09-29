@@ -240,6 +240,7 @@ namespace RO_IX
             ReportTemplate.Set("ReportHClMoneyAnnualIX", Calc.ReportHClMoneyAnnualIX.ToString("N0"));
             ReportTemplate.Set("ReportNaOHMoneyAnnualRO", Calc.ReportNaOHMoneyAnnualRO.ToString("N0"));
             ReportTemplate.Set("ReportNaOHMoneyAnnualIX", Calc.ReportNaOHMoneyAnnualIX.ToString("N0"));
+            ReportTemplate.Set("ReportMembranesROMoneyAnnualRO", Calc.ReportMembranesROMoneyAnnualRO.ToString("N0"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
