@@ -183,6 +183,18 @@ namespace RO_IX
         {
             get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity, ((Proj.OptionsROROOn) ? Proj.OptionsPricesData[8].RO : 0), Proj.OptionsPricesData[8].Price); }
         }
+
+        // Витрата коштів на покриття заміни УФ мембран для осмосу
+        public float ReportMembranesUFMoneyAnnualRO
+        {
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity / 4, ((Proj.OptionsROUFOn) ? Proj.OptionsPricesData[9].UF : 0), Proj.OptionsPricesData[9].Price); }
+        }
+
+        // Витрата коштів на покриття заміни УФ мембран для іонного обміну
+        public float ReportMembranesUFMoneyAnnualIX
+        {
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsIXIX2Productivity / 4, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[9].UF : 0), Proj.OptionsPricesData[9].Price); }
+        }
         #endregion
 
         #region Розрахункові функції
@@ -238,8 +250,8 @@ namespace RO_IX
         // Розрахунок річної вартості мембран та катіоніту.
         float ReportMoneyAnnualMaterials(float WaterProductivity, float YearsToReplacement, decimal Price)
         {
-            // Не вірний результат!!!!!!!!!!!!!!!!!!!!
-            return WaterProductivity * (float)Price * 365 * 24 * (Proj.BoilerAnnnualLoad / 100) * (float)Proj.ProjectCurRate / YearsToReplacement;
+            if (YearsToReplacement == 0) return 0;
+            return WaterProductivity * (float)Price * (float)Proj.ProjectCurRate / YearsToReplacement;
         }
         #endregion
 
