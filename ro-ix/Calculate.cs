@@ -195,6 +195,18 @@ namespace RO_IX
         {
             get { return ReportMoneyAnnualMaterials(Proj.OptionsIXIX2Productivity / 4, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[9].UF : 0), Proj.OptionsPricesData[9].Price); }
         }
+
+        // Витрата коштів на покриття заміни катіоніту для осмосу
+        public float ReportResineUFMoneyAnnualRO
+        {
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity * 45, ((Proj.OptionsROIXOn) ? Proj.OptionsPricesData[10].IX2 : 0), Proj.OptionsPricesData[10].Price); }
+        }
+
+        // Витрата коштів на покриття заміни катіоніту для іонного обміну
+        public float ReportResineUFMoneyAnnualIX
+        {
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsIXIX2Productivity * (((Proj.OptionsIXIX1On) ? 70 : 0) + ((Proj.OptionsIXIX2On) ? 45 : 0)), ((Proj.OptionsIXIX1On || Proj.OptionsIXIX2On) ? Proj.OptionsPricesData[10].IX2 : 0), Proj.OptionsPricesData[10].Price); }
+        }
         #endregion
 
         #region Розрахункові функції
