@@ -207,6 +207,18 @@ namespace RO_IX
         {
             get { return ReportMoneyAnnualMaterials(Proj.OptionsIXIX2Productivity * (((Proj.OptionsIXIX1On) ? 70 : 0) + ((Proj.OptionsIXIX2On) ? 45 : 0)), ((Proj.OptionsIXIX1On || Proj.OptionsIXIX2On) ? Proj.OptionsPricesData[10].IX2 : 0), Proj.OptionsPricesData[10].Price); }
         }
+
+        // Витрата коштів на водопідготовку (сумарно) для осмосу
+        public float ReportTotalMoneyAnnualRO
+        {
+            get { return ReportElectricityMoneyAnnualRO + ReportAntiscalantMoneyAnnualRO + ReportCIPMoneyAnnualRO + ReportSaltMoneyAnnualRO + ReportNaOClMoneyAnnualRO + ReportHClMoneyAnnualRO + ReportNaOHMoneyAnnualRO + ReportMembranesROMoneyAnnualRO + ReportMembranesUFMoneyAnnualRO + ReportResineUFMoneyAnnualRO; }
+        }
+
+        // Витрата коштів на водопідготовку (сумарно) для іонного обміну
+        public float ReportTotalMoneyAnnualIX
+        {
+            get { return ReportElectricityMoneyAnnualIX + ReportSaltMoneyAnnualIX + ReportNaOClMoneyAnnualIX + ReportHClMoneyAnnualIX + ReportNaOHMoneyAnnualIX + ReportMembranesUFMoneyAnnualIX + ReportResineUFMoneyAnnualIX; }
+        }
         #endregion
 
         #region Розрахункові функції

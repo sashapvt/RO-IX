@@ -245,6 +245,8 @@ namespace RO_IX
             ReportTemplate.Set("ReportMembranesUFMoneyAnnualIX", Calc.ReportMembranesUFMoneyAnnualIX.ToString("N0"));
             ReportTemplate.Set("ReportResineUFMoneyAnnualRO", Calc.ReportResineUFMoneyAnnualRO.ToString("N0"));
             ReportTemplate.Set("ReportResineUFMoneyAnnualIX", Calc.ReportResineUFMoneyAnnualIX.ToString("N0"));
+            ReportTemplate.Set("ReportTotalMoneyAnnualRO", Calc.ReportTotalMoneyAnnualRO.ToString("N0"));
+            ReportTemplate.Set("ReportTotalMoneyAnnualIX", Calc.ReportTotalMoneyAnnualIX.ToString("N0"));
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
