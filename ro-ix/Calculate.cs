@@ -209,15 +209,27 @@ namespace RO_IX
         }
 
         // Витрата коштів на водопідготовку (сумарно) для осмосу
-        public float ReportTotalMoneyAnnualRO
+        public float ReportWaterTotalMoneyAnnualRO
         {
             get { return ReportElectricityMoneyAnnualRO + ReportAntiscalantMoneyAnnualRO + ReportCIPMoneyAnnualRO + ReportSaltMoneyAnnualRO + ReportNaOClMoneyAnnualRO + ReportHClMoneyAnnualRO + ReportNaOHMoneyAnnualRO + ReportMembranesROMoneyAnnualRO + ReportMembranesUFMoneyAnnualRO + ReportResineUFMoneyAnnualRO; }
         }
 
         // Витрата коштів на водопідготовку (сумарно) для іонного обміну
-        public float ReportTotalMoneyAnnualIX
+        public float ReportWaterTotalMoneyAnnualIX
         {
             get { return ReportElectricityMoneyAnnualIX + ReportSaltMoneyAnnualIX + ReportNaOClMoneyAnnualIX + ReportHClMoneyAnnualIX + ReportNaOHMoneyAnnualIX + ReportMembranesUFMoneyAnnualIX + ReportResineUFMoneyAnnualIX; }
+        }
+
+        // Різниця в річній витраті коштів на покриття продувок і водопідготовку на користь варіанту з осмосом
+        public float ReportTotalMoneyAnnualDifference
+        {
+            get { return BoilerBlowdownMoneyAnnualIX + ReportWaterTotalMoneyAnnualIX - (BoilerBlowdownMoneyAnnualRO + ReportWaterTotalMoneyAnnualRO); }
+        }
+
+        // Оптимальний варіант з мінімальною річною витратою коштів на покриття продувок і водопідготовку
+        public string ReportOptimalCase
+        {
+            get { return (ReportTotalMoneyAnnualDifference > 0) ? "Осмос + Na-кат" : "2 ст. Na-кат"; }
         }
         #endregion
 
