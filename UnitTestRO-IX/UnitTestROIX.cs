@@ -9,19 +9,19 @@ namespace UnitTestRO_IX
 
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethodCalc()
         {
             // arrange
             Project Proj = new Project();
+            Proj.New();
             Calculate Calc = new Calculate(Proj);
 
             // act
 
 
             // assert
-            //double actual = account.Balance;
-            Assert.AreEqual(1, 1, "OK");
-            //Assert.AreEqual(expected, actual, 0.001, "Account not debited correctly");
+            Assert.AreEqual(0.0204, Calc.BoilerBlowdownRO, 0.00001, "BoilerBlowdownRO - incorrect value.");
+            Assert.AreEqual(0.0997, Calc.BoilerBlowdownIX, 0.00001, "BoilerBlowdownIX - incorrect value.");
         }
     }
 }
