@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RO_IX
 {
     // Клас для розрахунку проекту 
-    class Calculate
+    public class Calculate
     {
         // Конструктор. В параметрі передається посилання на проект
         public Calculate(Project proj)
