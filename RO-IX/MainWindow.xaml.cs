@@ -36,7 +36,7 @@ namespace RO_IX
             Calc = new Calculate(Proj);
             
             // Для відладки
-            TabControlProject.SelectedIndex = 2;
+            // TabControlProject.SelectedIndex = 2;
         }
 
         // Main project class instance
@@ -52,60 +52,7 @@ namespace RO_IX
         private void ProjectNew()
         {
             Proj = new Project();
-            // Ініціалізація нового проекту
-            Proj.ProjectName = "Project1";
-            Proj.ProjectCurRate = 22.00m;
-            Proj.ProjectComment = "no comments";
-            Proj.ProjectDate = DateTime.Now;
-
-            // Параметри котла
-            Proj.BolerPower = 6888;
-            Proj.BoilerProductivity = 10;
-            Proj.BoilerPressure = 10.3f;
-            Proj.BoilerEfficiency = 94.6f;
-            Proj.BoilerAnnnualLoad = 50;
-
-            // Водно-хімічний режим
-            Proj.WaterInConductivity = 544;
-            Proj.WaterInHardness = 4.3f;
-            Proj.WaterInTemperature = 12;
-            Proj.WaterCondensateReturn = 0;
-            Proj.WaterCondensateConductivity = 100;
-            Proj.WaterCondensateTemperature = 60;
-            Proj.WaterROConductivity = 80;
-            Proj.WaterROConductivityMax = 4000;
-            Proj.WaterIXConductivity = 544;
-            Proj.WaterIXConductivityMax = 6000;
-
-            // Налаштування (зворотній осмос)
-            Proj.OptionsROUFPermeate = 93;
-            Proj.OptionsROROPermeate = 75;
-            Proj.OptionsROIXPermeate = 98;
-            Proj.OptionsROROOn = true;
-            Proj.OptionsROIXOn = true;
-            Proj.OptionsROEditOn = true;
-
-            // Налаштування (пом'якшення)
-            Proj.OptionsIXUFPermeate = 93;
-            Proj.OptionsIXIX1Permeate = 95;
-            Proj.OptionsIXIX2Permeate = 98;
-            Proj.OptionsIXIX1On = true;
-            Proj.OptionsIXIX2On = true;
-            Proj.OptionsIXEditOn = true;
-
-            // Вартості ресурсів та витрати реагентів
-            // ProjectPrices.ProjectPricesItem(0, "Назва", ціна, витрата для МУ, витрата для МО, витрата для ФУ1, витрата для УФ2, тільки ціна (так/ні));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F, true));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0.07F, 0.7F, 0.01F, 0.01F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(2, "Сіль таблетована, кг", 0.27m, 0F, 0F, 0.7F, 0.01F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(3, "Антискалант, кг", 5.33m, 0F, 0.008F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(4, "Реаг. хімпром, кг ", 8.40m, 0F, 0.0016F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(5, "NaOCl, 19%, кг", 0.35m, 0.018F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(6, "HCl, 35%, кг", 0.14m, 0.0035F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(7, "NaOH, 45%, кг", 0.35m, 0.013F, 0F, 0F, 0F, false));
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(8, "Мембрана МО, шт", 1142.00m, 0F, 5F, 0F, 0F, false)); // Ціна за одну мембрану XLE-440, період заміни, роки
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(9, "Мембрана УФ, шт", 2600.00m, 5F, 0F, 0F, 0F, false)); // Ціна за одну мембрану SFP2880, період заміни, роки
-            Proj.OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(10, "Катіоніт, л", 3.96m, 0F, 0F, 5F, 7F, false)); // Ціна за один л HCRS/S, період заміни, роки
+            Proj.New();
             DataContext = Proj;
 
             // Робимо активною вкладку "Вихідні дані"
