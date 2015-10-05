@@ -15,6 +15,7 @@ namespace UnitTestRO_IX
             Project Proj = new Project();
             Proj.New();
             Calculate Calc = new Calculate(Proj);
+            Calc.CalculateProductivity();
 
             // Базовий разрахунок (без повернення конденсату)
             // Перевірка розрахунку проекту
@@ -33,6 +34,11 @@ namespace UnitTestRO_IX
             Assert.AreEqual(177.21, Calc.BoilerBlowdownMoneyIX, 0.01, "BoilerBlowdownMoneyIX - incorrect value.");
             Assert.AreEqual(147412, Calc.BoilerBlowdownMoneyAnnualRO, 1, "BoilerBlowdownMoneyAnnualRO - incorrect value.");
             Assert.AreEqual(776171, Calc.BoilerBlowdownMoneyAnnualIX, 1, "BoilerBlowdownMoneyAnnualIX - incorrect value.");
+            // Водопідготовка
+            Assert.AreEqual(13.89, Proj.OptionsRORawProductivity, 0.01, "OptionsRORawProductivity - incorrect value.");
+            Assert.AreEqual(11.93, Proj.OptionsIXRawProductivity, 0.01, "OptionsIXRawProductivity - incorrect value.");
+            Assert.AreEqual(10.21, Proj.OptionsROIXProductivity, 0.01, "OptionsROIXProductivity - incorrect value.");
+            Assert.AreEqual(11.10, Proj.OptionsIXIX2Productivity, 0.01, "OptionsIXIX2Productivity - incorrect value.");
         }
     }
 }
