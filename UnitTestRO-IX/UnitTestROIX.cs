@@ -11,17 +11,28 @@ namespace UnitTestRO_IX
         [TestMethod]
         public void TestMethodCalc()
         {
-            // arrange
+            // Ініціалізація
             Project Proj = new Project();
             Proj.New();
             Calculate Calc = new Calculate(Proj);
 
-            // act
-
-
-            // assert
+            // Базовий разрахунок (без повернення конденсату)
+            // Перевірка розрахунку проекту
+            // Водно-хімічний режим
             Assert.AreEqual(0.0204, Calc.BoilerBlowdownRO, 0.00001, "BoilerBlowdownRO - incorrect value.");
             Assert.AreEqual(0.0997, Calc.BoilerBlowdownIX, 0.00001, "BoilerBlowdownIX - incorrect value.");
+            Assert.AreEqual(0.21, Calc.BoilerBlowdownFlowRO, 0.01, "BoilerBlowdownFlowRO - incorrect value.");
+            Assert.AreEqual(1.1, Calc.BoilerBlowdownFlowIX, 0.01, "BoilerBlowdownFlowIX - incorrect value.");
+            Assert.AreEqual(0.05, Calc.BoilerBlowdownSteamRO, 0.01, "BoilerBlowdownSteamRO - incorrect value.");
+            Assert.AreEqual(0.29, Calc.BoilerBlowdownSteamIX, 0.01, "BoilerBlowdownSteamIX - incorrect value.");
+            Assert.AreEqual(35.58, Calc.BoilerBlowdownPowerRO, 0.01, "BoilerBlowdownPowerRO - incorrect value.");
+            Assert.AreEqual(187.36, Calc.BoilerBlowdownPowerIX, 0.01, "BoilerBlowdownPowerIX - incorrect value.");
+            Assert.AreEqual(3.82, Calc.BoilerBlowdownGasRO, 0.01, "BoilerBlowdownGasRO - incorrect value.");
+            Assert.AreEqual(20.14, Calc.BoilerBlowdownGasIX, 0.01, "BoilerBlowdownGasIX - incorrect value.");
+            Assert.AreEqual(33.66, Calc.BoilerBlowdownMoneyRO, 0.01, "BoilerBlowdownMoneyRO - incorrect value.");
+            Assert.AreEqual(177.21, Calc.BoilerBlowdownMoneyIX, 0.01, "BoilerBlowdownMoneyIX - incorrect value.");
+            Assert.AreEqual(147412, Calc.BoilerBlowdownMoneyAnnualRO, 1, "BoilerBlowdownMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(776171, Calc.BoilerBlowdownMoneyAnnualIX, 1, "BoilerBlowdownMoneyAnnualIX - incorrect value.");
         }
     }
 }
