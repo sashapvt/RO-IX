@@ -58,6 +58,8 @@ namespace UnitTestRO_IX
             Assert.AreEqual(15887, Calc.ReportResineUFMoneyAnnualIX, 1, "ReportResineUFMoneyAnnualIX - incorrect value.");
             Assert.AreEqual(184704, Calc.ReportWaterTotalMoneyAnnualRO, 1, "ReportWaterTotalMoneyAnnualRO - incorrect value.");
             Assert.AreEqual(223068, Calc.ReportWaterTotalMoneyAnnualIX, 1, "ReportWaterTotalMoneyAnnualIX - incorrect value.");
+            Assert.AreEqual("Осмос + Na-кат", Calc.ReportOptimalCase, "ReportOptimalCase - incorrect value.");
+            Assert.AreEqual(667123, Calc.ReportTotalMoneyAnnualDifference, 1, "ReportTotalMoneyAnnualDifference - incorrect value.");
         }
     }
 }
