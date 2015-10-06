@@ -39,6 +39,25 @@ namespace UnitTestRO_IX
             Assert.AreEqual(11.93, Proj.OptionsIXRawProductivity, 0.01, "OptionsIXRawProductivity - incorrect value.");
             Assert.AreEqual(10.21, Proj.OptionsROIXProductivity, 0.01, "OptionsROIXProductivity - incorrect value.");
             Assert.AreEqual(11.10, Proj.OptionsIXIX2Productivity, 0.01, "OptionsIXIX2Productivity - incorrect value.");
+            Assert.AreEqual(69852, Calc.ReportElectricityMoneyAnnualRO, 1, "ReportElectricityMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(2139, Calc.ReportElectricityMoneyAnnualIX, 1, "ReportElectricityMoneyAnnualIX - incorrect value.");
+            Assert.AreEqual(41951, Calc.ReportAntiscalantMoneyAnnualRO, 1, "ReportAntiscalantMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(13223, Calc.ReportCIPMoneyAnnualRO, 1, "ReportCIPMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(2656, Calc.ReportSaltMoneyAnnualRO, 1, "ReportSaltMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(205042, Calc.ReportSaltMoneyAnnualIX, 1, "ReportSaltMoneyAnnualIX - incorrect value.");
+            Assert.AreEqual(0, Calc.ReportNaOClMoneyAnnualRO, 1, "ReportNaOClMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(0, Calc.ReportNaOClMoneyAnnualIX, 1, "ReportNaOClMoneyAnnualIX - incorrect value.");
+            Assert.AreEqual(0, Calc.ReportHClMoneyAnnualRO, 1, "ReportHClMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(0, Calc.ReportHClMoneyAnnualIX, 1, "ReportHClMoneyAnnualIX - incorrect value.");
+            Assert.AreEqual(0, Calc.ReportNaOHMoneyAnnualRO, 1, "ReportNaOHMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(0, Calc.ReportNaOHMoneyAnnualIX, 1, "ReportNaOHMoneyAnnualIX - incorrect value.");
+            Assert.AreEqual(51303, Calc.ReportMembranesROMoneyAnnualRO, 1, "ReportMembranesROMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(0, Calc.ReportMembranesUFMoneyAnnualRO, 1, "ReportMembranesUFMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(0, Calc.ReportMembranesUFMoneyAnnualIX, 1, "ReportMembranesUFMoneyAnnualIX - incorrect value.");
+            Assert.AreEqual(5718, Calc.ReportResineUFMoneyAnnualRO, 1, "ReportResineUFMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(15887, Calc.ReportResineUFMoneyAnnualIX, 1, "ReportResineUFMoneyAnnualIX - incorrect value.");
+            Assert.AreEqual(184704, Calc.ReportWaterTotalMoneyAnnualRO, 1, "ReportWaterTotalMoneyAnnualRO - incorrect value.");
+            Assert.AreEqual(223068, Calc.ReportWaterTotalMoneyAnnualIX, 1, "ReportWaterTotalMoneyAnnualIX - incorrect value.");
         }
     }
 }
