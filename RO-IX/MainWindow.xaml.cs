@@ -31,9 +31,6 @@ namespace RO_IX
 
             // Старт нового проекту
             ProjectNew();
-
-            // Проект для якого буде проводитися розрахунок (поточний проект)
-            Calc = new Calculate(Proj);
             
             // Для відладки
             // TabControlProject.SelectedIndex = 2;
@@ -57,6 +54,9 @@ namespace RO_IX
 
             // Робимо активною вкладку "Вихідні дані"
             TabControlProject.SelectedIndex = 0;
+
+            // Проект для якого буде проводитися розрахунок (поточний проект)
+            Calc = new Calculate(Proj);
         }
 
         // Відкрити проект
@@ -91,6 +91,9 @@ namespace RO_IX
                     TabControlProject.SelectedIndex = 0;
                 }
             }
+
+            // Проект для якого буде проводитися розрахунок (поточний проект)
+            Calc = new Calculate(Proj);
         }
 
         // Зберегти проект
