@@ -18,21 +18,21 @@ namespace Web_app.Controllers
 
         public IActionResult Input()
         {
-            ViewData["Message"] = "Input";
+            ViewData["Title"] = "Вихідні дані";
 
             return View();
         }
 
         public IActionResult Options()
         {
-            ViewData["Message"] = "Options";
+            ViewData["Title"] = "Options";
 
             return View();
         }
 
         public IActionResult Result()
         {
-            ViewData["Message"] = "Result";
+            ViewData["Title"] = "Result";
 
             return View();
         }
