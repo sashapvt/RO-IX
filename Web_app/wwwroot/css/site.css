@@ -48,3 +48,8 @@ legend.form-border {
     padding: 0 10px;
     border-bottom: none;
 }
+
+tr.tr-bold {
+    font-weight: bold;
+}
+
