@@ -1,157 +1,143 @@
 ﻿@model Project
 
-@*<form>
-        <fieldset>
-            <legend>Проект</legend>
-            <div class="form-group">
-                <label asp-for="ProjectName" class="col-md-2 control-label">Назва проекту</label>
-                <div class="col-md-10">
-                    <input asp-for="ProjectName" class="form-control" />
-                    <span asp-validation-for="ProjectName" class="text-danger"></span>
-                </div>
-            </div>
-    </fieldset>
-    </form>*@
-
-
 <h2>@ViewData["Title"]</h2>
 
 <form asp-controller="Project" asp-action="InputDone" method="post" class="form-horizontal" role="form">
-    <h4>Проект</h4>
-    <hr />
-    <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="ProjectName" class="col-md-2 control-label">Назва проекту</label>
-        <div class="col-md-2">
-            <input asp-for="ProjectName" class="form-control" />
-            <span asp-validation-for="ProjectName" class="text-danger"></span>
+    <fieldset class="form-border">
+        <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
+        <legend class="form-border">Проект</legend>
+        <div class="form-group">
+            <label asp-for="ProjectName" class="col-md-2 control-label">Назва проекту</label>
+            <div class="col-md-2">
+                <input asp-for="ProjectName" class="form-control" />
+                <span asp-validation-for="ProjectName" class="text-danger"></span>
+            </div>
+            <label asp-for="ProjectCurRate" class="col-md-2 control-label">Курс грн/$</label>
+            <div class="col-md-1">
+                <input asp-for="ProjectCurRate" class="form-control" />
+                <span asp-validation-for="ProjectCurRate" class="text-danger"></span>
+            </div>
+            <label asp-for="ProjectDate" class="col-md-2 control-label">Дата</label>
+            <div class="col-md-1">
+                <input asp-for="ProjectDate" class="form-control" />
+                <span asp-validation-for="ProjectDate" class="text-danger"></span>
+            </div>
         </div>
-        <label asp-for="ProjectCurRate" class="col-md-2 control-label">Курс грн/$</label>
-        <div class="col-md-1">
-            <input asp-for="ProjectCurRate" class="form-control" />
-            <span asp-validation-for="ProjectCurRate" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="ProjectComment" class="col-md-2 control-label">Коментар</label>
+            <div class="col-md-8">
+                <input asp-for="ProjectComment" class="form-control" />
+                <span asp-validation-for="ProjectComment" class="text-danger"></span>
+            </div>
         </div>
-        <label asp-for="ProjectDate" class="col-md-2 control-label">Дата</label>
-        <div class="col-md-1">
-            <input asp-for="ProjectDate" class="form-control" />
-            <span asp-validation-for="ProjectDate" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="ProjectComment" class="col-md-2 control-label">Коментар</label>
-        <div class="col-md-4">
-            <input asp-for="ProjectComment" class="form-control" />
-            <span asp-validation-for="ProjectComment" class="text-danger"></span>
-        </div>
-    </div>
+    </fieldset>
 
-    <h4>Котел</h4>
-    <hr />
-    <div class="form-group">
-        <label asp-for="BoilerName" class="col-md-2 control-label">Марка котла</label>
-        <div class="col-md-2">
-            <input asp-for="BoilerName" class="form-control" />
-            <span asp-validation-for="BoilerName" class="text-danger"></span>
+    <fieldset class="form-border">
+        <legend class="form-border">Котел</legend>
+        <div class="form-group">
+            <label asp-for="BoilerName" class="col-md-2 control-label">Марка котла</label>
+            <div class="col-md-2">
+                <input asp-for="BoilerName" class="form-control" />
+                <span asp-validation-for="BoilerName" class="text-danger"></span>
+            </div>
+            <label asp-for="BoilerProductivity" class="col-md-3 control-label">Паропродуктивність, т/год</label>
+            <div class="col-md-1">
+                <input asp-for="BoilerProductivity" class="form-control" />
+                <span asp-validation-for="BoilerProductivity" class="text-danger"></span>
+            </div>
+            <label asp-for="BoilerEfficiency" class="col-md-1 control-label">ККД, %</label>
+            <div class="col-md-1">
+                <input asp-for="BoilerEfficiency" class="form-control" />
+                <span asp-validation-for="BoilerEfficiency" class="text-danger"></span>
+            </div>
         </div>
-        <label asp-for="BoilerProductivity" class="col-md-3 control-label">Паропродуктивність, т/год</label>
-        <div class="col-md-1">
-            <input asp-for="BoilerProductivity" class="form-control" />
-            <span asp-validation-for="BoilerProductivity" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="BoilerPressure" class="col-md-2 control-label">Робочий тиск, атм</label>
+            <div class="col-md-1">
+                <input asp-for="BoilerPressure" class="form-control" />
+                <span asp-validation-for="BoilerPressure" class="text-danger"></span>
+            </div>
+            <label asp-for="BolerPower" class="col-md-3 control-label">Теплова потужність, кВт</label>
+            <div class="col-md-1">
+                <input asp-for="BolerPower" class="form-control" />
+                <span asp-validation-for="BolerPower" class="text-danger"></span>
+            </div>
+            <label asp-for="BoilerAnnnualLoad" class="col-md-2 control-label">Річне завантаження, %</label>
+            <div class="col-md-1">
+                <input asp-for="BoilerAnnnualLoad" class="form-control" />
+                <span asp-validation-for="BoilerAnnnualLoad" class="text-danger"></span>
+            </div>
         </div>
-        <label asp-for="BoilerEfficiency" class="col-md-1 control-label">ККД, %</label>
-        <div class="col-md-1">
-            <input asp-for="BoilerEfficiency" class="form-control" />
-            <span asp-validation-for="BoilerEfficiency" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="BoilerPressure" class="col-md-2 control-label">Робочий тиск, атм</label>
-        <div class="col-md-1">
-            <input asp-for="BoilerPressure" class="form-control" />
-            <span asp-validation-for="BoilerPressure" class="text-danger"></span>
-        </div>
-        <label asp-for="BolerPower" class="col-md-3 control-label">Теплова потужність, кВт</label>
-        <div class="col-md-1">
-            <input asp-for="BolerPower" class="form-control" />
-            <span asp-validation-for="BolerPower" class="text-danger"></span>
-        </div>
-        <label asp-for="BoilerAnnnualLoad" class="col-md-2 control-label">Річне завантаження, %</label>
-        <div class="col-md-1">
-            <input asp-for="BoilerAnnnualLoad" class="form-control" />
-            <span asp-validation-for="BoilerAnnnualLoad" class="text-danger"></span>
-        </div>
-    </div>
+    </fieldset>
 
-    <h4>Водно-хімічний режим</h4>
-    <h5>Вихідна вода</h5>
-    <hr />
-    <div class="form-group">
-        <label asp-for="WaterInConductivity" class="col-md-3 control-label">Електропровідність, мкСм/см</label>
-        <div class="col-md-1">
-            <input asp-for="WaterInConductivity" class="form-control" />
-            <span asp-validation-for="WaterInConductivity" class="text-danger"></span>
+    <fieldset class="form-border">
+        <legend class="form-border">Водно-хімічний режим</legend>
+        <h4>Вихідна вода</h4>
+        <div class="form-group">
+            <label asp-for="WaterInConductivity" class="col-md-3 control-label">Електропровідність, мкСм/см</label>
+            <div class="col-md-1">
+                <input asp-for="WaterInConductivity" class="form-control" />
+                <span asp-validation-for="WaterInConductivity" class="text-danger"></span>
+            </div>
+            <label asp-for="WaterInHardness" class="col-md-2 control-label">Жорсткість, мг-екв/л</label>
+            <div class="col-md-1">
+                <input asp-for="WaterInHardness" class="form-control" />
+                <span asp-validation-for="WaterInHardness" class="text-danger"></span>
+            </div>
+            <label asp-for="WaterInTemperature" class="col-md-2 control-label">Температура, С</label>
+            <div class="col-md-1">
+                <input asp-for="WaterInTemperature" class="form-control" />
+                <span asp-validation-for="WaterInTemperature" class="text-danger"></span>
+            </div>
         </div>
-        <label asp-for="WaterInHardness" class="col-md-2 control-label">Жорсткість, мг-екв/л</label>
-        <div class="col-md-1">
-            <input asp-for="WaterInHardness" class="form-control" />
-            <span asp-validation-for="WaterInHardness" class="text-danger"></span>
+        <h4>Конденсат</h4>
+        <div class="form-group">
+            <label asp-for="WaterCondensateReturn" class="col-md-2 control-label">Відсоток повернення</label>
+            <div class="col-md-1">
+                <input asp-for="WaterCondensateReturn" class="form-control" />
+                <span asp-validation-for="WaterCondensateReturn" class="text-danger"></span>
+            </div>
+            <label asp-for="WaterCondensateConductivity" class="col-md-3 control-label">Електропровідність, мкСм/см</label>
+            <div class="col-md-1">
+                <input asp-for="WaterCondensateConductivity" class="form-control" />
+                <span asp-validation-for="WaterCondensateConductivity" class="text-danger"></span>
+            </div>
+            <label asp-for="WaterCondensateTemperature" class="col-md-2 control-label">Температура, С</label>
+            <div class="col-md-1">
+                <input asp-for="WaterCondensateTemperature" class="form-control" />
+                <span asp-validation-for="WaterCondensateTemperature" class="text-danger"></span>
+            </div>
         </div>
-        <label asp-for="WaterInTemperature" class="col-md-2 control-label">Температура, С</label>
-        <div class="col-md-1">
-            <input asp-for="WaterInTemperature" class="form-control" />
-            <span asp-validation-for="WaterInTemperature" class="text-danger"></span>
+        <h4>Підготовлена вода (демінералізована, електропровідність < 30 мкСм/см)</h4>
+        <div class="form-group">
+            <label asp-for="WaterROConductivity" class="col-md-3 control-label">Електропровідність, мкСм/см</label>
+            <div class="col-md-1">
+                <input asp-for="WaterROConductivity" class="form-control" />
+                <span asp-validation-for="WaterROConductivity" class="text-danger"></span>
+            </div>
+            <label asp-for="WaterROConductivityMax" class="col-md-4 control-label">Макс. електропровідність котлової води, мкСм/см</label>
+            <div class="col-md-1">
+                <input asp-for="WaterROConductivityMax" class="form-control" />
+                <span asp-validation-for="WaterROConductivityMax" class="text-danger"></span>
+            </div>
         </div>
-    </div>
-    <h5>Конденсат</h5>
-    <hr />
-    <div class="form-group">
-        <label asp-for="WaterCondensateReturn" class="col-md-2 control-label">Відсоток повернення</label>
-        <div class="col-md-1">
-            <input asp-for="WaterCondensateReturn" class="form-control" />
-            <span asp-validation-for="WaterCondensateReturn" class="text-danger"></span>
+        <h4>Підготовлена вода (пом'якшена, електропровідність > 30 мкСм/см)</h4>
+        <div class="form-group">
+            <label asp-for="WaterIXConductivity" class="col-md-3 control-label">Електропровідність, мкСм/см</label>
+            <div class="col-md-1">
+                <input asp-for="WaterIXConductivity" class="form-control" />
+                <span asp-validation-for="WaterIXConductivity" class="text-danger"></span>
+            </div>
+            <label asp-for="WaterIXConductivityMax" class="col-md-4 control-label">Макс. електропровідність котлової води, мкСм/см</label>
+            <div class="col-md-1">
+                <input asp-for="WaterIXConductivityMax" class="form-control" />
+                <span asp-validation-for="WaterIXConductivityMax" class="text-danger"></span>
+            </div>
         </div>
-        <label asp-for="WaterCondensateConductivity" class="col-md-3 control-label">Електропровідність, мкСм/см</label>
-        <div class="col-md-1">
-            <input asp-for="WaterCondensateConductivity" class="form-control" />
-            <span asp-validation-for="WaterCondensateConductivity" class="text-danger"></span>
-        </div>
-        <label asp-for="WaterCondensateTemperature" class="col-md-2 control-label">Температура, С</label>
-        <div class="col-md-1">
-            <input asp-for="WaterCondensateTemperature" class="form-control" />
-            <span asp-validation-for="WaterCondensateTemperature" class="text-danger"></span>
-        </div>
-    </div>
-    <h5>Підготовлена вода (демінералізована, електропровідність < 30 мкСм/см)</h5>
-    <hr />
-    <div class="form-group">
-        <label asp-for="WaterROConductivity" class="col-md-3 control-label">Електропровідність, мкСм/см</label>
-        <div class="col-md-1">
-            <input asp-for="WaterROConductivity" class="form-control" />
-            <span asp-validation-for="WaterROConductivity" class="text-danger"></span>
-        </div>
-        <label asp-for="WaterROConductivityMax" class="col-md-4 control-label">Макс. електропровідність котлової води, мкСм/см</label>
-        <div class="col-md-1">
-            <input asp-for="WaterROConductivityMax" class="form-control" />
-            <span asp-validation-for="WaterROConductivityMax" class="text-danger"></span>
-        </div>
-    </div>
-    <h5>Підготовлена вода (пом'якшена, електропровідність > 30 мкСм/см)</h5>
-    <hr />
-    <div class="form-group">
-        <label asp-for="WaterIXConductivity" class="col-md-3 control-label">Електропровідність, мкСм/см</label>
-        <div class="col-md-1">
-            <input asp-for="WaterIXConductivity" class="form-control" />
-            <span asp-validation-for="WaterIXConductivity" class="text-danger"></span>
-        </div>
-        <label asp-for="WaterIXConductivityMax" class="col-md-4 control-label">Макс. електропровідність котлової води, мкСм/см</label>
-        <div class="col-md-1">
-            <input asp-for="WaterIXConductivityMax" class="form-control" />
-            <span asp-validation-for="WaterIXConductivityMax" class="text-danger"></span>
-        </div>
-    </div>
+    </fieldset>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-10">
             <button type="submit" class="btn btn-default">Зберегти</button>
         </div>
     </div>

@@ -25,14 +25,14 @@ namespace Web_app.Controllers
 
         public IActionResult Options()
         {
-            ViewData["Title"] = "Options";
+            ViewData["Title"] = "Налаштування";
 
             return View();
         }
 
         public IActionResult Result()
         {
-            ViewData["Title"] = "Result";
+            ViewData["Title"] = "Розрахунок";
 
             return View();
         }
