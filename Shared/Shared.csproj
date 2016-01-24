@@ -45,8 +45,15 @@
   <ItemGroup>
     <Compile Include="Calculate.cs" />
     <Compile Include="Project.cs" />
+    <Compile Include="ProjectHelper.cs" />
     <Compile Include="ProjectPrices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Template\Template.csproj">
+      <Project>{d3b0c598-03af-414f-aa51-4885f2a8cc77}</Project>
+      <Name>Template</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

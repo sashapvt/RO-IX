@@ -140,10 +140,6 @@
       <Project>{bd6679a0-5849-4688-b6da-18979a80aec7}</Project>
       <Name>Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Template\Template.csproj">
-      <Project>{d3b0c598-03af-414f-aa51-4885f2a8cc77}</Project>
-      <Name>Template</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReportTemplate.html">
