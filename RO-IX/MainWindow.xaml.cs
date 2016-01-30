@@ -31,9 +31,9 @@ namespace RO_IX
             // Ініціалізація допоміжного класу для роботи з проектом
             PH = new ProjectHelper();
             // Старт нового проекту
-            PH.ProjectNew();
             PH.ProjectChanged += Event_ProjectChanged;
-            
+            PH.ProjectNew();
+             
             // Для відладки
             // TabControlProject.SelectedIndex = 2;
         }

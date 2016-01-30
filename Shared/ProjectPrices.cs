@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RO_IX
 {
-    // TODO: Розробити клас вартості ресурсів та витрат реагентів
+    // Клас вартості ресурсів та витрат реагентів
     public class ProjectPrices
     {
         public List<ProjectPricesItem> Data; // Колекція стовпців таблиці
@@ -20,60 +20,26 @@ namespace RO_IX
         // Клас зберігання рядка данних
         public class ProjectPricesItem
         {
-            int _Id;
-            string _Name;
-            decimal _Price;
-            float _UF, _RO, _IX1, _IX2;
-            bool _IsPriceOnly;
-            public int Id
-            {
-                get { return _Id; }
-                set { _Id = value; }
-            }
-            public string Name
-            {
-                get { return _Name; }
-                set { _Name = value; }
-            }
-            public decimal Price
-            {
-                get { return _Price; }
-                set { _Price = value; }
-            }
-            public float UF
-            {
-                get { return _UF; }
-                set { if (!_IsPriceOnly) _UF = value; }
-            }
-            public float RO
-            {
-                get { return _RO; }
-                set { if (!_IsPriceOnly) _RO = value; }
-            }
-            public float IX1
-            {
-                get { return _IX1; }
-                set { if (!_IsPriceOnly) _IX1 = value; }
-            }
-            public float IX2
-            {
-                get { return _IX2; }
-                set { if (!_IsPriceOnly) _IX2 = value; }
-            }
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public decimal Price { get; set; }
+            public float UF { get; set; }
+            public float RO { get; set; }
+            public float IX1 { get; set; }
+            public float IX2 { get; set; }
 
             // Конструктор без параметрів для можливості серіалізації цього класу
             public ProjectPricesItem() { }
 
-            public ProjectPricesItem(int __Id, string __Name, decimal __Price, float __UF, float __RO, float __IX1, float __IX2, bool __IsPriceOnly)
+            public ProjectPricesItem(int __Id, string __Name, decimal __Price, float __UF, float __RO, float __IX1, float __IX2)
             {
-                _Id = __Id;
-                _Name = __Name;
-                _Price = __Price;
-                _UF = __UF;
-                _RO = __RO;
-                _IX1 = __IX1;
-                _IX2 = __IX2;
-                _IsPriceOnly = __IsPriceOnly;
+                Id = __Id;
+                Name = __Name;
+                Price = __Price;
+                UF = __UF;
+                RO = __RO;
+                IX1 = __IX1;
+                IX2 = __IX2;
             }
         }
     }
