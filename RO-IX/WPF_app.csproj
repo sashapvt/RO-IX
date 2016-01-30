@@ -142,11 +142,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReportTemplate.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\IconNew.png" />
   </ItemGroup>
   <ItemGroup>

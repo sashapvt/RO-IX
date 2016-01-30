@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
-using TemplateEngine;
 
 namespace RO_IX
 {
@@ -102,84 +101,85 @@ namespace RO_IX
         public string ProjectCalculate()
         {
             // Налаштування файлів
-            string TemplateFileName = Directory.GetCurrentDirectory() + "\\ReportTemplate.html";
+            string TemplateFileName = Directory.GetCurrentDirectory() + "\\ReportTemplate.chhtml";
             string ReportFileName = Directory.GetCurrentDirectory() + "\\Report.html";
+            LiteRazorReport LRR;
 
             // Проводимо розрахунок продуктивності систем очистки
             CalculateProductivity();
 
             // Заповнення полів шаблону
-            Template ReportTemplate = new Template(TemplateFileName, false);
+            LRR = new LiteRazorReport(File.ReadAllText(TemplateFileName));
+            LRR.Vars.Add("w", "World");
             // Вихідні дані
-            ReportTemplate.Set("ProjectName", Proj.ProjectName);
-            ReportTemplate.Set("ProjectDate", Proj.ProjectDate.ToShortDateString());
-            ReportTemplate.Set("ProjectComment", Proj.ProjectComment);
-            ReportTemplate.Set("BoilerName", Proj.BoilerName);
-            ReportTemplate.Set("BolerPower", Proj.BolerPower.ToString());
-            ReportTemplate.Set("BoilerProductivity", Proj.BoilerProductivity.ToString());
-            ReportTemplate.Set("BoilerPressure", Proj.BoilerPressure.ToString());
-            ReportTemplate.Set("BoilerEfficiency", Proj.BoilerEfficiency.ToString());
-            ReportTemplate.Set("WaterInConductivity", Proj.WaterInConductivity.ToString());
-            ReportTemplate.Set("WaterInHardness", Proj.WaterInHardness.ToString());
-            ReportTemplate.Set("WaterInTemperature", Proj.WaterInTemperature.ToString());
-            ReportTemplate.Set("WaterCondensateReturn", Proj.WaterCondensateReturn.ToString());
-            ReportTemplate.Set("WaterCondensateConductivity", Proj.WaterCondensateConductivity.ToString());
-            ReportTemplate.Set("WaterCondensateTemperature", Proj.WaterCondensateTemperature.ToString());
-            ReportTemplate.Set("WaterROConductivity", Proj.WaterROConductivity.ToString());
-            ReportTemplate.Set("WaterROConductivityMax", Proj.WaterROConductivityMax.ToString());
-            ReportTemplate.Set("WaterIXConductivity", Proj.WaterIXConductivity.ToString());
-            ReportTemplate.Set("WaterIXConductivityMax", Proj.WaterIXConductivityMax.ToString());
+            LRR.Vars.Add("ProjectName", Proj.ProjectName);
+            LRR.Vars.Add("ProjectDate", Proj.ProjectDate.ToShortDateString());
+            LRR.Vars.Add("ProjectComment", Proj.ProjectComment);
+            LRR.Vars.Add("BoilerName", Proj.BoilerName);
+            LRR.Vars.Add("BolerPower", Proj.BolerPower.ToString());
+            LRR.Vars.Add("BoilerProductivity", Proj.BoilerProductivity.ToString());
+            LRR.Vars.Add("BoilerPressure", Proj.BoilerPressure.ToString());
+            LRR.Vars.Add("BoilerEfficiency", Proj.BoilerEfficiency.ToString());
+            LRR.Vars.Add("WaterInConductivity", Proj.WaterInConductivity.ToString());
+            LRR.Vars.Add("WaterInHardness", Proj.WaterInHardness.ToString());
+            LRR.Vars.Add("WaterInTemperature", Proj.WaterInTemperature.ToString());
+            LRR.Vars.Add("WaterCondensateReturn", Proj.WaterCondensateReturn.ToString());
+            LRR.Vars.Add("WaterCondensateConductivity", Proj.WaterCondensateConductivity.ToString());
+            LRR.Vars.Add("WaterCondensateTemperature", Proj.WaterCondensateTemperature.ToString());
+            LRR.Vars.Add("WaterROConductivity", Proj.WaterROConductivity.ToString());
+            LRR.Vars.Add("WaterROConductivityMax", Proj.WaterROConductivityMax.ToString());
+            LRR.Vars.Add("WaterIXConductivity", Proj.WaterIXConductivity.ToString());
+            LRR.Vars.Add("WaterIXConductivityMax", Proj.WaterIXConductivityMax.ToString());
             // Результати розрахунку: водно-хімічний режим
-            ReportTemplate.Set("BoilerBlowdownRO", Calc.BoilerBlowdownRO.ToString("P"));
-            ReportTemplate.Set("BoilerBlowdownIX", Calc.BoilerBlowdownIX.ToString("P"));
-            ReportTemplate.Set("BoilerBlowdownFlowRO", Calc.BoilerBlowdownFlowRO.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownFlowIX", Calc.BoilerBlowdownFlowIX.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownSteamRO", Calc.BoilerBlowdownSteamRO.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownSteamIX", Calc.BoilerBlowdownSteamIX.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownPowerRO", Calc.BoilerBlowdownPowerRO.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownPowerIX", Calc.BoilerBlowdownPowerIX.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownGasRO", Calc.BoilerBlowdownGasRO.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownGasIX", Calc.BoilerBlowdownGasIX.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownMoneyRO", Calc.BoilerBlowdownMoneyRO.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownMoneyIX", Calc.BoilerBlowdownMoneyIX.ToString("F"));
-            ReportTemplate.Set("BoilerBlowdownMoneyAnnualRO", Calc.BoilerBlowdownMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("BoilerBlowdownMoneyAnnualIX", Calc.BoilerBlowdownMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("BoilerBlowdownRO", Calc.BoilerBlowdownRO.ToString("P"));
+            LRR.Vars.Add("BoilerBlowdownIX", Calc.BoilerBlowdownIX.ToString("P"));
+            LRR.Vars.Add("BoilerBlowdownFlowRO", Calc.BoilerBlowdownFlowRO.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownFlowIX", Calc.BoilerBlowdownFlowIX.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownSteamRO", Calc.BoilerBlowdownSteamRO.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownSteamIX", Calc.BoilerBlowdownSteamIX.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownPowerRO", Calc.BoilerBlowdownPowerRO.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownPowerIX", Calc.BoilerBlowdownPowerIX.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownGasRO", Calc.BoilerBlowdownGasRO.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownGasIX", Calc.BoilerBlowdownGasIX.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownMoneyRO", Calc.BoilerBlowdownMoneyRO.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownMoneyIX", Calc.BoilerBlowdownMoneyIX.ToString("F"));
+            LRR.Vars.Add("BoilerBlowdownMoneyAnnualRO", Calc.BoilerBlowdownMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("BoilerBlowdownMoneyAnnualIX", Calc.BoilerBlowdownMoneyAnnualIX.ToString("N0"));
             // Результати розрахунку: водопідготовка
-            ReportTemplate.Set("OptionsRORawProductivity", Proj.OptionsRORawProductivity.ToString("F"));
-            ReportTemplate.Set("OptionsIXRawProductivity", Proj.OptionsIXRawProductivity.ToString("F"));
-            ReportTemplate.Set("OptionsROIXProductivity", Proj.OptionsROIXProductivity.ToString("F"));
-            ReportTemplate.Set("OptionsIXIX2Productivity", Proj.OptionsIXIX2Productivity.ToString("F"));
-            ReportTemplate.Set("ReportElectricityMoneyAnnualRO", Calc.ReportElectricityMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportElectricityMoneyAnnualIX", Calc.ReportElectricityMoneyAnnualIX.ToString("N0"));
-            ReportTemplate.Set("ReportAntiscalantMoneyAnnualRO", Calc.ReportAntiscalantMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportCIPMoneyAnnualRO", Calc.ReportCIPMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportSaltMoneyAnnualRO", Calc.ReportSaltMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportSaltMoneyAnnualIX", Calc.ReportSaltMoneyAnnualIX.ToString("N0"));
-            ReportTemplate.Set("ReportNaOClMoneyAnnualRO", Calc.ReportNaOClMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportNaOClMoneyAnnualIX", Calc.ReportNaOClMoneyAnnualIX.ToString("N0"));
-            ReportTemplate.Set("ReportHClMoneyAnnualRO", Calc.ReportHClMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportHClMoneyAnnualIX", Calc.ReportHClMoneyAnnualIX.ToString("N0"));
-            ReportTemplate.Set("ReportNaOHMoneyAnnualRO", Calc.ReportNaOHMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportNaOHMoneyAnnualIX", Calc.ReportNaOHMoneyAnnualIX.ToString("N0"));
-            ReportTemplate.Set("ReportMembranesROMoneyAnnualRO", Calc.ReportMembranesROMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportMembranesUFMoneyAnnualRO", Calc.ReportMembranesUFMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportMembranesUFMoneyAnnualIX", Calc.ReportMembranesUFMoneyAnnualIX.ToString("N0"));
-            ReportTemplate.Set("ReportResineUFMoneyAnnualRO", Calc.ReportResineUFMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportResineUFMoneyAnnualIX", Calc.ReportResineUFMoneyAnnualIX.ToString("N0"));
-            ReportTemplate.Set("ReportWaterTotalMoneyAnnualRO", Calc.ReportWaterTotalMoneyAnnualRO.ToString("N0"));
-            ReportTemplate.Set("ReportWaterTotalMoneyAnnualIX", Calc.ReportWaterTotalMoneyAnnualIX.ToString("N0"));
-            ReportTemplate.Set("ReportTotalMoneyAnnualDifference", Math.Abs(Calc.ReportTotalMoneyAnnualDifference).ToString("N0"));
-            ReportTemplate.Set("ReportOptimalCase", Calc.ReportOptimalCase);
+            LRR.Vars.Add("OptionsRORawProductivity", Proj.OptionsRORawProductivity.ToString("F"));
+            LRR.Vars.Add("OptionsIXRawProductivity", Proj.OptionsIXRawProductivity.ToString("F"));
+            LRR.Vars.Add("OptionsROIXProductivity", Proj.OptionsROIXProductivity.ToString("F"));
+            LRR.Vars.Add("OptionsIXIX2Productivity", Proj.OptionsIXIX2Productivity.ToString("F"));
+            LRR.Vars.Add("ReportElectricityMoneyAnnualRO", Calc.ReportElectricityMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportElectricityMoneyAnnualIX", Calc.ReportElectricityMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("ReportAntiscalantMoneyAnnualRO", Calc.ReportAntiscalantMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportCIPMoneyAnnualRO", Calc.ReportCIPMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportSaltMoneyAnnualRO", Calc.ReportSaltMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportSaltMoneyAnnualIX", Calc.ReportSaltMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("ReportNaOClMoneyAnnualRO", Calc.ReportNaOClMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportNaOClMoneyAnnualIX", Calc.ReportNaOClMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("ReportHClMoneyAnnualRO", Calc.ReportHClMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportHClMoneyAnnualIX", Calc.ReportHClMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("ReportNaOHMoneyAnnualRO", Calc.ReportNaOHMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportNaOHMoneyAnnualIX", Calc.ReportNaOHMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("ReportMembranesROMoneyAnnualRO", Calc.ReportMembranesROMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportMembranesUFMoneyAnnualRO", Calc.ReportMembranesUFMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportMembranesUFMoneyAnnualIX", Calc.ReportMembranesUFMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("ReportResineUFMoneyAnnualRO", Calc.ReportResineUFMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportResineUFMoneyAnnualIX", Calc.ReportResineUFMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("ReportWaterTotalMoneyAnnualRO", Calc.ReportWaterTotalMoneyAnnualRO.ToString("N0"));
+            LRR.Vars.Add("ReportWaterTotalMoneyAnnualIX", Calc.ReportWaterTotalMoneyAnnualIX.ToString("N0"));
+            LRR.Vars.Add("ReportTotalMoneyAnnualDifference", Math.Abs(Calc.ReportTotalMoneyAnnualDifference).ToString("N0"));
+            LRR.Vars.Add("ReportOptimalCase", Calc.ReportOptimalCase);
 
             // Запис у результатів розрахунку проекту у файл звіту в форматі HTML
             using (TextWriter ReportWriter = new StreamWriter(ReportFileName))
             {
-                ReportWriter.Write(ReportTemplate.ToString());
+                ReportWriter.Write(LRR.Report());
                 ReportWriter.Close();
             }
 
             // Відображення результатів розрахунку
-
             return ReportFileName;
         }
 

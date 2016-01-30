@@ -35,6 +35,10 @@
             font-size: 12px;
         }
 
+        tr.bold {
+            font-weight: bold;
+        }
+
         div.general {
             margin-left: 20px;
         }
@@ -42,161 +46,161 @@
 </head>
 <body>
     <h1>Вихідні дані</h1>
-    <h2>Проект ({{ ProjectDate }})</h2>
+    <h2>Проект (@ProjectDate)</h2>
     <div class="general">
-        <p>Назва проекту: {{ ProjectName }}
-        <p>Коментар: {{ ProjectComment }}
+        <p>Назва проекту: @ProjectName
+        <p>Коментар: @ProjectComment
     </div>
     <h2>Котел</h2>
     <div class="general">
-        <p>Марка котла: {{ BoilerName }}
-        <p>Паропродуктивність, т/год: {{ BoilerProductivity }}
-        <p>Теплова потужність, кВт: {{ BolerPower }}
-        <p>Робочий тиск, атм: {{ BoilerPressure }}
-        <p>ККД, %: {{ BoilerEfficiency }}
+        <p>Марка котла: @BoilerName
+        <p>Паропродуктивність, т/год: @BoilerProductivity
+        <p>Теплова потужність, кВт: @BolerPower
+        <p>Робочий тиск, атм: @BoilerPressure
+        <p>ККД, %: @BoilerEfficiency
     </div>
     <h2>Водно-хімічний режим</h2>
     <div class="general">
         <h3>Вихідна вода</h3>
-            <p>Електропровідність, мкСм/см: {{ WaterInConductivity }}
-            <p>Жорсткість, мг-екв/л: {{ WaterInHardness }}
-            <p>Температура, С: {{ WaterInTemperature }}
+            <p>Електропровідність, мкСм/см: @WaterInConductivity
+            <p>Жорсткість, мг-екв/л: @WaterInHardness
+            <p>Температура, С: @WaterInTemperature
         <h3>Конденсат</h3>
-            <p>Відсоток повернення, %: {{ WaterCondensateReturn }}
-            <p>Електропровідність, мкСм/см: {{ WaterCondensateConductivity }}
-            <p>Температура, С: {{ WaterCondensateTemperature }}
+            <p>Відсоток повернення, %: @WaterCondensateReturn
+            <p>Електропровідність, мкСм/см: @WaterCondensateConductivity
+            <p>Температура, С: @WaterCondensateTemperature
         <h3>Підготовлена вода (демінералізована, електропровідність < 30 мкСм/см)</h3>
-            <p>Електропровідність, мкСм/см: {{ WaterROConductivity }}
-            <p>Макс. електропровідність котлової води, мкСм/см: {{ WaterROConductivityMax }}
+            <p>Електропровідність, мкСм/см: @WaterROConductivity
+            <p>Макс. електропровідність котлової води, мкСм/см: @WaterROConductivityMax
         <h3>Підготовлена вода (пом'якшена, електропровідність > 30 мкСм/см)</h3>
-            <p>Електропровідність, мкСм/см: {{ WaterIXConductivity }}
-            <p>Макс. електропровідність котлової води, мкСм/см: {{ WaterIXConductivityMax }}
+            <p>Електропровідність, мкСм/см: @WaterIXConductivity
+            <p>Макс. електропровідність котлової води, мкСм/см: @WaterIXConductivityMax
     </div>
     <br />
     <h1>Результати розрахунку</h1>
     <h2>Водно-хімічний режим</h2>
     <div class="general">
         <table border="1" cellspacing="0" width="515">
-            <tr style="font-weight: bold;">
+            <tr class="bold">
                 <td width="70%">Параметр</td>
                 <td width="15%">Осмос + Na-кат</td>
                 <td width="15%">2 ст. Na-кат</td>
             </tr>
             <tr>
                 <td>Процент продувки, %</td>
-                <td>{{ BoilerBlowdownRO }}</td>
-                <td>{{ BoilerBlowdownIX }}</td>
+                <td>@BoilerBlowdownRO</td>
+                <td>@BoilerBlowdownIX</td>
             </tr>
             <tr>
                 <td>Витрата продувочної води, т/год</td>
-                <td>{{ BoilerBlowdownFlowRO }}</td>
-                <td>{{ BoilerBlowdownFlowIX }}</td>
+                <td>@BoilerBlowdownFlowRO</td>
+                <td>@BoilerBlowdownFlowIX</td>
             </tr>
             <tr>
                 <td>Втрати пару за рахунок продувки, т/год</td>
-                <td>{{ BoilerBlowdownSteamRO }}</td>
-                <td>{{ BoilerBlowdownSteamIX }}</td>
+                <td>@BoilerBlowdownSteamRO</td>
+                <td>@BoilerBlowdownSteamIX</td>
             </tr>
             <tr>
                 <td>Втрати потужності за рахунок продувки, кВт/год</td>
-                <td>{{ BoilerBlowdownPowerRO }}</td>
-                <td>{{ BoilerBlowdownPowerIX }}</td>
+                <td>@BoilerBlowdownPowerRO</td>
+                <td>@BoilerBlowdownPowerIX</td>
             </tr>
             <tr>
                 <td>Витрата газу на покриття втрат продувки, м3/год</td>
-                <td>{{ BoilerBlowdownGasRO }}</td>
-                <td>{{ BoilerBlowdownGasIX }}</td>
+                <td>@BoilerBlowdownGasRO</td>
+                <td>@BoilerBlowdownGasIX</td>
             </tr>
             <tr>
                 <td>Вартість газу на покриття витрат продувки, грн/год</td>
-                <td>{{ BoilerBlowdownMoneyRO }}</td>
-                <td>{{ BoilerBlowdownMoneyIX }}</td>
+                <td>@BoilerBlowdownMoneyRO</td>
+                <td>@BoilerBlowdownMoneyIX</td>
             </tr>
-            <tr style="font-weight: bold;">
+            <tr class="bold">
                 <td>Річна вартість газу на покриття витрат продувки, грн/рік</td>
-                <td>{{ BoilerBlowdownMoneyAnnualRO }}</td>
-                <td>{{ BoilerBlowdownMoneyAnnualIX }}</td>
+                <td>@BoilerBlowdownMoneyAnnualRO</td>
+                <td>@BoilerBlowdownMoneyAnnualIX</td>
             </tr>
         </table>
     </div>
     <h2>Водопідготовка</h2>
     <div class="general">
         <table border="1" cellspacing="0" width="515">
-            <tr style="font-weight: bold;">
+            <tr class="bold">
                 <td width="70%">Параметр</td>
                 <td width="15%">Осмос + Na-кат</td>
                 <td width="15%">2 ст. Na-кат</td>
             </tr>
             <tr>
                 <td>Витрата сирої води, м3/год</td>
-                <td>{{ OptionsRORawProductivity }}</td>
-                <td>{{ OptionsIXRawProductivity }}</td>
+                <td>@OptionsRORawProductivity</td>
+                <td>@OptionsIXRawProductivity</td>
             </tr>
             <tr>
                 <td>Витрата живильної води, м3/год</td>
-                <td>{{ OptionsROIXProductivity }}</td>
-                <td>{{ OptionsIXIX2Productivity }}</td>
+                <td>@OptionsROIXProductivity</td>
+                <td>@OptionsIXIX2Productivity</td>
             </tr>
             <tr>
                 <td>Річна вартість електроенергії, грн/рік</td>
-                <td>{{ ReportElectricityMoneyAnnualRO }}</td>
-                <td>{{ ReportElectricityMoneyAnnualIX }}</td>
+                <td>@ReportElectricityMoneyAnnualRO</td>
+                <td>@ReportElectricityMoneyAnnualIX</td>
             </tr>
             <tr>
                 <td>Річна вартість антискаланту, грн/рік</td>
-                <td>{{ ReportAntiscalantMoneyAnnualRO }}</td>
+                <td>@ReportAntiscalantMoneyAnnualRO</td>
                 <td> 0 </td>
             </tr>
             <tr>
                 <td>Річна вартість реагентів на хімпромивку, грн/рік</td>
-                <td>{{ ReportCIPMoneyAnnualRO }}</td>
+                <td>@ReportCIPMoneyAnnualRO</td>
                 <td> 0 </td>
             </tr>
             <tr>
                 <td>Річна вартість солі таблетованої, грн/рік</td>
-                <td>{{ ReportSaltMoneyAnnualRO }}</td>
-                <td>{{ ReportSaltMoneyAnnualIX }}</td>
+                <td>@ReportSaltMoneyAnnualRO</td>
+                <td>@ReportSaltMoneyAnnualIX</td>
             </tr>
             <tr>
                 <td>Річна вартість гіпохлориту натрію, грн/рік</td>
-                <td>{{ ReportNaOClMoneyAnnualRO }}</td>
-                <td>{{ ReportNaOClMoneyAnnualIX }}</td>
+                <td>@ReportNaOClMoneyAnnualRO</td>
+                <td>@ReportNaOClMoneyAnnualIX</td>
             </tr>
             <tr>
                 <td>Річна вартість соляної кислоти, грн/рік</td>
-                <td>{{ ReportHClMoneyAnnualRO }}</td>
-                <td>{{ ReportHClMoneyAnnualIX }}</td>
+                <td>@ReportHClMoneyAnnualRO</td>
+                <td>@ReportHClMoneyAnnualIX</td>
             </tr>
             <tr>
                 <td>Річна вартість їдкого натру, грн/рік</td>
-                <td>{{ ReportNaOHMoneyAnnualRO }}</td>
-                <td>{{ ReportNaOHMoneyAnnualIX }}</td>
+                <td>@ReportNaOHMoneyAnnualRO</td>
+                <td>@ReportNaOHMoneyAnnualIX</td>
             </tr>
             <tr>
                 <td>Річна вартість мембран МО, грн/рік</td>
-                <td>{{ ReportMembranesROMoneyAnnualRO }}</td>
+                <td>@ReportMembranesROMoneyAnnualRO</td>
                 <td> 0 </td>
             </tr>
             <tr>
                 <td>Річна вартість мембран УФ, грн/рік</td>
-                <td>{{ ReportMembranesUFMoneyAnnualRO }}</td>
-                <td>{{ ReportMembranesUFMoneyAnnualIX }}</td>
+                <td>@ReportMembranesUFMoneyAnnualRO</td>
+                <td>@ReportMembranesUFMoneyAnnualIX</td>
             </tr>
             <tr>
                 <td>Річна вартість катіоніту, грн/рік</td>
-                <td>{{ ReportResineUFMoneyAnnualRO }}</td>
-                <td>{{ ReportResineUFMoneyAnnualIX }}</td>
+                <td>@ReportResineUFMoneyAnnualRO</td>
+                <td>@ReportResineUFMoneyAnnualIX</td>
             </tr>
-            <tr style="font-weight: bold;">
+            <tr class="bold">
                 <td>Річні затрати на водопідготовку, грн/рік</td>
-                <td>{{ ReportWaterTotalMoneyAnnualRO }}</td>
-                <td>{{ ReportWaterTotalMoneyAnnualIX }}</td>
+                <td>@ReportWaterTotalMoneyAnnualRO</td>
+                <td>@ReportWaterTotalMoneyAnnualIX</td>
             </tr>
         </table>
     </div>
     <h2>Висновки</h2>
     <div class="general">
-        <p>Річна економія коштів на користь варіанту "{{ ReportOptimalCase }}" складе {{ ReportTotalMoneyAnnualDifference }} грн/рік.
+        <p>Річна економія коштів на користь варіанту "@ReportOptimalCase" складе @ReportTotalMoneyAnnualDifference грн/рік.
     </div>
 </body>
 </html>
