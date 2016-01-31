@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows.Data;
-using System.Xml.Serialization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace RO_IX
 {
-    public class Project : INotifyPropertyChanged
+    public abstract class ProjectBase
     {
         // Public consructor
-        public Project()
-        {
+        public ProjectBase()
+        {            
             // Initialisation of OptionsPrices
-            OptionsPrices = new ProjectPrices();
-            OptionsPricesData = OptionsPrices.Data;
-            OptionsPricesDataView = CollectionViewSource.GetDefaultView(OptionsPricesData);
+            OptionsPricesData = new List<ProjectPricesItem>();
         }
 
         // Ініціалізація проекту по замовчуванню
@@ -63,23 +61,23 @@ namespace RO_IX
             OptionsIXEditOn = true;
 
             // Вартості ресурсів та витрати реагентів
-            // ProjectPrices.ProjectPricesItem(0, "Назва", ціна, витрата для МУ, витрата для МО, витрата для ФУ1, витрата для УФ2);
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F));
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0.07F, 0.7F, 0.01F, 0.01F));
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(2, "Сіль таблетована, кг", 0.27m, 0F, 0F, 0.7F, 0.01F));
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(3, "Антискалант, кг", 5.33m, 0F, 0.008F, 0F, 0F));
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(4, "Реаг. хімпром, кг ", 8.40m, 0F, 0.0016F, 0F, 0F));
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(5, "NaOCl, 19%, кг", 0.35m, 0.018F, 0F, 0F, 0F));
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(6, "HCl, 35%, кг", 0.14m, 0.0035F, 0F, 0F, 0F));
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(7, "NaOH, 45%, кг", 0.35m, 0.013F, 0F, 0F, 0F));
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(8, "Мембрана МО, шт", 1142.00m, 0F, 5F, 0F, 0F)); // Ціна за одну мембрану XLE-440, період заміни, роки
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(9, "Мембрана УФ, шт", 2600.00m, 5F, 0F, 0F, 0F)); // Ціна за одну мембрану SFP2880, період заміни, роки
-            OptionsPricesData.Add(new ProjectPrices.ProjectPricesItem(10, "Катіоніт, л", 3.96m, 0F, 0F, 5F, 7F)); // Ціна за один л HCRS/S, період заміни, роки
+            // ProjectPricesItem(0, "Назва", ціна, витрата для МУ, витрата для МО, витрата для ФУ1, витрата для УФ2);
+            OptionsPricesData.Add(new ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F));
+            OptionsPricesData.Add(new ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0.07F, 0.7F, 0.01F, 0.01F));
+            OptionsPricesData.Add(new ProjectPricesItem(2, "Сіль таблетована, кг", 0.27m, 0F, 0F, 0.7F, 0.01F));
+            OptionsPricesData.Add(new ProjectPricesItem(3, "Антискалант, кг", 5.33m, 0F, 0.008F, 0F, 0F));
+            OptionsPricesData.Add(new ProjectPricesItem(4, "Реаг. хімпром, кг ", 8.40m, 0F, 0.0016F, 0F, 0F));
+            OptionsPricesData.Add(new ProjectPricesItem(5, "NaOCl, 19%, кг", 0.35m, 0.018F, 0F, 0F, 0F));
+            OptionsPricesData.Add(new ProjectPricesItem(6, "HCl, 35%, кг", 0.14m, 0.0035F, 0F, 0F, 0F));
+            OptionsPricesData.Add(new ProjectPricesItem(7, "NaOH, 45%, кг", 0.35m, 0.013F, 0F, 0F, 0F));
+            OptionsPricesData.Add(new ProjectPricesItem(8, "Мембрана МО, шт", 1142.00m, 0F, 5F, 0F, 0F)); // Ціна за одну мембрану XLE-440, період заміни, роки
+            OptionsPricesData.Add(new ProjectPricesItem(9, "Мембрана УФ, шт", 2600.00m, 5F, 0F, 0F, 0F)); // Ціна за одну мембрану SFP2880, період заміни, роки
+            OptionsPricesData.Add(new ProjectPricesItem(10, "Катіоніт, л", 3.96m, 0F, 0F, 5F, 7F)); // Ціна за один л HCRS/S, період заміни, роки
         }
 
         #region Інформація про проект
         // Інформація про проект
-        public string ProjectName {get; set;}
+        public string ProjectName { get; set; }
         public decimal ProjectCurRate { get; set; }
         public string ProjectComment { get; set; }
         public DateTime ProjectDate { get; set; }
@@ -141,25 +139,7 @@ namespace RO_IX
 
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
-        ProjectPrices OptionsPrices;
-        public List<ProjectPrices.ProjectPricesItem> OptionsPricesData;
-        [XmlIgnoreAttribute]
-        public ICollectionView OptionsPricesDataView { get; private set; }
+        public List<ProjectPricesItem> OptionsPricesData;
         #endregion
-
-        // Declare the event
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // Create the OnPropertyChanged method to raise the event
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-
     }
 }

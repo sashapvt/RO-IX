@@ -10,13 +10,13 @@ namespace RO_IX
     public class Calculate
     {
         // Конструктор. В параметрі передається посилання на проект
-        public Calculate(Project proj)
+        public Calculate(ProjectBase proj)
         {
             this.Proj = proj;
         }
 
         // Проект, для якого проводиться розрахунок
-        Project Proj;
+        ProjectBase Proj;
 
         // Необхідні константи
         const float NaturalGasHeatOfCombustion = 33494.4f; // Питома теплота згоряння природного газу, кДж/кг

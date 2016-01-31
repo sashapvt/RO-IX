@@ -45,9 +45,8 @@
   <ItemGroup>
     <Compile Include="Calculate.cs" />
     <Compile Include="LiteRazorReport.cs" />
-    <Compile Include="Project.cs" />
-    <Compile Include="ProjectHelper.cs" />
-    <Compile Include="ProjectPrices.cs" />
+    <Compile Include="ProjectBase.cs" />
+    <Compile Include="ProjectPricesItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
