@@ -1,0 +1,15 @@
+Web_app:
+1. –озробити модуль керуванн€ проектами користувача Project:
+- View/Project/Create
+- View/Project/Delete
+- View/Project/Details
+- View/Project/Edit
+- View/Project/Index
+- Controllers/ProjectController
+- Models/Project
+2. –озробити модуль роботи з вибраним проектом ROIX:
+- View/Project/Input
+- View/Project/Options
+- View/Project/Result
+- Controllers/ROIX
+- Models/ROIX
