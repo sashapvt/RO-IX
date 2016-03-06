@@ -29,5 +29,8 @@ namespace Web_app.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<ProjectPrice> ProjectPrices { get; set; }
     }
 }

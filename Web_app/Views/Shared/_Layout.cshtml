@@ -17,14 +17,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("RO-IX", "Index", "Project", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                @if (ViewContext.RequestContext.RouteData.Values["controller"].ToString() == "Project" && ViewContext.RequestContext.RouteData.Values["id"] != null)
+                {
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Вихідні дані", "Index", "Project")</li>
+                    <li>@Html.ActionLink("Налаштування", "Index", "Project")</li>
+                    <li>@Html.ActionLink("Розрахунок", "Index", "Project")</li>
                 </ul>
+                }
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -40,5 +43,21 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+        /*
+         * Localized default methods for the jQuery validation plugin.
+         * Locale: RU
+         */
+        jQuery.extend(jQuery.validator.methods, {
+            date: function (value, element) {
+                return this.optional(element) || /^\d\d?\.\d\d?\.\d\d\d?\d?$/.test(value);
+            },
+            number: function (value, element) {
+                return this.optional(element) || /^-?(?:\d+|\d{1,3}(?: \d{3})+)(?:,\d+)?$/.test(value);
+            }
+        });
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,360 @@
+﻿@model Web_app.Models.Project
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectCurRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectCurRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoilerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoilerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BolerPower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BolerPower)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoilerProductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoilerProductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoilerPressure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoilerPressure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoilerEfficiency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoilerEfficiency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoilerAnnnualLoad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoilerAnnnualLoad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterInConductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterInConductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterInHardness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterInHardness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterInTemperature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterInTemperature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterCondensateReturn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterCondensateReturn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterCondensateConductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterCondensateConductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterCondensateTemperature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterCondensateTemperature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterROConductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterROConductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterROConductivityMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterROConductivityMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterIXConductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterIXConductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterIXConductivityMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterIXConductivityMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsRORawProductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsRORawProductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROUFOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROUFOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROUFPermeate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROUFPermeate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROUFProductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROUFProductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROROOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROROOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROROPermeate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROROPermeate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROROProductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROROProductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROIXOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROIXOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROIXPermeate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROIXPermeate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROIXProductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROIXProductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsROEditOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsROEditOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXRawProductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXRawProductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXUFOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXUFOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXUFPermeate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXUFPermeate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXUFProductivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXUFProductivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXIX1On)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXIX1On)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXIX1Permeate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXIX1Permeate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXIX1Productivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXIX1Productivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXIX2On)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXIX2On)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXIX2Permeate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXIX2Permeate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXIX2Productivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXIX2Productivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptionsIXEditOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptionsIXEditOn)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
