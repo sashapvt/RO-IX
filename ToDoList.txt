@@ -1,15 +1,3 @@
 Web_app:
-1. Розробити модуль керування проектами користувача Project:
-- View/Project/Create
-- View/Project/Delete
-- View/Project/Details
-- View/Project/Edit
-- View/Project/Index
-- Controllers/ProjectController
-- Models/Project
-2. Розробити модуль роботи з вибраним проектом ROIX:
-- View/Project/Input
-- View/Project/Options
-- View/Project/Result
-- Controllers/ROIX
-- Models/ROIX
+1. Розробити модуль керування проектами користувача Project
+2. Додати можливість розрахунку проекту хостям, без збереження в базі.

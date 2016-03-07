@@ -1,18 +1,18 @@
 ﻿@model Web_app.Models.Project
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Налаштування";
 }
 
-<h2>Edit</h2>
+<h2>Налаштування</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Project</h4>
+        <h4>Демінералізація методом зворотнього осмосу (електропровідність на виході  < 30 мкСм/см)</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)

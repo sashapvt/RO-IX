@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace RO_IX
 {
@@ -19,7 +20,7 @@ namespace RO_IX
         public void New()
         {
             // Ініціалізація нового проекту
-            ProjectName = "Project1";
+            // ProjectName = "Project1";
             ProjectCurRate = 22.00m;
             ProjectComment = "no comments";
             ProjectDate = DateTime.Now;
@@ -77,33 +78,53 @@ namespace RO_IX
 
         #region Інформація про проект
         // Інформація про проект
+        [DisplayName("Назва проекту")]
         public string ProjectName { get; set; }
+        [DisplayName("Курс, грн/$")]
         public decimal ProjectCurRate { get; set; }
+        [DisplayName("Коментар")]
         public string ProjectComment { get; set; }
+        [DisplayName("Дата")]
         public DateTime ProjectDate { get; set; }
         #endregion
 
         #region Котел
         // Котел
+        [DisplayName("Марка котла")]
         public string BoilerName { get; set; }
+        [DisplayName("Теплова потужність, кВт")]
         public float BolerPower { get; set; }
+        [DisplayName("Паропродуктивність, т/год")]
         public float BoilerProductivity { get; set; }
+        [DisplayName("Робочий тиск, атм")]
         public float BoilerPressure { get; set; }
+        [DisplayName("ККД, %")]
         public float BoilerEfficiency { get; set; }
+        [DisplayName("Річне завантаження, %")]
         public float BoilerAnnnualLoad { get; set; }
         #endregion
 
         #region Водно-хімічний режим
         // Водно-хімічний режим
+        [DisplayName("Електропровідність, мкСм/см")]
         public float WaterInConductivity { get; set; }
+        [DisplayName("Жорсткість, мг-екв/л")]
         public float WaterInHardness { get; set; }
+        [DisplayName("Температура, С")]
         public float WaterInTemperature { get; set; }
+        [DisplayName("Відсоток повернення")]
         public float WaterCondensateReturn { get; set; }
+        [DisplayName("Електропровідність, мкСм/см")]
         public float WaterCondensateConductivity { get; set; }
+        [DisplayName("Температура, С")]
         public float WaterCondensateTemperature { get; set; }
+        [DisplayName("Електропровідність, мкСм/см")]
         public float WaterROConductivity { get; set; }
+        [DisplayName("Макс. електропровідність котлової води, мкСм/см")]
         public float WaterROConductivityMax { get; set; }
+        [DisplayName("Електропровідність, мкСм/см")]
         public float WaterIXConductivity { get; set; }
+        [DisplayName("Макс. електропровідність котлової води, мкСм/см")]
         public float WaterIXConductivityMax { get; set; }
         #endregion
 

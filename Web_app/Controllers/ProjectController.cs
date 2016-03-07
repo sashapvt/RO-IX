@@ -30,31 +30,11 @@ namespace Web_app.Controllers
             return View(db.Projects.ToList().Where(Project => Project.User.Id == currentUser.Id));
         }
 
-        // GET: Project/Details/5
-        public ActionResult Details(int? id)
-        {
-            var currentUser = manager.FindById(User.Identity.GetUserId());
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Project project = db.Projects.Find(id);
-            if (project == null)
-            {
-                return HttpNotFound();
-            }
-            if (project.User.Id != currentUser.Id)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
-            }
-            return View(project);
-        }
-
         // GET: Project/Create
         public ActionResult Create()
         {
             Project project = new Project();
-            project.New();
+            project.ProjectName = "Project";
             return View(project);
         }
 
@@ -69,16 +49,17 @@ namespace Web_app.Controllers
             if (ModelState.IsValid)
             {
                 project.User = currentUser;
+                project.New();
                 db.Projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Input/" + project.Id);
             }
 
             return View(project);
         }
 
-        // GET: Project/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Project/Input/5
+        public ActionResult Input(int? id)
         {
             var currentUser = manager.FindById(User.Identity.GetUserId());
             if (id == null)
@@ -97,18 +78,18 @@ namespace Web_app.Controllers
             return View(project);
         }
 
-        // POST: Project/Edit/5
+        // POST: Project/Input/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ProjectName,ProjectCurRate,ProjectComment,ProjectDate,BoilerName,BolerPower,BoilerProductivity,BoilerPressure,BoilerEfficiency,BoilerAnnnualLoad,WaterInConductivity,WaterInHardness,WaterInTemperature,WaterCondensateReturn,WaterCondensateConductivity,WaterCondensateTemperature,WaterROConductivity,WaterROConductivityMax,WaterIXConductivity,WaterIXConductivityMax,OptionsRORawProductivity,OptionsROUFOn,OptionsROUFPermeate,OptionsROUFProductivity,OptionsROROOn,OptionsROROPermeate,OptionsROROProductivity,OptionsROIXOn,OptionsROIXPermeate,OptionsROIXProductivity,OptionsROEditOn,OptionsIXRawProductivity,OptionsIXUFOn,OptionsIXUFPermeate,OptionsIXUFProductivity,OptionsIXIX1On,OptionsIXIX1Permeate,OptionsIXIX1Productivity,OptionsIXIX2On,OptionsIXIX2Permeate,OptionsIXIX2Productivity,OptionsIXEditOn")] Project project)
+        public ActionResult Input([Bind(Include = "Id,ProjectName,ProjectCurRate,ProjectComment,ProjectDate,BoilerName,BolerPower,BoilerProductivity,BoilerPressure,BoilerEfficiency,BoilerAnnnualLoad,WaterInConductivity,WaterInHardness,WaterInTemperature,WaterCondensateReturn,WaterCondensateConductivity,WaterCondensateTemperature,WaterROConductivity,WaterROConductivityMax,WaterIXConductivity,WaterIXConductivityMax,OptionsRORawProductivity,OptionsROUFOn,OptionsROUFPermeate,OptionsROUFProductivity,OptionsROROOn,OptionsROROPermeate,OptionsROROProductivity,OptionsROIXOn,OptionsROIXPermeate,OptionsROIXProductivity,OptionsROEditOn,OptionsIXRawProductivity,OptionsIXUFOn,OptionsIXUFPermeate,OptionsIXUFProductivity,OptionsIXIX1On,OptionsIXIX1Permeate,OptionsIXIX1Productivity,OptionsIXIX2On,OptionsIXIX2Permeate,OptionsIXIX2Productivity,OptionsIXEditOn")] Project project)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Options");
             }
             return View(project);
         }
@@ -132,6 +113,7 @@ namespace Web_app.Controllers
             }
             return View(project);
         }
+
 
         // POST: Project/Delete/5
         [HttpPost, ActionName("Delete")]

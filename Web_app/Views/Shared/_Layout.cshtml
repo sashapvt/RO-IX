@@ -23,9 +23,9 @@
                 @if (ViewContext.RequestContext.RouteData.Values["controller"].ToString() == "Project" && ViewContext.RequestContext.RouteData.Values["id"] != null)
                 {
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Вихідні дані", "Index", "Project")</li>
-                    <li>@Html.ActionLink("Налаштування", "Index", "Project")</li>
-                    <li>@Html.ActionLink("Розрахунок", "Index", "Project")</li>
+                    <li>@Html.ActionLink("Вихідні дані", "Input/" + ViewContext.RequestContext.RouteData.Values["id"] + "/", "Project")</li>
+                    <li>@Html.ActionLink("Налаштування", "Options/" + ViewContext.RequestContext.RouteData.Values["id"] + "/", "Project")</li>
+                    <li>@Html.ActionLink("Розрахунок", "Result/" + ViewContext.RequestContext.RouteData.Values["id"] + "/", "Project")</li>
                 </ul>
                 }
                 @Html.Partial("_LoginPartial")
@@ -36,7 +36,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - RO-IX</p>
         </footer>
     </div>
 
