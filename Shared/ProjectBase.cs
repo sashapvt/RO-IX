@@ -130,31 +130,53 @@ namespace RO_IX
 
         #region Налаштування (зворотній осмос)
         // Налаштування (зворотній осмос)
+        [DisplayName("Продуктивність, м3/год")]
         public float OptionsRORawProductivity { get; set; }
+        [DisplayName("Ультрафільтрація")]
         public bool OptionsROUFOn { get; set; }
+        [DisplayName("Вихід по перміату")]
         public float OptionsROUFPermeate { get; set; }
+        [DisplayName("Продуктивність, м3/год")]
         public float OptionsROUFProductivity { get; set; }
+        [DisplayName("Зворотній осмос")]
         public bool OptionsROROOn { get; set; }
+        [DisplayName("Вихід по перміату")]
         public float OptionsROROPermeate { get; set; }
+        [DisplayName("Продуктивність, м3/год")]
         public float OptionsROROProductivity { get; set; }
+        [DisplayName("Іонний обмін (ІІ ст)")]
         public bool OptionsROIXOn { get; set; }
+        [DisplayName("Вихід по перміату")]
         public float OptionsROIXPermeate { get; set; }
+        [DisplayName("Продуктивність, м3/год")]
         public float OptionsROIXProductivity { get; set; }
+        [DisplayName("Автоматичний розрахунок")]
         public bool OptionsROEditOn { get; set; }
         #endregion
 
         #region Налаштування (пом'якшення)
         // Налаштування (пом'якшення)
+        [DisplayName("Продуктивність, м3/год")]
         public float OptionsIXRawProductivity { get; set; }
+        [DisplayName("Ультрафільтрація")]
         public bool OptionsIXUFOn { get; set; }
+        [DisplayName("Вихід по перміату")]
         public float OptionsIXUFPermeate { get; set; }
+        [DisplayName("Продуктивність, м3/год")]
         public float OptionsIXUFProductivity { get; set; }
+        [DisplayName("Іонний обмін (І ст)")]
         public bool OptionsIXIX1On { get; set; }
+        [DisplayName("Вихід по перміату")]
         public float OptionsIXIX1Permeate { get; set; }
+        [DisplayName("Продуктивність, м3/год")]
         public float OptionsIXIX1Productivity { get; set; }
+        [DisplayName("Іонний обмін (ІІ ст)")]
         public bool OptionsIXIX2On { get; set; }
+        [DisplayName("Вихід по перміату")]
         public float OptionsIXIX2Permeate { get; set; }
+        [DisplayName("Продуктивність, м3/год")]
         public float OptionsIXIX2Productivity { get; set; }
+        [DisplayName("Автоматичний розрахунок")]
         public bool OptionsIXEditOn { get; set; }
         #endregion
 
