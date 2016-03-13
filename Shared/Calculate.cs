@@ -13,10 +13,14 @@ namespace RO_IX
         public Calculate(ProjectBase proj)
         {
             this.Proj = proj;
+            ProjectPrices = proj.ProjectPrices.ToList();
         }
 
         // Проект, для якого проводиться розрахунок
         ProjectBase Proj;
+
+        // Настройки ресурсів та витрат реагентів з проекту
+        private List<ProjectPricesItem> ProjectPrices;
 
         // Необхідні константи
         const float NaturalGasHeatOfCombustion = 33494.4f; // Питома теплота згоряння природного газу, кДж/кг
@@ -109,103 +113,103 @@ namespace RO_IX
         // Витрата коштів на покриття річних витрат електроенергії для осмосу
         public float ReportElectricityMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? Proj.OptionsPricesData[1].UF : 0) + ((Proj.OptionsROROOn) ? Proj.OptionsPricesData[1].RO : 0) + ((Proj.OptionsROIXOn) ? Proj.OptionsPricesData[1].IX2 : 0), Proj.OptionsPricesData[1].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? ProjectPrices[1].UF : 0) + ((Proj.OptionsROROOn) ? ProjectPrices[1].RO : 0) + ((Proj.OptionsROIXOn) ? ProjectPrices[1].IX2 : 0), ProjectPrices[1].Price); }
         }
 
         // Витрата коштів на покриття річних витрат електроенергії для іонного обміну
         public float ReportElectricityMoneyAnnualIX
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[1].UF : 0) + ((Proj.OptionsIXIX1On) ? Proj.OptionsPricesData[1].IX1 : 0) + ((Proj.OptionsIXIX2On) ? Proj.OptionsPricesData[1].IX2 : 0), Proj.OptionsPricesData[1].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? ProjectPrices[1].UF : 0) + ((Proj.OptionsIXIX1On) ? ProjectPrices[1].IX1 : 0) + ((Proj.OptionsIXIX2On) ? ProjectPrices[1].IX2 : 0), ProjectPrices[1].Price); }
         }
 
         // Витрата коштів на покриття річних витрат антискаланту для осмосу
         public float ReportAntiscalantMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROROOn) ? Proj.OptionsPricesData[3].RO : 0), Proj.OptionsPricesData[3].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROROOn) ? ProjectPrices[3].RO : 0), ProjectPrices[3].Price); }
         }
 
         // Витрата коштів на покриття річних витрат реагентів для хімпромивки для осмосу
         public float ReportCIPMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROROOn) ? Proj.OptionsPricesData[4].RO : 0), Proj.OptionsPricesData[4].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROROOn) ? ProjectPrices[4].RO : 0), ProjectPrices[4].Price); }
         }
 
         // Витрата коштів на покриття річних витрат солі таблетованої для осмосу
         public float ReportSaltMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROIXOn) ? Proj.OptionsPricesData[2].IX2 : 0), Proj.OptionsPricesData[2].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROIXOn) ? ProjectPrices[2].IX2 : 0), ProjectPrices[2].Price); }
         }
 
         // Витрата коштів на покриття річних витрат солі таблетованої для іонного обміну
         public float ReportSaltMoneyAnnualIX
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXIX1On) ? Proj.OptionsPricesData[2].IX1 : 0) + ((Proj.OptionsIXIX2On) ? Proj.OptionsPricesData[2].IX2 : 0), Proj.OptionsPricesData[2].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXIX1On) ? ProjectPrices[2].IX1 : 0) + ((Proj.OptionsIXIX2On) ? ProjectPrices[2].IX2 : 0), ProjectPrices[2].Price); }
         }
 
         // Витрата коштів на покриття річних витрат гіпохлориту натрію для осмосу
         public float ReportNaOClMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? Proj.OptionsPricesData[5].UF : 0), Proj.OptionsPricesData[5].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? ProjectPrices[5].UF : 0), ProjectPrices[5].Price); }
         }
 
         // Витрата коштів на покриття річних витрат гіпохлориту натрію для іонного обміну
         public float ReportNaOClMoneyAnnualIX
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[5].UF : 0), Proj.OptionsPricesData[5].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? ProjectPrices[5].UF : 0), ProjectPrices[5].Price); }
         }
 
         // Витрата коштів на покриття річних витрат соляної кислоти для осмосу
         public float ReportHClMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? Proj.OptionsPricesData[6].UF : 0), Proj.OptionsPricesData[6].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? ProjectPrices[6].UF : 0), ProjectPrices[6].Price); }
         }
 
         // Витрата коштів на покриття річних витрат соляної кислоти для іонного обміну
         public float ReportHClMoneyAnnualIX
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[6].UF : 0), Proj.OptionsPricesData[6].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? ProjectPrices[6].UF : 0), ProjectPrices[6].Price); }
         }
 
         // Витрата коштів на покриття річних витрат їдкого натру для осмосу
         public float ReportNaOHMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? Proj.OptionsPricesData[7].UF : 0), Proj.OptionsPricesData[7].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsROIXProductivity, ((Proj.OptionsROUFOn) ? ProjectPrices[7].UF : 0), ProjectPrices[7].Price); }
         }
 
         // Витрата коштів на покриття річних витрат їдкого натру для іонного обміну
         public float ReportNaOHMoneyAnnualIX
         {
-            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[7].UF : 0), Proj.OptionsPricesData[7].Price); }
+            get { return ReportMoneyAnnualReagents(Proj.OptionsIXIX2Productivity, ((Proj.OptionsIXUFOn) ? ProjectPrices[7].UF : 0), ProjectPrices[7].Price); }
         }
 
         // Витрата коштів на покриття заміни МО мембран для осмосу
         public float ReportMembranesROMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity, ((Proj.OptionsROROOn) ? Proj.OptionsPricesData[8].RO : 0), Proj.OptionsPricesData[8].Price); }
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity, ((Proj.OptionsROROOn) ? ProjectPrices[8].RO : 0), ProjectPrices[8].Price); }
         }
 
         // Витрата коштів на покриття заміни УФ мембран для осмосу
         public float ReportMembranesUFMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity / 4, ((Proj.OptionsROUFOn) ? Proj.OptionsPricesData[9].UF : 0), Proj.OptionsPricesData[9].Price); }
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity / 4, ((Proj.OptionsROUFOn) ? ProjectPrices[9].UF : 0), ProjectPrices[9].Price); }
         }
 
         // Витрата коштів на покриття заміни УФ мембран для іонного обміну
         public float ReportMembranesUFMoneyAnnualIX
         {
-            get { return ReportMoneyAnnualMaterials(Proj.OptionsIXIX2Productivity / 4, ((Proj.OptionsIXUFOn) ? Proj.OptionsPricesData[9].UF : 0), Proj.OptionsPricesData[9].Price); }
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsIXIX2Productivity / 4, ((Proj.OptionsIXUFOn) ? ProjectPrices[9].UF : 0), ProjectPrices[9].Price); }
         }
 
         // Витрата коштів на покриття заміни катіоніту для осмосу
         public float ReportResineUFMoneyAnnualRO
         {
-            get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity * 45, ((Proj.OptionsROIXOn) ? Proj.OptionsPricesData[10].IX2 : 0), Proj.OptionsPricesData[10].Price); }
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsROIXProductivity * 45, ((Proj.OptionsROIXOn) ? ProjectPrices[10].IX2 : 0), ProjectPrices[10].Price); }
         }
 
         // Витрата коштів на покриття заміни катіоніту для іонного обміну
         public float ReportResineUFMoneyAnnualIX
         {
-            get { return ReportMoneyAnnualMaterials(Proj.OptionsIXIX2Productivity * (((Proj.OptionsIXIX1On) ? 70 : 0) + ((Proj.OptionsIXIX2On) ? 45 : 0)), ((Proj.OptionsIXIX1On || Proj.OptionsIXIX2On) ? Proj.OptionsPricesData[10].IX2 : 0), Proj.OptionsPricesData[10].Price); }
+            get { return ReportMoneyAnnualMaterials(Proj.OptionsIXIX2Productivity * (((Proj.OptionsIXIX1On) ? 70 : 0) + ((Proj.OptionsIXIX2On) ? 45 : 0)), ((Proj.OptionsIXIX1On || Proj.OptionsIXIX2On) ? ProjectPrices[10].IX2 : 0), ProjectPrices[10].Price); }
         }
 
         // Витрата коштів на водопідготовку (сумарно) для осмосу
@@ -268,7 +272,7 @@ namespace RO_IX
         // Розрахунок витрат газу на покриття втрат продувки
         float BoilerBlowdownMoney(float BoilerBlowdownGas)
         {
-            return (float)(Proj.OptionsPricesData[0].Price * Proj.ProjectCurRate) * BoilerBlowdownGas;
+            return (float)(ProjectPrices[0].Price * Proj.ProjectCurRate) * BoilerBlowdownGas;
         }
 
         // Розрахунок річної витрати газу на покриття втрат продувки
