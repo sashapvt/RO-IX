@@ -12,8 +12,6 @@ namespace RO_IX
         // Public consructor
         public ProjectBase()
         {            
-            // Initialisation of OptionsPrices
-            ProjectPrices = new List<ProjectPricesItem>();
         }
 
         // Ініціалізація проекту по замовчуванню
@@ -62,6 +60,10 @@ namespace RO_IX
             OptionsIXEditOn = true;
 
             // Вартості ресурсів та витрати реагентів
+            //projectPrices = ProjectPricesItem.ProjectPricesNew();
+
+            // Initialisation of OptionsPrices
+/*            ProjectPrices = new List<ProjectPricesItem>();
             // ProjectPricesItem(0, "Назва", ціна, витрата для МУ, витрата для МО, витрата для ФУ1, витрата для УФ2);
             ProjectPrices.Add(new ProjectPricesItem(0, "Газ, м3", 0.40m, 0F, 0F, 0F, 0F));
             ProjectPrices.Add(new ProjectPricesItem(1, "Електроенергія, кВт", 0.10m, 0.07F, 0.7F, 0.01F, 0.01F));
@@ -74,7 +76,8 @@ namespace RO_IX
             ProjectPrices.Add(new ProjectPricesItem(8, "Мембрана МО, шт", 1142.00m, 0F, 5F, 0F, 0F)); // Ціна за одну мембрану XLE-440, період заміни, роки
             ProjectPrices.Add(new ProjectPricesItem(9, "Мембрана УФ, шт", 2600.00m, 5F, 0F, 0F, 0F)); // Ціна за одну мембрану SFP2880, період заміни, роки
             ProjectPrices.Add(new ProjectPricesItem(10, "Катіоніт, л", 3.96m, 0F, 0F, 5F, 7F)); // Ціна за один л HCRS/S, період заміни, роки
-        }
+*/
+    }
 
         #region Інформація про проект
         // Інформація про проект
@@ -182,7 +185,8 @@ namespace RO_IX
 
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
-        public abstract ICollection<ProjectPricesItem> ProjectPrices { get; set; }
+        //private List<ProjectPricesItem> projectPrices { get; set; }
+        public abstract List<ProjectPricesItem> GetProjectPrices(); 
         #endregion
     }
 }

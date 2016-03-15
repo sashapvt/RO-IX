@@ -12,7 +12,6 @@ namespace RO_IX
         // Public consructor
         public Project() : base()
         {
-            OptionsPricesDataView = CollectionViewSource.GetDefaultView(ProjectPrices);
         }
 
         #region Інформація про проект
@@ -121,7 +120,18 @@ namespace RO_IX
 
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
-        public override ICollection<ProjectPricesItem> ProjectPrices { get; set; }
+        private List<ProjectPricesItem> projectPrices;
+        public List<ProjectPricesItem> ProjectPrices { get { return projectPrices; } set { SetProperty(ref projectPrices, value); OptionsPricesDataView = CollectionViewSource.GetDefaultView(ProjectPrices); } }
+
+        public override List<ProjectPricesItem> GetProjectPrices()
+        {
+            return ProjectPrices;
+        }
+
+        public void SetProjectPrices(List<ProjectPricesItem> _projectPrices)
+        {
+            ProjectPrices = _projectPrices;
+        }
 
         [XmlIgnoreAttribute]
         public ICollectionView OptionsPricesDataView { get; private set; }

@@ -13,7 +13,7 @@ namespace RO_IX
         public Calculate(ProjectBase proj)
         {
             this.Proj = proj;
-            ProjectPrices = proj.ProjectPrices.ToList();
+            ProjectPrices = proj.GetProjectPrices();
         }
 
         // Проект, для якого проводиться розрахунок

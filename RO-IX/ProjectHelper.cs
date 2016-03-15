@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
+using System.Windows.Data;
 
 namespace RO_IX
 {
@@ -23,7 +24,9 @@ namespace RO_IX
         public void ProjectNew()
         {
             Proj = new Project();
+            //
             Proj.New();
+            Proj.SetProjectPrices(ProjectPricesItem.ProjectPricesNew());
 
             // Проект для якого буде проводитися розрахунок (поточний проект)
             Calc = new Calculate(Proj);
