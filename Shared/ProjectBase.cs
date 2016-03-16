@@ -186,7 +186,8 @@ namespace RO_IX
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
         //private List<ProjectPricesItem> projectPrices { get; set; }
-        public abstract List<ProjectPricesItem> GetProjectPrices(); 
+        public abstract List<ProjectPricesItem> GetProjectPrices();
+        public abstract void SetProjectPrices(List<ProjectPricesItem> _projectPrices);
         #endregion
     }
 }

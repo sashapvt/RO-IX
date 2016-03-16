@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Web_app.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using RO_IX;
 
 namespace Web_app.Controllers
 {
@@ -50,6 +51,7 @@ namespace Web_app.Controllers
             {
                 project.User = currentUser;
                 project.New();
+                project.SetProjectPrices(ProjectPricesItem.ProjectPricesNew());
                 db.Projects.Add(project);
                 db.SaveChanges();
                 return RedirectToAction("Input/" + project.Id);

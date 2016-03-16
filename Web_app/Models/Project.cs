@@ -122,6 +122,22 @@ namespace Web_app.Models
         {
             return ProjectPrices.ToList<ProjectPricesItem>();
         }
+        public override void SetProjectPrices(List<ProjectPricesItem> _projectPrices)
+        {
+            ProjectPrices = new List<ProjectPrice>();
+            ProjectPrice pp;
+            foreach (ProjectPricesItem item in _projectPrices)
+            {
+                pp = new ProjectPrice();
+                pp.IX1 = item.IX1;
+                pp.IX2 = item.IX2;
+                pp.Name = item.Name;
+                pp.Price = item.Price;
+                pp.RO = item.RO;
+                pp.UF = item.UF;
+                ProjectPrices.Add(pp);
+            }
+        }
         #endregion
 
         public virtual ApplicationUser User { get; set; }

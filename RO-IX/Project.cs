@@ -128,7 +128,7 @@ namespace RO_IX
             return ProjectPrices;
         }
 
-        public void SetProjectPrices(List<ProjectPricesItem> _projectPrices)
+        public override void SetProjectPrices(List<ProjectPricesItem> _projectPrices)
         {
             ProjectPrices = _projectPrices;
         }
