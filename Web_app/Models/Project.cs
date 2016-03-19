@@ -120,7 +120,7 @@ namespace Web_app.Models
         public ICollection<ProjectPrice> ProjectPrices { get; set; }
         public override List<ProjectPricesItem> GetProjectPrices()
         {
-            return ProjectPrices.ToList<ProjectPricesItem>();
+            return ProjectPrices?.ToList<ProjectPricesItem>();
         }
         public override void SetProjectPrices(List<ProjectPricesItem> _projectPrices)
         {

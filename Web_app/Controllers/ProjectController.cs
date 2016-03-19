@@ -24,8 +24,8 @@ namespace Web_app.Controllers
             manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
         }
 
-    // GET: Project
-    public ActionResult Index()
+        // GET: Project
+        public ActionResult Index()
         {
             var currentUser = manager.FindById(User.Identity.GetUserId());
             return View(db.Projects.ToList().Where(Project => Project.User.Id == currentUser.Id));
@@ -130,6 +130,31 @@ namespace Web_app.Controllers
                 return RedirectToAction("Result/" + project.Id);
             }
             return View(project);
+        }
+
+        // GET: Project/Result/5
+        public ActionResult Result(int? id)
+        {
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Project project = db.Projects
+                .Include(p => p.ProjectPrices)
+                .Where(i => i.Id == id)
+                .Single();
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+            if (project.User.Id != currentUser.Id)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
+            }
+            //project.ProjectPrices = db.ProjectPrices.Find(id);
+            Result result = new Result(project);
+            return View(result);
         }
 
         // GET: Project/Delete/5

@@ -1,0 +1,180 @@
+﻿@model Web_app.Models.Result
+
+@{
+    ViewBag.Title = "Результати розрахунку";
+}
+
+<h2>Вихідні дані</h2>
+<h4>Проект (@Model.ProjectData.ProjectDate)</h4>
+<hr />
+<div class="general">
+    <p>Назва проекту: @Model.ProjectData.ProjectName
+    <p>Коментар: @Model.ProjectData.ProjectComment
+</div>
+<h4>Котел</h4>
+<hr />
+<div class="general">
+    <p>Марка котла: @Model.ProjectData.BoilerName
+    <p>Паропродуктивність, т/год: @Model.ProjectData.BoilerProductivity
+    <p>Теплова потужність, кВт: @Model.ProjectData.BolerPower
+    <p>Робочий тиск, атм: @Model.ProjectData.BoilerPressure
+    <p>ККД, %: @Model.ProjectData.BoilerEfficiency
+</div>
+<h4>Водно-хімічний режим</h4>
+<hr />
+<div class="general">
+    <h5 class="underline">Вихідна вода</h5>
+    <p>Електропровідність, мкСм/см: @Model.ProjectData.WaterInConductivity
+    <p>Жорсткість, мг-екв/л: @Model.ProjectData.WaterInHardness
+    <p>
+        Температура, С: @Model.ProjectData.WaterInTemperature
+        <h5 class="underline">Конденсат</h5>
+    <p>Відсоток повернення, %: @Model.ProjectData.WaterCondensateReturn
+    <p>Електропровідність, мкСм/см: @Model.ProjectData.WaterCondensateConductivity
+    <p>
+        Температура, С: @Model.ProjectData.WaterCondensateTemperature
+        <h5 class="underline">Підготовлена вода (демінералізована, електропровідність < 30 мкСм/см)</h5>
+    <p>Електропровідність, мкСм/см: @Model.ProjectData.WaterROConductivity
+    <p>
+        Макс. електропровідність котлової води, мкСм/см: @Model.ProjectData.WaterROConductivityMax
+        <h5 class="underline">Підготовлена вода (пом'якшена, електропровідність > 30 мкСм/см)</h5>
+    <p>Електропровідність, мкСм/см: @Model.ProjectData.WaterIXConductivity
+    <p>Макс. електропровідність котлової води, мкСм/см: @Model.ProjectData.WaterIXConductivityMax
+</div>
+<br />
+<h2>Результати розрахунку</h2>
+<h4>Водно-хімічний режим</h4>
+<hr />
+<div class="general">
+    <table border="1" cellspacing="0" width="515">
+        <tr class="bold">
+            <td width="70%">Параметр</td>
+            <td width="15%">Осмос + Na-кат</td>
+            <td width="15%">2 ст. Na-кат</td>
+        </tr>
+        <tr>
+            <td>Процент продувки, %</td>
+            <td>@Model.CalculateData.BoilerBlowdownRO</td>
+            <td>@Model.CalculateData.BoilerBlowdownIX</td>
+        </tr>
+        <tr>
+            <td>Витрата продувочної води, т/год</td>
+            <td>@Model.CalculateData.BoilerBlowdownFlowRO</td>
+            <td>@Model.CalculateData.BoilerBlowdownFlowIX</td>
+        </tr>
+        <tr>
+            <td>Втрати пару за рахунок продувки, т/год</td>
+            <td>@Model.CalculateData.BoilerBlowdownSteamRO</td>
+            <td>@Model.CalculateData.BoilerBlowdownSteamIX</td>
+        </tr>
+        <tr>
+            <td>Втрати потужності за рахунок продувки, кВт/год</td>
+            <td>@Model.CalculateData.BoilerBlowdownPowerRO</td>
+            <td>@Model.CalculateData.BoilerBlowdownPowerIX</td>
+        </tr>
+        <tr>
+            <td>Витрата газу на покриття втрат продувки, м3/год</td>
+            <td>@Model.CalculateData.BoilerBlowdownGasRO</td>
+            <td>@Model.CalculateData.BoilerBlowdownGasIX</td>
+        </tr>
+        <tr>
+            <td>Вартість газу на покриття витрат продувки, грн/год</td>
+            <td>@Model.CalculateData.BoilerBlowdownMoneyRO</td>
+            <td>@Model.CalculateData.BoilerBlowdownMoneyIX</td>
+        </tr>
+        <tr class="bold">
+            <td>Річна вартість газу на покриття витрат продувки, грн/рік</td>
+            <td>@Model.CalculateData.BoilerBlowdownMoneyAnnualRO</td>
+            <td>@Model.CalculateData.BoilerBlowdownMoneyAnnualIX</td>
+        </tr>
+    </table>
+</div>
+<h4>Водопідготовка</h4>
+<hr />
+<div class="general">
+    <table border="1" cellspacing="0" width="515">
+        <tr class="bold">
+            <td width="70%">Параметр</td>
+            <td width="15%">Осмос + Na-кат</td>
+            <td width="15%">2 ст. Na-кат</td>
+        </tr>
+        <tr>
+            <td>Витрата сирої води, м3/год</td>
+            <td>@Model.ProjectData.OptionsRORawProductivity</td>
+            <td>@Model.ProjectData.OptionsIXRawProductivity</td>
+        </tr>
+        <tr>
+            <td>Витрата живильної води, м3/год</td>
+            <td>@Model.ProjectData.OptionsROIXProductivity</td>
+            <td>@Model.ProjectData.OptionsIXIX2Productivity</td>
+        </tr>
+        <tr>
+            <td>Річна вартість електроенергії, грн/рік</td>
+            <td>@Model.CalculateData.ReportElectricityMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportElectricityMoneyAnnualIX</td>
+        </tr>
+        <tr>
+            <td>Річна вартість антискаланту, грн/рік</td>
+            <td>@Model.CalculateData.ReportAntiscalantMoneyAnnualRO</td>
+            <td> 0 </td>
+        </tr>
+        <tr>
+            <td>Річна вартість реагентів на хімпромивку, грн/рік</td>
+            <td>@Model.CalculateData.ReportCIPMoneyAnnualRO</td>
+            <td> 0 </td>
+        </tr>
+        <tr>
+            <td>Річна вартість солі таблетованої, грн/рік</td>
+            <td>@Model.CalculateData.ReportSaltMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportSaltMoneyAnnualIX</td>
+        </tr>
+        <tr>
+            <td>Річна вартість гіпохлориту натрію, грн/рік</td>
+            <td>@Model.CalculateData.ReportNaOClMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportNaOClMoneyAnnualIX</td>
+        </tr>
+        <tr>
+            <td>Річна вартість соляної кислоти, грн/рік</td>
+            <td>@Model.CalculateData.ReportHClMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportHClMoneyAnnualIX</td>
+        </tr>
+        <tr>
+            <td>Річна вартість їдкого натру, грн/рік</td>
+            <td>@Model.CalculateData.ReportNaOHMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportNaOHMoneyAnnualIX</td>
+        </tr>
+        <tr>
+            <td>Річна вартість мембран МО, грн/рік</td>
+            <td>@Model.CalculateData.ReportMembranesROMoneyAnnualRO</td>
+            <td> 0 </td>
+        </tr>
+        <tr>
+            <td>Річна вартість мембран УФ, грн/рік</td>
+            <td>@Model.CalculateData.ReportMembranesUFMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportMembranesUFMoneyAnnualIX</td>
+        </tr>
+        <tr>
+            <td>Річна вартість катіоніту, грн/рік</td>
+            <td>@Model.CalculateData.ReportResineUFMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportResineUFMoneyAnnualIX</td>
+        </tr>
+        <tr class="bold">
+            <td>Річні затрати на водопідготовку, грн/рік</td>
+            <td>@Model.CalculateData.ReportWaterTotalMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportWaterTotalMoneyAnnualIX</td>
+        </tr>
+    </table>
+</div>
+<h4>Висновки</h4>
+<hr />
+<div class="general">
+    <p>Річна економія коштів на користь варіанту "@Model.CalculateData.ReportOptimalCase" складе @Model.CalculateData.ReportTotalMoneyAnnualDifference грн/рік.
+</div>
+
+<div>
+    @Html.ActionLink("Повернутися до списку проектів", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
