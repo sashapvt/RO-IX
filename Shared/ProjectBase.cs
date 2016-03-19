@@ -133,7 +133,7 @@ namespace RO_IX
 
         #region Налаштування (зворотній осмос)
         // Налаштування (зворотній осмос)
-        [DisplayName("Продуктивність, м3/год")]
+        [DisplayName("Продуктивність вхідна (розрахункова), м3/год")]
         public abstract float OptionsRORawProductivity { get; set; }
         [DisplayName("Ультрафільтрація")]
         public abstract bool OptionsROUFOn { get; set; }
@@ -159,7 +159,7 @@ namespace RO_IX
 
         #region Налаштування (пом'якшення)
         // Налаштування (пом'якшення)
-        [DisplayName("Продуктивність, м3/год")]
+        [DisplayName("Продуктивність вхідна (розрахункова), м3/год")]
         public abstract float OptionsIXRawProductivity { get; set; }
         [DisplayName("Ультрафільтрація")]
         public abstract bool OptionsIXUFOn { get; set; }

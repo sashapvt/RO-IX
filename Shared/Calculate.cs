@@ -14,6 +14,7 @@ namespace RO_IX
         {
             this.Proj = proj;
             ProjectPrices = proj.GetProjectPrices();
+            CalculateProductivity();
         }
 
         // Проект, для якого проводиться розрахунок

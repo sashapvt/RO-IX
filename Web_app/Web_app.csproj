@@ -242,7 +242,6 @@
     <Content Include="Views\Project\Delete.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Project\Input.cshtml" />
-    <Content Include="Views\Project\Options.cshtml" />
     <Content Include="Views\Project\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>

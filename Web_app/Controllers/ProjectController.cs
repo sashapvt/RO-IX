@@ -68,8 +68,13 @@ namespace Web_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
+            // Project project = db.Projects.Find(id);
+            Project project = db.Projects
+                .Include(p => p.ProjectPrices)
+                .Where(i => i.Id == id)
+                .Single();
             if (project == null)
+                if (project == null)
             {
                 return HttpNotFound();
             }
@@ -86,42 +91,6 @@ namespace Web_app.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Input([Bind(Include = "Id,ProjectName,ProjectCurRate,ProjectComment,ProjectDate,BoilerName,BolerPower,BoilerProductivity,BoilerPressure,BoilerEfficiency,BoilerAnnnualLoad,WaterInConductivity,WaterInHardness,WaterInTemperature,WaterCondensateReturn,WaterCondensateConductivity,WaterCondensateTemperature,WaterROConductivity,WaterROConductivityMax,WaterIXConductivity,WaterIXConductivityMax,OptionsRORawProductivity,OptionsROUFOn,OptionsROUFPermeate,OptionsROUFProductivity,OptionsROROOn,OptionsROROPermeate,OptionsROROProductivity,OptionsROIXOn,OptionsROIXPermeate,OptionsROIXProductivity,OptionsROEditOn,OptionsIXRawProductivity,OptionsIXUFOn,OptionsIXUFPermeate,OptionsIXUFProductivity,OptionsIXIX1On,OptionsIXIX1Permeate,OptionsIXIX1Productivity,OptionsIXIX2On,OptionsIXIX2Permeate,OptionsIXIX2Productivity,OptionsIXEditOn")] Project project)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(project).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Options/" + project.Id);
-            }
-            return View(project);
-        }
-
-        // GET: Project/Options/5
-        public ActionResult Options(int? id)
-        {
-            var currentUser = manager.FindById(User.Identity.GetUserId());
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Project project = db.Projects.Find(id);
-            if (project == null)
-            {
-                return HttpNotFound();
-            }
-            if (project.User.Id != currentUser.Id)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
-            }
-            return View(project);
-        }
-
-        // POST: Project/Options/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Options([Bind(Include = "Id,ProjectName,ProjectCurRate,ProjectComment,ProjectDate,BoilerName,BolerPower,BoilerProductivity,BoilerPressure,BoilerEfficiency,BoilerAnnnualLoad,WaterInConductivity,WaterInHardness,WaterInTemperature,WaterCondensateReturn,WaterCondensateConductivity,WaterCondensateTemperature,WaterROConductivity,WaterROConductivityMax,WaterIXConductivity,WaterIXConductivityMax,OptionsRORawProductivity,OptionsROUFOn,OptionsROUFPermeate,OptionsROUFProductivity,OptionsROROOn,OptionsROROPermeate,OptionsROROProductivity,OptionsROIXOn,OptionsROIXPermeate,OptionsROIXProductivity,OptionsROEditOn,OptionsIXRawProductivity,OptionsIXUFOn,OptionsIXUFPermeate,OptionsIXUFProductivity,OptionsIXIX1On,OptionsIXIX1Permeate,OptionsIXIX1Productivity,OptionsIXIX2On,OptionsIXIX2Permeate,OptionsIXIX2Productivity,OptionsIXEditOn")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -152,7 +121,6 @@ namespace Web_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
-            //project.ProjectPrices = db.ProjectPrices.Find(id);
             Result result = new Result(project);
             return View(result);
         }
