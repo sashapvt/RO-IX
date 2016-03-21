@@ -117,7 +117,7 @@ namespace Web_app.Models
 
         #region Вартості і питомі витрати реагентів
         // Вартості і питомі витрати реагентів
-        public ICollection<ProjectPrice> ProjectPrices { get; set; }
+        public List<ProjectPrice> ProjectPrices { get; set; }
         public override List<ProjectPricesItem> GetProjectPrices()
         {
             return ProjectPrices?.ToList<ProjectPricesItem>();

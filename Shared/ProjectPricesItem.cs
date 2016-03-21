@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,17 @@ namespace RO_IX
     public class ProjectPricesItem
     {
         // TODO: Delete Id
+        [DisplayName("Назва")]
         public virtual string Name { get; set; }
+        [DisplayName("Ціна, $")]
         public virtual decimal Price { get; set; }
+        [DisplayName("УФ")]
         public virtual float UF { get; set; }
+        [DisplayName("Осмос")]
         public virtual float RO { get; set; }
+        [DisplayName("Іонний І-ст")]
         public virtual float IX1 { get; set; }
+        [DisplayName("Іонний ІІ-ст")]
         public virtual float IX2 { get; set; }
 
         // Конструктор без параметрів для можливості серіалізації цього класу

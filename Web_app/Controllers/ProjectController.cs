@@ -82,6 +82,7 @@ namespace Web_app.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
+
             return View(project);
         }
 
@@ -90,7 +91,7 @@ namespace Web_app.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Input([Bind(Include = "Id,ProjectName,ProjectCurRate,ProjectComment,ProjectDate,BoilerName,BolerPower,BoilerProductivity,BoilerPressure,BoilerEfficiency,BoilerAnnnualLoad,WaterInConductivity,WaterInHardness,WaterInTemperature,WaterCondensateReturn,WaterCondensateConductivity,WaterCondensateTemperature,WaterROConductivity,WaterROConductivityMax,WaterIXConductivity,WaterIXConductivityMax,OptionsRORawProductivity,OptionsROUFOn,OptionsROUFPermeate,OptionsROUFProductivity,OptionsROROOn,OptionsROROPermeate,OptionsROROProductivity,OptionsROIXOn,OptionsROIXPermeate,OptionsROIXProductivity,OptionsROEditOn,OptionsIXRawProductivity,OptionsIXUFOn,OptionsIXUFPermeate,OptionsIXUFProductivity,OptionsIXIX1On,OptionsIXIX1Permeate,OptionsIXIX1Productivity,OptionsIXIX2On,OptionsIXIX2Permeate,OptionsIXIX2Productivity,OptionsIXEditOn")] Project project)
+        public ActionResult Input([Bind(Include = "Id,ProjectName,ProjectCurRate,ProjectComment,ProjectDate,BoilerName,BolerPower,BoilerProductivity,BoilerPressure,BoilerEfficiency,BoilerAnnnualLoad,WaterInConductivity,WaterInHardness,WaterInTemperature,WaterCondensateReturn,WaterCondensateConductivity,WaterCondensateTemperature,WaterROConductivity,WaterROConductivityMax,WaterIXConductivity,WaterIXConductivityMax,OptionsRORawProductivity,OptionsROUFOn,OptionsROUFPermeate,OptionsROUFProductivity,OptionsROROOn,OptionsROROPermeate,OptionsROROProductivity,OptionsROIXOn,OptionsROIXPermeate,OptionsROIXProductivity,OptionsROEditOn,OptionsIXRawProductivity,OptionsIXUFOn,OptionsIXUFPermeate,OptionsIXUFProductivity,OptionsIXIX1On,OptionsIXIX1Permeate,OptionsIXIX1Productivity,OptionsIXIX2On,OptionsIXIX2Permeate,OptionsIXIX2Productivity,OptionsIXEditOn,ProjectPrices")] Project project)
         {
             if (ModelState.IsValid)
             {

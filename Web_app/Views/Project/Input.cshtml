@@ -377,6 +377,65 @@
             </div>
         </div>
 
+        <h4>Вартості і питомі витрати реагентів на 1 м3 підготовленної води</h4>
+        <hr />
+
+        <div class="form-group">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProjectPrices.First().Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProjectPrices.First().Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProjectPrices.First().UF)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProjectPrices.First().RO)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProjectPrices.First().IX1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProjectPrices.First().IX2)
+                    </th>
+                </tr>
+                @for (int i = 0; i < Model.ProjectPrices.Count; i++) //i < Model.ProjectPrices.Count
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => Model.ProjectPrices[i].Name)
+                            @Html.EditorFor(m => Model.ProjectPrices[i].Id, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                            @Html.EditorFor(m => Model.ProjectPrices[i].Name, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => Model.ProjectPrices[i].Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => Model.ProjectPrices[i].Price, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => Model.ProjectPrices[i].UF, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => Model.ProjectPrices[i].UF, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => Model.ProjectPrices[i].RO, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => Model.ProjectPrices[i].RO, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => Model.ProjectPrices[i].IX1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => Model.ProjectPrices[i].IX1, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => Model.ProjectPrices[i].IX2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => Model.ProjectPrices[i].IX2, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
