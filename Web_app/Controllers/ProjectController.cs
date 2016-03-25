@@ -95,6 +95,10 @@ namespace Web_app.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach(ProjectPrice projectPriceItem in project.ProjectPrices)
+                {
+                    db.Entry(projectPriceItem).State = EntityState.Modified;
+                }
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Result/" + project.Id);
@@ -152,7 +156,13 @@ namespace Web_app.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Project project = db.Projects.Find(id);
+            List<ProjectPrice> projectPrices = db.ProjectPrices
+                .Where(i => i.Project.Id == id)
+                .ToList();
+            db.ProjectPrices.RemoveRange(projectPrices);
+            Project project = db.Projects
+                .Where(i => i.Id == id)
+                .Single();
             db.Projects.Remove(project);
             db.SaveChanges();
             return RedirectToAction("Index");

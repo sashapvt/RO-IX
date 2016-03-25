@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using RO_IX;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Web_app.Models
 {
@@ -20,6 +21,8 @@ namespace Web_app.Models
         [DisplayName("Коментар")]
         public override string ProjectComment { get; set; }
         [DisplayName("Дата")]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public override DateTime ProjectDate { get; set; }
         #endregion
 
