@@ -22,7 +22,7 @@ namespace Web_app.Models
         public override string ProjectComment { get; set; }
         [DisplayName("Дата")]
         //[DataType(DataType.Date)]
-        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public override DateTime ProjectDate { get; set; }
         #endregion
 
