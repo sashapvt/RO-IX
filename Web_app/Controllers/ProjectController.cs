@@ -63,6 +63,17 @@ namespace Web_app.Controllers
         // GET: Project/Input/5
         public ActionResult Input(int? id)
         {
+            // Test!
+            //System.Threading.Thread.CurrentThread.CurrentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Clone() as System.Globalization.CultureInfo;
+
+            //if (System.Threading.Thread.CurrentThread.CurrentCulture != null)
+            //{
+            //    System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator = ".";
+            //    System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = ".";
+            //}
+
+            // Test!
+
             var currentUser = manager.FindById(User.Identity.GetUserId());
             if (id == null)
             {
@@ -93,6 +104,17 @@ namespace Web_app.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Input([Bind(Include = "Id,ProjectName,ProjectCurRate,ProjectComment,ProjectDate,BoilerName,BolerPower,BoilerProductivity,BoilerPressure,BoilerEfficiency,BoilerAnnnualLoad,WaterInConductivity,WaterInHardness,WaterInTemperature,WaterCondensateReturn,WaterCondensateConductivity,WaterCondensateTemperature,WaterROConductivity,WaterROConductivityMax,WaterIXConductivity,WaterIXConductivityMax,OptionsRORawProductivity,OptionsROUFOn,OptionsROUFPermeate,OptionsROUFProductivity,OptionsROROOn,OptionsROROPermeate,OptionsROROProductivity,OptionsROIXOn,OptionsROIXPermeate,OptionsROIXProductivity,OptionsROEditOn,OptionsIXRawProductivity,OptionsIXUFOn,OptionsIXUFPermeate,OptionsIXUFProductivity,OptionsIXIX1On,OptionsIXIX1Permeate,OptionsIXIX1Productivity,OptionsIXIX2On,OptionsIXIX2Permeate,OptionsIXIX2Productivity,OptionsIXEditOn,ProjectPrices")] Project project)
         {
+            // Test!
+            //System.Threading.Thread.CurrentThread.CurrentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Clone() as System.Globalization.CultureInfo;
+
+            //if (System.Threading.Thread.CurrentThread.CurrentCulture != null)
+            //{
+            //    System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator = ".";
+            //    System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = ".";
+            //}
+
+            // Test!
+
             if (ModelState.IsValid)
             {
                 foreach(ProjectPrice projectPriceItem in project.ProjectPrices)
