@@ -2,10 +2,11 @@
 
 @{
     ViewBag.Title = "Результати розрахунку";
+    System.Globalization.CultureInfo uk_UA = System.Globalization.CultureInfo.CreateSpecificCulture("uk-UA");
 }
 
 <h2>Вихідні дані</h2>
-<h4>Проект (@Model.ProjectData.ProjectDate)</h4>
+<h4>Проект (@Model.ProjectData.ProjectDate.ToString("dd.MM.yyy"))</h4>
 <hr />
 <div class="general">
     <p>Назва проекту: @Model.ProjectData.ProjectName
@@ -54,38 +55,38 @@
         </tr>
         <tr>
             <td>Процент продувки, %</td>
-            <td>@Model.CalculateData.BoilerBlowdownRO</td>
-            <td>@Model.CalculateData.BoilerBlowdownIX</td>
+            <td>@Model.CalculateData.BoilerBlowdownRO.ToString("P")</td>
+            <td>@Model.CalculateData.BoilerBlowdownIX.ToString("P")</td>
         </tr>
         <tr>
             <td>Витрата продувочної води, т/год</td>
-            <td>@Model.CalculateData.BoilerBlowdownFlowRO</td>
-            <td>@Model.CalculateData.BoilerBlowdownFlowIX</td>
+            <td>@Model.CalculateData.BoilerBlowdownFlowRO.ToString("F")</td>
+            <td>@Model.CalculateData.BoilerBlowdownFlowIX.ToString("F")</td>
         </tr>
         <tr>
             <td>Втрати пару за рахунок продувки, т/год</td>
-            <td>@Model.CalculateData.BoilerBlowdownSteamRO</td>
-            <td>@Model.CalculateData.BoilerBlowdownSteamIX</td>
+            <td>@Model.CalculateData.BoilerBlowdownSteamRO.ToString("F")</td>
+            <td>@Model.CalculateData.BoilerBlowdownSteamIX.ToString("F")</td>
         </tr>
         <tr>
             <td>Втрати потужності за рахунок продувки, кВт/год</td>
-            <td>@Model.CalculateData.BoilerBlowdownPowerRO</td>
-            <td>@Model.CalculateData.BoilerBlowdownPowerIX</td>
+            <td>@Model.CalculateData.BoilerBlowdownPowerRO.ToString("F")</td>
+            <td>@Model.CalculateData.BoilerBlowdownPowerIX.ToString("F")</td>
         </tr>
         <tr>
             <td>Витрата газу на покриття втрат продувки, м3/год</td>
-            <td>@Model.CalculateData.BoilerBlowdownGasRO</td>
-            <td>@Model.CalculateData.BoilerBlowdownGasIX</td>
+            <td>@Model.CalculateData.BoilerBlowdownGasRO.ToString("F")</td>
+            <td>@Model.CalculateData.BoilerBlowdownGasIX.ToString("F")</td>
         </tr>
         <tr>
             <td>Вартість газу на покриття витрат продувки, грн/год</td>
-            <td>@Model.CalculateData.BoilerBlowdownMoneyRO</td>
-            <td>@Model.CalculateData.BoilerBlowdownMoneyIX</td>
+            <td>@Model.CalculateData.BoilerBlowdownMoneyRO.ToString("F")</td>
+            <td>@Model.CalculateData.BoilerBlowdownMoneyIX.ToString("F")</td>
         </tr>
         <tr class="bold">
             <td>Річна вартість газу на покриття витрат продувки, грн/рік</td>
-            <td>@Model.CalculateData.BoilerBlowdownMoneyAnnualRO</td>
-            <td>@Model.CalculateData.BoilerBlowdownMoneyAnnualIX</td>
+            <td>@Model.CalculateData.BoilerBlowdownMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.BoilerBlowdownMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
     </table>
 </div>
@@ -100,75 +101,75 @@
         </tr>
         <tr>
             <td>Витрата сирої води, м3/год</td>
-            <td>@Model.ProjectData.OptionsRORawProductivity</td>
-            <td>@Model.ProjectData.OptionsIXRawProductivity</td>
+            <td>@Model.ProjectData.OptionsRORawProductivity.ToString("F")</td>
+            <td>@Model.ProjectData.OptionsIXRawProductivity.ToString("F")</td>
         </tr>
         <tr>
             <td>Витрата живильної води, м3/год</td>
-            <td>@Model.ProjectData.OptionsROIXProductivity</td>
-            <td>@Model.ProjectData.OptionsIXIX2Productivity</td>
+            <td>@Model.ProjectData.OptionsROIXProductivity.ToString("F")</td>
+            <td>@Model.ProjectData.OptionsIXIX2Productivity.ToString("F")</td>
         </tr>
         <tr>
             <td>Річна вартість електроенергії, грн/рік</td>
-            <td>@Model.CalculateData.ReportElectricityMoneyAnnualRO</td>
-            <td>@Model.CalculateData.ReportElectricityMoneyAnnualIX</td>
+            <td>@Model.CalculateData.ReportElectricityMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.ReportElectricityMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
         <tr>
             <td>Річна вартість антискаланту, грн/рік</td>
-            <td>@Model.CalculateData.ReportAntiscalantMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportAntiscalantMoneyAnnualRO.ToString("N0", uk_UA)</td>
             <td> 0 </td>
         </tr>
         <tr>
             <td>Річна вартість реагентів на хімпромивку, грн/рік</td>
-            <td>@Model.CalculateData.ReportCIPMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportCIPMoneyAnnualRO.ToString("N0", uk_UA)</td>
             <td> 0 </td>
         </tr>
         <tr>
             <td>Річна вартість солі таблетованої, грн/рік</td>
-            <td>@Model.CalculateData.ReportSaltMoneyAnnualRO</td>
-            <td>@Model.CalculateData.ReportSaltMoneyAnnualIX</td>
+            <td>@Model.CalculateData.ReportSaltMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.ReportSaltMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
         <tr>
             <td>Річна вартість гіпохлориту натрію, грн/рік</td>
-            <td>@Model.CalculateData.ReportNaOClMoneyAnnualRO</td>
-            <td>@Model.CalculateData.ReportNaOClMoneyAnnualIX</td>
+            <td>@Model.CalculateData.ReportNaOClMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.ReportNaOClMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
         <tr>
             <td>Річна вартість соляної кислоти, грн/рік</td>
-            <td>@Model.CalculateData.ReportHClMoneyAnnualRO</td>
-            <td>@Model.CalculateData.ReportHClMoneyAnnualIX</td>
+            <td>@Model.CalculateData.ReportHClMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.ReportHClMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
         <tr>
             <td>Річна вартість їдкого натру, грн/рік</td>
-            <td>@Model.CalculateData.ReportNaOHMoneyAnnualRO</td>
-            <td>@Model.CalculateData.ReportNaOHMoneyAnnualIX</td>
+            <td>@Model.CalculateData.ReportNaOHMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.ReportNaOHMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
         <tr>
             <td>Річна вартість мембран МО, грн/рік</td>
-            <td>@Model.CalculateData.ReportMembranesROMoneyAnnualRO</td>
+            <td>@Model.CalculateData.ReportMembranesROMoneyAnnualRO.ToString("N0", uk_UA)</td>
             <td> 0 </td>
         </tr>
         <tr>
             <td>Річна вартість мембран УФ, грн/рік</td>
-            <td>@Model.CalculateData.ReportMembranesUFMoneyAnnualRO</td>
-            <td>@Model.CalculateData.ReportMembranesUFMoneyAnnualIX</td>
+            <td>@Model.CalculateData.ReportMembranesUFMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.ReportMembranesUFMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
         <tr>
             <td>Річна вартість катіоніту, грн/рік</td>
-            <td>@Model.CalculateData.ReportResineUFMoneyAnnualRO</td>
-            <td>@Model.CalculateData.ReportResineUFMoneyAnnualIX</td>
+            <td>@Model.CalculateData.ReportResineUFMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.ReportResineUFMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
         <tr class="bold">
             <td>Річні затрати на водопідготовку, грн/рік</td>
-            <td>@Model.CalculateData.ReportWaterTotalMoneyAnnualRO</td>
-            <td>@Model.CalculateData.ReportWaterTotalMoneyAnnualIX</td>
+            <td>@Model.CalculateData.ReportWaterTotalMoneyAnnualRO.ToString("N0", uk_UA)</td>
+            <td>@Model.CalculateData.ReportWaterTotalMoneyAnnualIX.ToString("N0", uk_UA)</td>
         </tr>
     </table>
 </div>
 <h4>Висновки</h4>
 <hr />
 <div class="general">
-    <p>Річна економія коштів на користь варіанту "@Model.CalculateData.ReportOptimalCase" складе @Model.CalculateData.ReportTotalMoneyAnnualDifference грн/рік.
+    <p>Річна економія коштів на користь варіанту "@Model.CalculateData.ReportOptimalCase" складе @Model.CalculateData.ReportTotalMoneyAnnualDifference.ToString("N0", uk_UA) грн/рік.
 </div>
 
 <div>
