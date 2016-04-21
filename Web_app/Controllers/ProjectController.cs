@@ -117,7 +117,8 @@ namespace Web_app.Controllers
 
             if (ModelState.IsValid)
             {
-                foreach(ProjectPrice projectPriceItem in project.ProjectPrices)
+                project.ProjectDate = DateTime.Now;
+                foreach (ProjectPrice projectPriceItem in project.ProjectPrices)
                 {
                     db.Entry(projectPriceItem).State = EntityState.Modified;
                 }

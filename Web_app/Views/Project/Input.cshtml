@@ -12,11 +12,12 @@
 
         <h2>Вихідні дані</h2>
 
-        <h4>Проект</h4>
+        <h4>Проект (@Model.ProjectDate.ToString("dd.MM.yyy"))</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @*@{ Html.EnableClientValidation(false); }*@
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ProjectDate)
 
         <div class="form-group">
             @Html.LabelFor(model => model.ProjectName, htmlAttributes: new { @class = "control-label col-md-4" })
@@ -31,15 +32,6 @@
             <div class="col-md-2">
                 @Html.EditorFor(model => model.ProjectCurRate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ProjectCurRate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProjectDate, htmlAttributes: new { @class = "control-label col-md-4" })
-            <div class="col-md-2">
-                @Html.EditorFor(model => model.ProjectDate, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.TextBoxFor(m => m.ProjectDate, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.ValidationMessageFor(model => model.ProjectDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
