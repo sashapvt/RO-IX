@@ -109,4 +109,35 @@ $(document).ready(function () {
             //alert($('input#OptionsIXRawProductivity').val());
         }
     }
+
+    // Show/hide html block
+
+    $('#InputDataClick').click(function () {
+        showHide('InputData');
+        document.getElementById('InputOptions').style.display = "none";
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+
+    });
+
+    $('#InputOptionsClick').click(function () {
+        showHide('InputOptions');
+        document.getElementById('InputData').style.display = "none";
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+
+    });
+
+    function showHide(element_id) {
+        if (document.getElementById(element_id)) {
+            var obj = document.getElementById(element_id);
+            if (obj.style.display == "block") {
+                obj.style.display = "none";
+            }
+            else obj.style.display = "block";
+        }
+    }
+
 });
