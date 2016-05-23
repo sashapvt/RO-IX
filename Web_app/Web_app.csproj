@@ -173,6 +173,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603142112217_InitialCreate.cs" />
+    <Compile Include="Migrations\201603142112217_InitialCreate.Designer.cs">
+      <DependentUpon>201603142112217_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605231852064_WaterSystemPrice.cs" />
+    <Compile Include="Migrations\201605231852064_WaterSystemPrice.Designer.cs">
+      <DependentUpon>201605231852064_WaterSystemPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -261,6 +270,14 @@
       <Project>{bd6679a0-5849-4688-b6da-18979a80aec7}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603142112217_InitialCreate.resx">
+      <DependentUpon>201603142112217_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605231852064_WaterSystemPrice.resx">
+      <DependentUpon>201605231852064_WaterSystemPrice.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

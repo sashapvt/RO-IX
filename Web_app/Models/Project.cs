@@ -66,6 +66,14 @@ namespace Web_app.Models
         public override float WaterIXConductivityMax { get; set; }
         #endregion
 
+        #region Капітальні затрати
+        // Капітальні затрати
+        [DisplayName("Вартість системи водопідготовки на базі зворотного осмосу, $")]
+        public override decimal WaterROSystemPrice { get; set; }
+        [DisplayName("Вартість системи водопідготовки на базі іонного обміну, $")]
+        public override decimal WaterIXSystemPrice { get; set; }
+        #endregion
+
         #region Налаштування (зворотній осмос)
         // Налаштування (зворотній осмос)
         [DisplayName("Продуктивність, м3/год")]

@@ -43,6 +43,10 @@ namespace RO_IX
             WaterIXConductivity = 544;
             WaterIXConductivityMax = 6000;
 
+            // Капітальні затрати
+            WaterROSystemPrice = 0;
+            WaterIXSystemPrice = 0;
+
             // Налаштування (зворотній осмос)
             OptionsROUFPermeate = 93;
             OptionsROROPermeate = 75;
@@ -129,6 +133,14 @@ namespace RO_IX
         public abstract float WaterIXConductivity { get; set; }
         [DisplayName("Макс. електропровідність котлової води, мкСм/см")]
         public abstract float WaterIXConductivityMax { get; set; }
+        #endregion
+
+        #region Капітальні затрати
+        // Капітальні затрати
+        [DisplayName("Вартість системи водопідготовки на базі зворотного осмосу, $")]
+        public abstract decimal WaterROSystemPrice { get; set; }
+        [DisplayName("Вартість системи водопідготовки на базі іонного обміну, $")]
+        public abstract decimal WaterIXSystemPrice { get; set; }
         #endregion
 
         #region Налаштування (зворотній осмос)

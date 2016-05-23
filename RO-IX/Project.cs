@@ -66,6 +66,12 @@ namespace RO_IX
         public override float WaterIXConductivityMax { get { return waterIXConductivityMax; } set { SetProperty(ref waterIXConductivityMax, value); } }
         #endregion
 
+        #region Капітальні затрати
+        // Капітальні затрати
+        public override decimal WaterROSystemPrice { get; set; }
+        public override decimal WaterIXSystemPrice { get; set; }
+        #endregion
+
         #region Налаштування (зворотній осмос)
         // Налаштування (зворотній осмос)
         private float optionsRORawProductivity;
