@@ -180,6 +180,8 @@
     <h4>Висновки</h4>
     <hr />
     <div class="general">
+        <img src="@Url.Action("ResultGraph", "Project", new {ReportMoneyYearRO = string.Join("-", Model.CalculateData.ReportMoneyYearRO), ReportMoneyYearIX = string.Join("-", Model.CalculateData.ReportMoneyYearIX)})" />
+
         <p>Річна економія коштів на користь варіанту "@Model.CalculateData.ReportOptimalCase" складе @Model.CalculateData.ReportTotalMoneyAnnualDifference.ToString("N0", uk_UA) грн/рік.
     </div>
 </div>

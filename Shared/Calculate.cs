@@ -236,6 +236,18 @@ namespace RO_IX
         {
             get { return (ReportTotalMoneyAnnualDifference > 0) ? "Осмос + Na-кат" : "2 ст. Na-кат"; }
         }
+
+        // Масив капітальних + річних експлуатаційних затрат для осмосу
+        public string[] ReportMoneyYearRO
+        {
+            get { return ReportMoneyYear(Proj.WaterROSystemPrice, ReportWaterTotalMoneyAnnualRO + BoilerBlowdownMoneyAnnualRO); }
+        }
+
+        // Масив капітальних + річних експлуатаційних затрат для іонного обміну
+        public string[] ReportMoneyYearIX
+        {
+            get { return ReportMoneyYear(Proj.WaterIXSystemPrice, ReportWaterTotalMoneyAnnualIX + BoilerBlowdownMoneyAnnualIX); }
+        }
         #endregion
 
         #region Розрахункові функції
@@ -293,6 +305,17 @@ namespace RO_IX
         {
             if (YearsToReplacement == 0) return 0;
             return WaterProductivity * (float)Price * (float)Proj.ProjectCurRate / YearsToReplacement;
+        }
+
+        // Масив капітальних + річних експлуатаційних затрат для осмосу
+        public string[] ReportMoneyYear(decimal WaterROSystemPrice, float ReportWaterTotalMoneyAnnual)
+        {
+            string[] r = new string[11];
+            for (int i = 0; i < 11; i++)
+            {
+                r[i] = (WaterROSystemPrice * Proj.ProjectCurRate + i * (decimal) ReportWaterTotalMoneyAnnual).ToString();
+            }
+            return r;
         }
         #endregion
 
