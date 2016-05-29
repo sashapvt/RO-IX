@@ -310,8 +310,8 @@ namespace RO_IX
         // Масив капітальних + річних експлуатаційних затрат для осмосу
         public string[] ReportMoneyYear(decimal WaterROSystemPrice, float ReportWaterTotalMoneyAnnual)
         {
-            string[] r = new string[11];
-            for (int i = 0; i < 11; i++)
+            string[] r = new string[6];
+            for (int i = 0; i < 6; i++)
             {
                 r[i] = (WaterROSystemPrice * Proj.ProjectCurRate + i * (decimal) ReportWaterTotalMoneyAnnual).ToString();
             }
