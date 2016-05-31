@@ -35,7 +35,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - RO-IX. Version: @ViewContext.Controller.GetType().Assembly.GetName().Version. Build date: @File.GetCreationTime(ViewContext.Controller.GetType().Assembly.Location).ToLongDateString()</p>
+            <p>&copy; @DateTime.Now.Year - RO-IX. Version: @ViewContext.Controller.GetType().Assembly.GetName().Version. Build date: @File.GetLastWriteTime(ViewContext.Controller.GetType().Assembly.Location).ToLongDateString()</p>
         </footer>
     </div>
 
