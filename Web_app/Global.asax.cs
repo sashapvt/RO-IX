@@ -17,5 +17,24 @@ namespace Web_app
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            Response.Clear();
+
+            HttpException httpException = exception as HttpException;
+
+            if (httpException != null)
+            {
+                int HttpCode = httpException.GetHttpCode();
+
+                // clear error on server
+                Server.ClearError();
+
+                //Response.Redirect(String.Format("~/Project/{0}", action));
+                Response.Redirect(String.Format("~/Project/Error?HttpCode={0}&message={1}", HttpCode, exception.Message));
+            }
+        }
     }
 }

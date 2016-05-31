@@ -199,6 +199,32 @@ namespace Web_app.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: /Project/Error
+        public ActionResult Error(int HttpCode, string message)
+        {
+            string Title;
+
+            switch (HttpCode)
+            {
+                case 404:
+                    // page not found
+                    Title = "Помилка. Сторінку не знайдено";
+                    break;
+                case 500:
+                    // server error
+                    Title = "Помилка. Проблема на сервері";
+                    break;
+                default:
+                    Title = "Загальна помилка";
+                    break;
+            }
+
+            ViewBag.Title = Title;
+            ViewBag.HttpCode = HttpCode;
+            ViewBag.Message = message;
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
