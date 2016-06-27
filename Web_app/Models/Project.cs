@@ -15,10 +15,12 @@ namespace Web_app.Models
         #region Інформація про проект
         // Інформація про проект
         [DisplayName("Назва проекту")]
+        [StringLength(100)]
         public override string ProjectName { get; set; }
         [DisplayName("Курс, грн/$")]
         public override decimal ProjectCurRate { get; set; }
         [DisplayName("Коментар")]
+        [StringLength(255)]
         public override string ProjectComment { get; set; }
         [DisplayName("Дата")]
         [DataType(DataType.Date)]
@@ -29,6 +31,7 @@ namespace Web_app.Models
         #region Котел
         // Котел
         [DisplayName("Марка котла")]
+        [StringLength(100)]
         public override string BoilerName { get; set; }
         [DisplayName("Теплова потужність, кВт")]
         public override float BolerPower { get; set; }
@@ -39,6 +42,7 @@ namespace Web_app.Models
         [DisplayName("ККД, %")]
         public override float BoilerEfficiency { get; set; }
         [DisplayName("Річне завантаження, %")]
+        [Range(0, 100)]
         public override float BoilerAnnnualLoad { get; set; }
         #endregion
 
@@ -49,12 +53,15 @@ namespace Web_app.Models
         [DisplayName("Жорсткість, мг-екв/л")]
         public override float WaterInHardness { get; set; }
         [DisplayName("Температура, С")]
+        [Range(0, 100)]
         public override float WaterInTemperature { get; set; }
         [DisplayName("Відсоток повернення")]
+        [Range(0, 100)]
         public override float WaterCondensateReturn { get; set; }
         [DisplayName("Електропровідність, мкСм/см")]
         public override float WaterCondensateConductivity { get; set; }
         [DisplayName("Температура, С")]
+        [Range(0, 100)]
         public override float WaterCondensateTemperature { get; set; }
         [DisplayName("Електропровідність, мкСм/см")]
         public override float WaterROConductivity { get; set; }

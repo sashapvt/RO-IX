@@ -188,25 +188,25 @@
                 </div>
             </div>
 
-        </div>
+            <h4>Капітальні затрати</h4>
+            <hr />
 
-        <h4>Капітальні затрати</h4>
-        <hr />
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.WaterROSystemPrice, htmlAttributes: new { @class = "control-label col-md-4" })
-            <div class="col-md-2">
-                @Html.EditorFor(model => model.WaterROSystemPrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.WaterROSystemPrice, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.WaterROSystemPrice, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.WaterROSystemPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.WaterROSystemPrice, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.WaterIXSystemPrice, htmlAttributes: new { @class = "control-label col-md-4" })
-            <div class="col-md-2">
-                @Html.EditorFor(model => model.WaterIXSystemPrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.WaterIXSystemPrice, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.WaterIXSystemPrice, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.WaterIXSystemPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.WaterIXSystemPrice, "", new { @class = "text-danger" })
+                </div>
             </div>
+
         </div>
 
         <h2><a href="#" id="InputOptionsClick">Налаштування</a></h2>

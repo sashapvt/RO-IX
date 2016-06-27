@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201605231852064_WaterSystemPrice.Designer.cs">
       <DependentUpon>201605231852064_WaterSystemPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606270802546_ProjectConstraints.cs" />
+    <Compile Include="Migrations\201606270802546_ProjectConstraints.Designer.cs">
+      <DependentUpon>201606270802546_ProjectConstraints.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Result.cs" />
@@ -279,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605231852064_WaterSystemPrice.resx">
       <DependentUpon>201605231852064_WaterSystemPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606270802546_ProjectConstraints.resx">
+      <DependentUpon>201606270802546_ProjectConstraints.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
